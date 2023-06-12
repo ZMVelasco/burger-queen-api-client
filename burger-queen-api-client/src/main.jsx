@@ -4,7 +4,6 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
-import "./index.css";
 import Login from "./routes/login.jsx";
 import Waiter from "./routes/waiter.jsx";
 

@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Rokkitt:wght@900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gelasio&display=swap');
+
+* {
+    background-color: black;
+}
+
+.bq-logo {
+    width: 184px;
+    height: 204px;
+    
+}
+
+#login-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1 {
+    color: #FFFFFF;
+    font-family: 'Rokkitt';
+    font-weight: 900;
+    font-size: 75px;
+    top: 335px;
+
+    
+}
+
+.email, .password {
+    background: #FFFEFE;
+    width: 446px;
+    height: 64px;
+    border-radius: 12px;
+    margin: 20px;
+    font-family: 'gelasio';
+    font-weight: 400;
+    font-size: 35px;
+    padding-left: 25px;
+}
+
+button {
+    background: #FFA210;
+    width: 252px;
+    height: 67px;
+    border-radius: 12px;
+    margin-top: 20px;
+    font-family: 'Rokkitt';
+    font-weight: 900;
+    font-size: 45px;
+    color: #FFFEFE;
+}
+
