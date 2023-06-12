@@ -6,7 +6,7 @@ function Login() {
         <div id="login-form">
           <h1>Burger Queen</h1>
           <div>
-            <form id="login-form" role="search">
+            <form id="login-form">
               <input
                 id="email"
                 placeholder="email"
@@ -17,8 +17,6 @@ function Login() {
                 placeholder="password"
                 type="password"
               />
-            </form>
-            <form method="post">
               <button type="submit">Login</button>
             </form>
           </div>
