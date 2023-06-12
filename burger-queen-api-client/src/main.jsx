@@ -6,6 +6,7 @@ import {
 } from "react-router-dom";
 import Login from "./routes/login.jsx";
 import Waiter from "./routes/waiter.jsx";
+import Admin from "./routes/admin.jsx";
 
 const router = createBrowserRouter([
   {
@@ -15,6 +16,10 @@ const router = createBrowserRouter([
   {
     path: "/waiter",
     element: <Waiter />,
+  },
+  {
+    path: "/admin",
+    element: <Admin />,
   },
 ]);
 

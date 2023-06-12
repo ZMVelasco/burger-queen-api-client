@@ -39,6 +39,13 @@ h1 {
     padding-left: 25px;
 }
 
+#login-error {
+    color: #FBCA01;
+    font-size: 20px;
+    font-family: 'gelasio';
+    font-weight: bold;
+}
+
 button {
     background: #FFA210;
     width: 252px;
@@ -50,4 +57,6 @@ button {
     font-size: 45px;
     color: #FFFEFE;
 }
+
+
 
