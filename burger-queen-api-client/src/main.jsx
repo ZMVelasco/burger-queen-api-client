@@ -1,16 +1,21 @@
 import * as React from "react";
-import * as ReactDOM from "react-dom";
+import * as ReactDOM from "react-dom/client";
 import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
 import "./index.css";
-import { Root } from "./routes/root.jsx";
+import Login from "./routes/login.jsx";
+import Waiter from "./routes/waiter.jsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Root />,
+    element: <Login />,
+  },
+  {
+    path: "/waiter",
+    element: <Waiter />,
   },
 ]);
 
