@@ -1,24 +1,26 @@
+import ('../stylesheets/login.css')
+
 export default 
 function Login() {
     return (
-      <>
-        <img src="../src/assets/bqlogo.png" alt="Burger Queen Logo" className="bq-logo"/>
+      <> 
         <div id="login-form">
+        <img src="../src/assets/bqlogo.png" alt="Burger Queen Logo" className="bq-logo"/>
           <h1>Burger Queen</h1>
           <div>
-            <form id="login-form">
+            <form id="login-form" >
               <input
-                id="email"
-                placeholder="email"
+                className="email"
+                placeholder="Email"
                 type="email"
               />
               <input
-                id="password"
-                placeholder="password"
+                className="password"
+                placeholder="Password"
                 type="password"
               />
-              <button type="submit">Login</button>
-            </form>
+              <button type="submit">Log in</button>
+            </form> 
           </div>
         </div>
       </>
