@@ -1,8 +1,11 @@
-import ('../stylesheets/login.css')
+import ('../login/login.css')
 import { useState } from "react";
+// import { redirect } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 
 export default 
 function Login() {
+const navigate = useNavigate();
 
 const [loginInfo, setLoginInfo] = useState({
   email: "",
@@ -17,8 +20,13 @@ const handleChange = (event) => {
 
 const handleSubmit = (event) => {
   event.preventDefault();
+  
+  if (loginInfo.email === "" || loginInfo.password === "") {
+    setErrorMessage("Please provide email and password");
+    return;
+  }
 
-  fetch("http://localhost:8080/login", {
+  fetch("https://ddf3-2806-10ae-10-423f-fcce-54e3-bf06-2281.ngrok-free.app/login", {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
@@ -28,21 +36,19 @@ const handleSubmit = (event) => {
   .then((response) => {
     if (response.status === 200) {
       return response.json();
-    } else if (response.status === 400) {
-      throw new Error("Please provide email and password");
-    } else if (response.status === 404) {
+    } else if (response.status >= 400) {
       throw new Error("Invalid email or password");
     } else {
       throw new Error("Unexpected error");
     }
   })
-    .then((data) => {
-      if (data.user.role === "admin") {
-        window.location.href = "/admin";
-      } else if (data.user.role === "waiter") {
-        window.location.href = "/waiter";
-      }
-    })
+  .then((data) => {
+    if (data.user.role === "admin") {
+      navigate("/admin");
+    } else if (data.user.role === "waiter") {
+      navigate("/waiter");
+    }
+  })
     .catch((error) => {
       setErrorMessage(error.message);
     });

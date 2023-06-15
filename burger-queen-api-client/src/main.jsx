@@ -4,9 +4,9 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
-import Login from "./routes/login.jsx";
-import Waiter from "./routes/waiter.jsx";
-import Admin from "./routes/admin.jsx";
+import Login from "./routes/login/login.jsx";
+import Waiter from "./routes/waiter/waiter.jsx";
+import Admin from "./routes/admin/admin.jsx";
 
 const router = createBrowserRouter([
   {
