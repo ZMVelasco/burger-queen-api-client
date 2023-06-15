@@ -1,9 +1,7 @@
-module.exports = {
-    presets: [
-      '@babel/preset-env',
-      ['@babel/preset-react', {runtime: 'automatic'}],
-    ],
-    plugins: [
-      'babel-plugin-module-resolver',
-    ],
-  };
+export const presets = [
+  '@babel/preset-env',
+  ['@babel/preset-react', { runtime: 'automatic' }],
+];
+export const plugins = [
+  'babel-plugin-module-resolver',
+];
