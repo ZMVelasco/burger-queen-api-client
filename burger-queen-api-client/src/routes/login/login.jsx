@@ -53,4 +53,35 @@ const handleSubmit = (event) => {
       setErrorMessage(error.message);
     });
 };
-}
+
+    return (
+      <> 
+        <div id="login-form">
+        <img src="../src/assets/bqlogo.png" alt="Burger Queen Logo" className="bq-logo"/>
+          <h1>Burger Queen</h1>
+          <div>
+            <form onSubmit={handleSubmit} id="login-form" >
+              <input
+                name="email"
+                className="email"
+                placeholder="Email"
+                type="email"
+                value={loginInfo.email}
+                onChange={handleChange}
+              />
+              <input
+                name="password"
+                className="password"
+                placeholder="Password"
+                type="password"
+                value={loginInfo.password}
+                onChange={handleChange}
+              />
+                          {errorMessage && <p id= "login-error">{errorMessage}</p>}
+              <button type="submit">Log in</button>
+            </form> 
+          </div>
+        </div>
+      </>
+    );
+  }
