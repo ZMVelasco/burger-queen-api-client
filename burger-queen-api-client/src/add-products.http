@@ -3,7 +3,7 @@ Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFuaXRhLmJvcmdAc3lzdGVycy54eXoiLCJpYXQiOjE2ODcyMTE5NzgsImV4cCI6MTY4NzIxNTU3OCwic3ViIjoiMSJ9.ZwqaZMnI3qdWbxvgxyEsdcvAW5vXh3dWnrlZ93v_46o
 
 {
-    "email": "mesero@mail.com",
+    "email": "mesero1@mail.com",
     "password": "123456",
     "role": "waiter"
 }
