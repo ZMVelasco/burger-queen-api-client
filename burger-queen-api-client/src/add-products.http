@@ -1,0 +1,9 @@
+POST https://7487-2806-10ae-10-423f-1d22-ad56-4a4f-9b14.ngrok-free.app/users HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFuaXRhLmJvcmdAc3lzdGVycy54eXoiLCJpYXQiOjE2ODcyMTE5NzgsImV4cCI6MTY4NzIxNTU3OCwic3ViIjoiMSJ9.ZwqaZMnI3qdWbxvgxyEsdcvAW5vXh3dWnrlZ93v_46o
+
+{
+    "email": "mesero1@mail.com",
+    "password": "123456",
+    "role": "waiter"
+}

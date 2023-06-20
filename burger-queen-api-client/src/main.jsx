@@ -8,6 +8,8 @@ import {
 import Login from "./routes/login/login.jsx";
 import Waiter from "./routes/waiter/waiter.jsx";
 import Admin from "./routes/admin/admin.jsx";
+import Navbar from "./routes/waiter/navbar.jsx";
+import NewOrder from "./routes/waiter/neworder.jsx";
 
 const router = createBrowserRouter([
   {
@@ -21,6 +23,14 @@ const router = createBrowserRouter([
   {
     path: "/admin",
     element: <Admin />,
+  },
+  {
+    path: "/nav",
+    element: <Navbar />,
+  },
+  {
+    path: "/order",
+    element: <NewOrder />,
   },
 ]);
 
