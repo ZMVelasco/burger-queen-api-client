@@ -4,61 +4,62 @@
 * {
     background-color: black;
 }
-
-.bq-logo {
-    width: 184px;
-    height: 204px;
-    
-}
-
-#login-form {
+.login-formulary{
     display: flex;
     flex-direction: column;
+    height: 100vh;
+    width: 100vw;
     align-items: center;
     justify-content: center;
-    margin-top: 4%;
 }
 
-h1 {
-    color: #FFFFFF;
-    font-family: 'Rokkitt';
+.bq-logo {
+    width: 15%;
+    height: 18%;
+    margin-bottom: 2%;
+}
+#login-form{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+.login-header{
+    font-family: Rokkitt;
     font-weight: 900;
-    font-size: 75px;
-    top: 335px;
-    margin-top: 5px;
-    margin-bottom: 5px;
+    font-size: 4em;
+    margin-bottom: 2%;
 }
-
 .email, .password {
     background: #FFFEFE;
-    width: 446px;
-    height: 64px;
+    width: 80%;
+    height: 7vh;
     border-radius: 12px;
     margin: 20px;
     font-family: 'gelasio';
     font-weight: 400;
     font-size: 35px;
     padding-left: 25px;
+    color: black;
 }
-
-#login-error {
-    color: #FBCA01;
-    font-size: 20px;
-    font-family: 'gelasio';
-    font-weight: bold;
+.password{
+    margin-bottom: 15%;
 }
-
-button {
+.log-in-btn {
     background: #FFA210;
-    width: 252px;
-    height: 67px;
+    width: 35%;
+    height: 100%;
     border-radius: 12px;
-    margin-top: 20px;
     font-family: 'Rokkitt';
     font-weight: 900;
     font-size: 45px;
     color: #FFFEFE;
 }
-
-
-
+#login-error {
+    color: #FBCA01;
+    font-size: 1.5em;
+    font-family: 'Gelasio';
+    font-weight: bold;
+    position: absolute;
+    bottom:23%;
+}

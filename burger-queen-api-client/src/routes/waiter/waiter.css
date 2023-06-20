@@ -5,15 +5,126 @@
     font-family: 'Gelasio';
     color: white;
 }
+/* Navbar styles */
 .button-container {
-    width:fit-content;}
+    height: 60px;
+    width: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 4%;
+    margin-top: 3%;
+    transition: .3s;
+}
 .burger-menu-button {
     background-color: transparent;
     height: 58px;
-    width: 100px;
+    width: 58px;
     font-size: 24px;
+    padding-left: 0px;
+    border-radius: 12px;
+    border: 2px solid #b9b0b0;
+}
+.burger-menu-button:hover,
+.burger-menu-button:focus {
+    box-shadow: 0 0 0 2px #fdf2f2;
+    color: #fdf2f2;      
 }
 .burger-icon{
-    width: 30px;
-    height: 30px;
+    width: 52px;
+    height: 52px;
+    padding: 3px;
+    border-radius: 12px
+}
+.bm-list {
+    font-size: 28px;
+    margin-left: -11%;
+    width: 100%;
+}
+.logout-button {
+    background-color: transparent;
+    height: 52px;
+    width: 100%;
+    font-size: 28px;
+    padding-left: 17%;
+    font-family: 'Gelasio';
+    margin-left: 5px;
+    display:flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.burger-menu {
+    width:20%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    border-width: 0px 3px 0 0;
+    border-color: #b9b0b0;
+    border-style: solid;
+    margin-top: -8%;
+}
+.logout-icon {
+    width: 35px;
+    height: 35px;
+    margin-right: 5px;
+    background-color: transparent;
+    right:10%;
+}
+.bm-list ul {
+    margin-bottom: 2rem;
+    width: 105%;
+    padding-left: 25%;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+.bm-list ul:hover,
+.bm-list ul:active,
+.bm-list ul:focus,
+.logout-button:hover,
+.logout-button:active,
+.logout-button:focus
+{
+    background: rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+}
+/* New order styles */
+.new-order-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    height: 100vh;
+    width: 30%;
+    position: absolute;
+    right: 0;
+    border-left: 3px solid #b9b0b0;
+    top: 0;
+    bottom:0;
+}
+.order-total{
+    font-size: 23px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 3%;
+    width: 70%;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.2);
+
+}
+.place-order{
+    border-radius: 40px;
+    font-family: 'Gelasio';
+    font-size: 23px;
+    width: 90%;
+    margin-bottom: 7%;
+    height: 60%;
+    background-color: #fdf2f2;
+    color: black;
 }
