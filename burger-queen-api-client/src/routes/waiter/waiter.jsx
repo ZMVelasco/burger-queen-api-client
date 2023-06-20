@@ -1,3 +1,5 @@
+import Menu from "./menu";
+
 export default 
 function Waiter() {
     return (
@@ -38,7 +40,9 @@ function Waiter() {
             </ul>
           </nav>
         </div>
-        <div id="detail"></div>
+        <div id="detail">
+          <Menu /> 
+        </div>
       </>
     );
   }
