@@ -2,6 +2,7 @@ import ('../login/login.css')
 import { useState } from "react";
 // import { redirect } from "react-router-dom"
 import { useNavigate } from "react-router-dom"
+import { API_HOST } from "../../settings";
 
 export default 
 function Login() {
@@ -26,7 +27,7 @@ const handleSubmit = (event) => {
     return;
   }
 
-  fetch("https://7487-2806-10ae-10-423f-1d22-ad56-4a4f-9b14.ngrok-free.app/login", {
+  fetch(API_HOST + "/login", {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
@@ -56,10 +57,10 @@ const handleSubmit = (event) => {
 
     return (
       <> 
-        <div id="login-form">
+        <div className="login-formulary">
         <img src="../src/assets/bqlogo.png" alt="Burger Queen Logo" className="bq-logo"/>
-          <h1>Burger Queen</h1>
-          <div>
+          <h1 className="login-header">Burger Queen</h1>
+          <div className="form-container">
             <form onSubmit={handleSubmit} id="login-form" >
               <input
                 name="email"
@@ -77,8 +78,8 @@ const handleSubmit = (event) => {
                 value={loginInfo.password}
                 onChange={handleChange}
               />
-              {errorMessage && <p id= "login-error">{errorMessage}</p>}
-              <button type="submit">Log in</button>
+                {errorMessage && <p id= "login-error">{errorMessage}</p>}
+              <button className="log-in-btn" type="submit">Log in</button>
             </form> 
           </div>
         </div>
