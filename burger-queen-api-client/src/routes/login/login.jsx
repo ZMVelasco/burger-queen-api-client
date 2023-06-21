@@ -1,6 +1,5 @@
 import ('../login/login.css')
 import { useState } from "react";
-// import { redirect } from "react-router-dom"
 import { useNavigate } from "react-router-dom"
 import { API_HOST } from "../../settings";
 
@@ -44,6 +43,7 @@ const handleSubmit = (event) => {
     }
   })
   .then((data) => {
+    localStorage.setItem("token", data.accessToken)
     if (data.user.role === "admin") {
       navigate("/admin");
     } else if (data.user.role === "waiter") {
