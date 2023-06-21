@@ -1,15 +1,19 @@
 import { useState, useEffect } from "react";
+import { API_HOST } from "../../settings";
 
 const Menu = () => {
     const [products, setProducts] = useState([]);
 
     useEffect(() => {
-        const fetchProducts = () => {
-            fetch('https://virtserver.swaggerhub.com/ssinuco/BurgerQueenAPI/2.0.0/products')
-                .then(Response => Response.json())
+        fetch('http://localhost:8080/products', {
+            method: 'GET',
+            headers: {
+              'Content-Type': 'application/json'
+                .then(response => response.json())
                 .then(data => setProducts(data))
-                .catch(error => console.error(error));
+                .catch(error => console.error(error))
         }
+        })
         fetchProducts();
     }, []);
 
