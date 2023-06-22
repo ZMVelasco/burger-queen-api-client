@@ -1,9 +1,13 @@
-POST https://7487-2806-10ae-10-423f-1d22-ad56-4a4f-9b14.ngrok-free.app/users HTTP/1.1
+POST http://127.0.0.1:8080/products HTTP/1.1
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFuaXRhLmJvcmdAc3lzdGVycy54eXoiLCJpYXQiOjE2ODcyMTE5NzgsImV4cCI6MTY4NzIxNTU3OCwic3ViIjoiMSJ9.ZwqaZMnI3qdWbxvgxyEsdcvAW5vXh3dWnrlZ93v_46o
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFuaXRhLmJvcmdAc3lzdGVycy54eXoiLCJpYXQiOjE2ODcxOTQ3MzAsImV4cCI6MTY4NzE5ODMzMCwic3ViIjoiMSJ9.iYgoB3ke16deDVOehO910y0ixWRNgGCN-TDLG_sAb8M
 
 {
-    "email": "mesero1@mail.com",
-    "password": "123456",
-    "role": "waiter"
+  "name": "Soda 500 ml",
+  "price": 700,
+  "type": "Almuerzo y cena"
 }
+
+
+
+

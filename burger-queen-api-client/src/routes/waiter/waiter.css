@@ -128,3 +128,23 @@
     background-color: #fdf2f2;
     color: black;
 }
+/* Filter buttons */
+#lunch-dinner {
+    color: black;
+    background-color: #ff8855;
+    border-radius: 5px;
+    border: 7px solid rgba(255, 255, 255, 0.50);
+    width: 17%;
+    height: 13vh;
+    margin-left: 5%;
+    font-size: x-large;
+    font-weight: 500;
+}
+#breakfast {
+    border-radius: 5px;
+    border: 7px solid rgba(255, 255, 255, 0.50);
+    width: 17%;
+    height: 13vh;
+    font-size: x-large;
+    font-weight: 500;
+}
