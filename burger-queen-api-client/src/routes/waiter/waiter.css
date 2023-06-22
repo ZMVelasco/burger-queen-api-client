@@ -66,6 +66,7 @@
     border-color: #b9b0b0;
     border-style: solid;
     margin-top: -8%;
+    z-index: 1;
 }
 .logout-icon {
     width: 35px;
@@ -127,6 +128,36 @@
     height: 60%;
     background-color: #fdf2f2;
     color: black;
+}
+/* Product cards styles */
+.breakfast-price,
+.lunchdinner-price {
+    font-weight: bold;
+}
+
+.breakfast-price{
+    color: #FCD53F;
+}
+
+.lunchdinner-price {
+    color: #FF8855;
+}
+
+.breakfast-header{
+    font-weight: bolder;
+}
+
+.lunch-dinner-header{
+    background-color: #FF8855;
+    font-weight: bolder;
+}
+
+.lunch-dinner-card{
+    border-color: #FF8855;
+}
+
+.text-center {
+    z-index: 2;
 }
 /* Filter buttons */
 #lunch-dinner {

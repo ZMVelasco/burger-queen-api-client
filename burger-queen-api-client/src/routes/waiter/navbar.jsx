@@ -1,12 +1,20 @@
 import ('../waiter/waiter.css')
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
 export default 
 function Navbar() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const navigate = useNavigate();
     
     const handleMenuToggle = () => {
         setIsMenuOpen(!isMenuOpen);
     };
+
+    const handleLogout = () => {
+        navigate("/");
+    };
+    
 
     return (
         <>
@@ -25,7 +33,7 @@ function Navbar() {
                     <ul>Create order</ul>
                     <ul>Track order</ul>
                 </nav>
-                <div className="logout-button">
+                <div className="logout-button" onClick={handleLogout}>
                     <img
                         src="../src/assets/logout.svg"
                         alt="Logout icon"
