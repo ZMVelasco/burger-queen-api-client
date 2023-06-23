@@ -2,23 +2,21 @@ import { getProducts } from "../../fetch.js";
 import { useState, useEffect } from "react";
 import { Card, Row, Col, Button } from 'react-bootstrap'; // Import react normal
 import './waiter.css';
-
+import NewOrder from "./neworder.jsx"
 const ProductCard = () => {
     const [products, setProducts] = useState([]);
     const [filteredProducts, setFilteredProducts] = useState([]);
     const [token, setToken] = useState('');
-
+    const [selectedProduct, setSelectedProduct] = useState([]);
     useEffect(() => {
         const storedToken = localStorage.getItem('token');
         setToken(storedToken);
     }, []);
-
     useEffect(() => {
         if (token) {
             fetchProducts(token);
         }
     }, [token]);
-
     const fetchProducts = (token) => {
         getProducts(token)
             .then((response) => {
@@ -38,7 +36,9 @@ const ProductCard = () => {
         // Filter products based on the selected type
         setFilteredProducts(products.filter((product) => product.type === type));
     };
-
+    const handleClick = (product) => {
+        setSelectedProduct(product);
+    };
     return (
         <>
             <div className="card-container">
@@ -68,6 +68,7 @@ const ProductCard = () => {
                                 bg={product.type === "Breakfast" ? "warning" : "danger"}
                                 text="white"
                                 style={{ maxWidth: "12rem", height: "10rem" }}
+                                onClick={() => handleClick(product)}
                             >
                                 <Card.Header className={product.type === "Breakfast" ? "breakfast-header" : "lunch-dinner-header"}>
                                     {product.type}
@@ -81,6 +82,7 @@ const ProductCard = () => {
                     ))}
                 </Row>
             </div>
+            <NewOrder selectedProduct={selectedProduct} />
         </>
     );
 };
