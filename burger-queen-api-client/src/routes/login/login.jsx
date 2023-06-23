@@ -2,6 +2,7 @@ import ('../login/login.css')
 import { useState } from "react";
 import { useNavigate } from "react-router-dom"
 import { API_HOST } from "../../settings";
+import burgerQueen from "../../assets/bqlogo.png";
 
 export default 
 function Login() {
@@ -58,7 +59,7 @@ const handleSubmit = (event) => {
     return (
       <> 
         <div className="login-formulary">
-        <img src="../src/assets/bqlogo.png" alt="Burger Queen Logo" className="bq-logo"/>
+        <img src={burgerQueen} alt="Burger Queen Logo" className="bq-logo"/>
           <h1 className="login-header">Burger Queen</h1>
           <div className="form-container">
             <form onSubmit={handleSubmit} id="login-form" >

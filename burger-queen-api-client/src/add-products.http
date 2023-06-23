@@ -1,9 +1,9 @@
 POST http://localhost:8080/users HTTP/1.1
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFuaXRhLmJvcmdAc3lzdGVycy54eXoiLCJpYXQiOjE2ODczNzIyOTMsImV4cCI6MTY4NzM3NTg5Mywic3ViIjoiMSJ9.NwveNuu5DmrjolmWEOJZX35C4LP2TTOtWI0oGjqVjWg
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFuaXRhLmJvcmdAc3lzdGVycy54eXoiLCJpYXQiOjE2ODc0NjQzMzUsImV4cCI6MTY4NzQ2NzkzNSwic3ViIjoiMSJ9.-aUIF0mCmjDpHUGx0Fc5t-pCQCW59BkX2HHAHWOEAIw
 
 {
-    "email": "chef@mail.com",
+    "email": "chef1@mail.com",
     "password": "123456",
     "role": "chef"
 }
