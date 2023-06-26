@@ -51,5 +51,3 @@ const NewOrder = ({ selectedProducts, onRemoveProduct }) => {
 };
 
 export default NewOrder;
-
-

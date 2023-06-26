@@ -112,7 +112,7 @@
     border-left: 3px solid #b9b0b0;
     top: 0;
     bottom:0;
-    margin-top: 5%;
+    margin-top: 4%;
 }
 .order-total{
     font-size: 23px;
@@ -140,6 +140,7 @@
 .breakfast-price,
 .lunchdinner-price {
     font-weight: bold;
+    margin-bottom: 0%;
 }
 
 .breakfast-price{
@@ -162,15 +163,42 @@
 .lunch-dinner-card{
     border-color: #FF8855;
 }
+/* .breakfast-card{
+    height: 12rem;
+} */
 
 .text-center {
     z-index: 2;
-    margin-left: 5%;
+    margin-left: 9%;
+    display: flex;
+    scroll-behavior: smooth;
+    overflow: visible;
+}
+.card-body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.add-breakfast, .add-lunch-dinner{
+    position:absolute;
+    right: 10%;
+    width: 20%;
+    border-radius: 10px;
+    font-weight: bolder;
+}
+.add-breakfast{
+    background-color: #FCD53F;
+    border-color: #FCD53F;
+    color: black;
+}
+.add-lunch-dinner{
+    background-color: #FF8855;
+    border-color: #FF8855;
 }
 /* Filter buttons */
 .card-container {
     width:70%;
-    margin-top: 5%;
+    padding-top: 8%;
 }
 
 #lunch-dinner {
@@ -181,7 +209,7 @@
     width: 17%;
     height: 13vh;
     margin-left: 5%;
-    font-size: x-large;
+    font-size: 1.5rem;
     font-weight: 500;
 }
 #breakfast {
@@ -191,13 +219,33 @@
     height: 13vh;
     font-size: x-large;
     font-weight: 500;
+    padding-left: 1%;
 }
 /* Sidebar styles */
 #offcanvasDarkNavbarLabel{
     font-family: 'Rokkitt';
+    font-size: 40px;
+    padding-left: 7%;
+}
+#bootstrap-navbar {
+    border-top: 3px solid #b9b0b0;
+    border-bottom: 3px solid #b9b0b0;
+}
+.offcanvas-body{
+    padding-left: 10%;
+}
+#sidebar-logout{
+    background: #FFA210;
+border-radius: 12px;
+font-family: 'Rokkitt';
+font-weight: 500;
+font-size: 24px;
+color: #FFFEFE;
+margin-top: 120%;
 }
 .icons{
     display: flex;
     justify-content: space-evenly;
     padding-top: 3%;
 }
+/* iPad and iPad mini */
