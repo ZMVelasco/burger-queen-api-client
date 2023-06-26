@@ -1,7 +1,7 @@
 import("../waiter/waiter.css");
- import { useState } from "react";
+//import { useState } from "react";
 
-const NewOrder = ({ selectedProducts }) => {
+const NewOrder = ({ selectedProducts, onRemoveProduct }) => {
 
     const getProductCount = (productId) => {
         const count = selectedProducts.reduce((acc, product) => {
@@ -17,13 +17,19 @@ const NewOrder = ({ selectedProducts }) => {
       .map(id => {
         return selectedProducts.find(product => product.id === id);
       });
+
+      const handleRemoveProduct = (productId) => {
+        onRemoveProduct(productId);
+      };
+
   return (
     <section className="new-order-section">
       <article>
         {uniqueSelectedProducts.map((product) => (
             <>
-            <p></ p>
-          <p key={product.id }>{getProductCount(product.id)} {product.name}</ p>
+          <p key={product.id }>{getProductCount(product.id)} {product.name} 
+          <i className="bi bi-trash3 p-3" style={{ color:"red" }} onClick={() => handleRemoveProduct(product.id)}></i>
+          </ p>
           </>
         ))}
       </article>
@@ -36,3 +42,5 @@ const NewOrder = ({ selectedProducts }) => {
 };
 
 export default NewOrder;
+
+

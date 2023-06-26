@@ -1,6 +1,7 @@
 import { getProducts } from "../../fetch.js";
 import { useState, useEffect } from "react";
 import { Card, Row, Col, Button } from 'react-bootstrap'; // Import react normal
+import 'bootstrap-icons/font/bootstrap-icons.css';
 import './waiter.css';
 import NewOrder from "./neworder.jsx"
 
@@ -45,10 +46,39 @@ const ProductCard = () => {
   const handleProductSelection = (product) => {
     setSelectedProducts((prevSelectedProducts) => {
       const updatedSelectedProducts = [...prevSelectedProducts, product];
-      console.log(updatedSelectedProducts); // Add this console.log statement
       return updatedSelectedProducts;
     });
   };
+
+  const handleReduceProduct = (product) => {
+    setSelectedProducts((prevSelectedProducts) => {
+      const updatedSelectedProducts = [...prevSelectedProducts];
+      const productIndex = updatedSelectedProducts.findIndex(
+        (selectedProduct) => selectedProduct.id === product.id
+      );
+  
+      if (productIndex !== -1) {
+        const selectedProduct = updatedSelectedProducts[productIndex];
+        if (selectedProduct.quantity > 1) {
+          selectedProduct.quantity -= 1;
+        } else {
+          updatedSelectedProducts.splice(productIndex, 1);
+        }
+      }
+  
+      return updatedSelectedProducts;
+    });
+  };
+
+  const handleRemoveProduct = (productId) => {
+    setSelectedProducts((prevSelectedProducts) => {
+      const updatedSelectedProducts = prevSelectedProducts.filter(
+        (product) => product.id !== productId
+      );
+      return updatedSelectedProducts;
+    });
+  };
+
   return (
     <>
       <div className="card-container">
@@ -77,8 +107,7 @@ const ProductCard = () => {
                 className={product.type === "Breakfast" ? "breakfast-card" : "lunch-dinner-card"}
                 bg={product.type === "Breakfast" ? "warning" : "danger"}
                 text="white"
-                style={{ maxWidth: "12rem", height: "10rem" }}
-                onClick={() => handleProductSelection(product)}
+                style={{ maxWidth: "12rem", height: "12rem" }}
               >
                 <Card.Header className={product.type === "Breakfast" ? "breakfast-header" : "lunch-dinner-header"}>
                   {product.type}
@@ -87,12 +116,16 @@ const ProductCard = () => {
                   <Card.Title>{product.name}</Card.Title>
                   <Card.Text className={product.type === "Breakfast" ? "breakfast-price" : "lunchdinner-price"}>${product.price}</Card.Text>
                 </Card.Body>
+                <div className="icons">
+                <i className="bi bi-dash-circle" style={{ fontSize: "1.3rem", backgroundColor: "transparent"  }} onClick={() => handleReduceProduct(product)}></i>
+                <i className="bi bi-plus-circle" style={{ fontSize: "1.3rem", backgroundColor: "transparent" }}  onClick={() => handleProductSelection(product)}></i>
+                </div>
               </Card>
             </Col>
           ))}
         </Row>
       </div>
-      <NewOrder selectedProducts={selectedProduct} />
+      <NewOrder selectedProducts={selectedProduct} onRemoveProduct={handleRemoveProduct} />
     </>
   );
 };

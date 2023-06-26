@@ -196,3 +196,8 @@
 #offcanvasDarkNavbarLabel{
     font-family: 'Rokkitt';
 }
+.icons{
+    display: flex;
+    justify-content: space-evenly;
+    padding-top: 3%;
+}
