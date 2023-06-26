@@ -233,4 +233,9 @@ font-size: 24px;
 color: #FFFEFE;
 margin-top: 120%;
 }
+.icons{
+    display: flex;
+    justify-content: space-evenly;
+    padding-top: 3%;
+}
 /* iPad and iPad mini */
