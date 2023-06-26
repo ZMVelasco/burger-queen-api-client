@@ -10,7 +10,9 @@ import Waiter from "./routes/waiter/waiter.jsx";
 import Admin from "./routes/admin/admin.jsx";
 import Navbar from "./routes/waiter/navbar.jsx";
 import NewOrder from "./routes/waiter/neworder.jsx";
-import Prueba from "./routes/waiter/prueba.jsx";
+import Sidebar from "./routes/waiter/sidebar.jsx";
+import WaiterTracker from "./routes/waiter/wtracker.jsx";
+import ProductCard from "./routes/waiter/menu.jsx";
 
 const router = createBrowserRouter([
   {
@@ -34,8 +36,16 @@ const router = createBrowserRouter([
     element: <NewOrder />,
   },
   {
-    path: "/prueba",
-    element: <Prueba />,
+    path: "/sidebar",
+    element: <Sidebar />,
+  },
+  {
+    path: "/wtracker",
+    element: <WaiterTracker />,
+  },
+  {
+    path: "/createorder",
+    element: <ProductCard />,
   },
 ]);
 
