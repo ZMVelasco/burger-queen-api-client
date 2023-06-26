@@ -163,11 +163,21 @@
 .lunch-dinner-card{
     border-color: #FF8855;
 }
+/* .breakfast-card{
+    height: 12rem;
+} */
 
 .text-center {
     z-index: 2;
     margin-left: 9%;
     display: flex;
+    scroll-behavior: smooth;
+    overflow: visible;
+}
+.card-body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 .add-breakfast, .add-lunch-dinner{
     position:absolute;
