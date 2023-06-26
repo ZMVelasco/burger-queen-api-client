@@ -22,19 +22,28 @@ const NewOrder = ({ selectedProducts, onRemoveProduct }) => {
         onRemoveProduct(productId);
       };
 
+      const getProductTotal = () => {
+        const productTotal = selectedProducts.reduce((acc, product) => {
+          return acc + product.price;
+        }, 0);
+        return productTotal;
+      };
+
+      const orderTotal = getProductTotal();
+
   return (
     <section className="new-order-section">
       <article>
         {uniqueSelectedProducts.map((product) => (
             <>
-          <p key={product.id }>{getProductCount(product.id)} {product.name} 
+          <p key={product.id }>{getProductCount(product.id)} {product.name} ${product.price}
           <i className="bi bi-trash3 p-3" style={{ color:"red" }} onClick={() => handleRemoveProduct(product.id)}></i>
           </ p>
           </>
         ))}
       </article>
       <article className="order-total">
-        <p className="order-total-text">Total: $0.00</p>
+        <p className="order-total-text">Total: $ {orderTotal}</p>
         <button className="place-order">Place order</button>
       </article>
     </section>
