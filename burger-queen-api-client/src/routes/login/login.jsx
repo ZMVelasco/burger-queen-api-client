@@ -45,6 +45,9 @@ const handleSubmit = (event) => {
   })
   .then((data) => {
     localStorage.setItem("token", data.accessToken)
+    localStorage.setItem("userId", data.user.id)
+    const userId = data.user.id;
+    console.log(userId)
     if (data.user.role === "admin") {
       navigate("/admin");
     } else if (data.user.role === "waiter") {
