@@ -216,6 +216,7 @@
     text-align: center;
     width: 100%;
     overflow-x: scroll;
+    
 }
 .card-body{
     display: flex;
