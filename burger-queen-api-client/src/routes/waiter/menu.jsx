@@ -100,24 +100,24 @@ const ProductCard = () => {
                         Lunch & Dinner
                     </Button>
                 </div>
-                <Row className="text-center">
+                <Row className="text-center" id="card-row">
                     {filteredProducts.map((product) => (
-                        <Col key={product.id} xs={12} md={4} className="mb-5">
+                        <Col id="product-cards" key={product.id} xs={8} md={4} className="mb-5">
                             <Card
                                 className={product.type === "Breakfast" ? "breakfast-card" : "lunch-dinner-card"}
                                 bg={product.type === "Breakfast" ? "warning" : "danger"}
                                 text="white"
-                                style={{ maxWidth: "12rem", height: "12rem" }}
+                                style={{ maxWidth: "12rem", height: "13rem" }}
                             >
                                 <Card.Header className={product.type === "Breakfast" ? "breakfast-header" : "lunch-dinner-header"}>
                                     {product.type}
                                 </Card.Header>
                                 <Card.Body>
                                     <Card.Title>{product.name}</Card.Title>
-                                    <Card.Text className={product.type === "Breakfast" ? "breakfast-price" : "lunchdinner-price"}>${product.price}</Card.Text>
+                                    <Card.Text className={product.type === "Breakfast" ? "breakfast-price" : "lunchdinner-price"} >${product.price}</Card.Text>
                                     <div className="icons">
-                                        <i className="bi bi-dash-circle" style={{ fontSize: "1.3rem", backgroundColor: "transparent" }} onClick={() => handleReduceProduct(product)}></i>
-                                        <i className="bi bi-plus-circle" style={{ fontSize: "1.3rem", backgroundColor: "transparent" }} onClick={() => handleProductSelection(product)}></i>
+                                        <i className="bi bi-dash-circle" style={{ fontSize: "1.5rem", backgroundColor: "transparent", color: product.type === "Breakfast" ? "#FCD53F" : "#FF8855", marginTop:"4px" }} onClick={() => handleReduceProduct(product)}></i>
+                                        <i className="bi bi-plus-circle" style={{ fontSize: "1.5rem", bagroundColor: "transparent", color: product.type === "Breakfast" ? "#FCD53F" : "#FF8855", marginTop:"4px"}} onClick={() => handleProductSelection(product)}></i>
                                     </div>
                                 </Card.Body>
                             </Card>
