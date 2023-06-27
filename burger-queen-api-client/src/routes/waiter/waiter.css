@@ -102,7 +102,7 @@
 .new-order-section {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
     background-color: transparent;
     height: 100vh;
@@ -136,11 +136,48 @@
     background-color: #fdf2f2;
     color: black;
 }
+
+.order-product{
+    background-color: #b9b0b0;
+    border-radius: 5px;
+    padding: 5px;
+    font-size: large;
+    width:20vh
+}
+
+.order-item{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: max-content;
+}
+.item-price{
+    background-color: #b9b0b0;
+    border-radius: 5px;
+    padding: 5px;
+    font-size: large;
+    font-weight: bolder;
+    width: 4vh;
+    text-align: center;
+}
+.order-items-container{
+    display: flex;
+    flex-direction: column;
+    height: 55%;
+    background-color: #fdf2f2;
+    width: 80%;
+    overflow: scroll;
+}
 /* Product cards styles */
+/* #product-cards{
+    margin-right: 15px;
+} */
 .breakfast-price,
 .lunchdinner-price {
     font-weight: bold;
     margin-bottom: 0%;
+    background-color: transparent;
 }
 
 .breakfast-price{
@@ -167,17 +204,23 @@
     height: 12rem;
 } */
 
-.text-center {
+/* .text-center.row {
     z-index: 2;
-    margin-left: 9%;
     display: flex;
-    scroll-behavior: smooth;
-    overflow: visible;
+    justify-content: center;
+    text-align: center;
+} */
+#card-row {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    overflow-x: scroll;
 }
 .card-body{
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-evenly;
 }
 .add-breakfast, .add-lunch-dinner{
     position:absolute;
@@ -199,6 +242,7 @@
 .card-container {
     width:70%;
     padding-top: 8%;
+    /* border-right: 3px solid #b9b0b0; */
 }
 
 #lunch-dinner {
