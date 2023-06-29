@@ -8,9 +8,12 @@ vi.mock("react-router-dom", () => {
     return { useNavigate: vi.fn() };
   });
 
-describe("waiter component", () => {
+describe("Sidebar component", () => {
     test("Sidebar is rendered correctly", () => {
-        const sidebar = render(<Sidebar />)
-    
+        const {getByText} = render(<Sidebar />)
+
+        expect(getByText("Home")).toBeInTheDocument();
+        expect(getByText("Create order")).toBeInTheDocument();
+        expect(getByText("Track order")).toBeInTheDocument();
     })
 })

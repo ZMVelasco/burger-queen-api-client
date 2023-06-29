@@ -34,7 +34,6 @@ const NewOrder = ({ selectedProducts, onRemoveProduct }) => {
     const handleCreateOrder = () => {
         const token = localStorage.getItem("token")
         const userId = localStorage.getItem("userId")
-        debugger
         const productQuantities = uniqueSelectedProducts.map((product) => {
             return {
                 quantity: getProductCount(product.id),
