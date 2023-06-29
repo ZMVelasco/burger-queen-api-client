@@ -5,6 +5,7 @@
     font-family: 'Gelasio';
     color: white;
 }
+
 /* Navbar styles */
 .button-container {
     position: relative;
@@ -18,6 +19,7 @@
     transition: .3s;
     position: relative;
 }
+
 .burger-menu-button {
     background-color: transparent;
     height: 58px;
@@ -27,22 +29,26 @@
     border-radius: 12px;
     border: 2px solid #b9b0b0;
 }
+
 .burger-menu-button:hover,
 .burger-menu-button:focus {
     box-shadow: 0 0 0 2px #fdf2f2;
-    color: #fdf2f2;      
+    color: #fdf2f2;
 }
-.burger-icon{
+
+.burger-icon {
     width: 52px;
     height: 52px;
     padding: 3px;
     border-radius: 12px
 }
+
 .bm-list {
     font-size: 28px;
     margin-left: -11%;
     width: 100%;
 }
+
 .logout-button {
     background-color: transparent;
     height: 52px;
@@ -51,14 +57,15 @@
     padding-left: 17%;
     font-family: 'Gelasio';
     margin-left: 5px;
-    display:flex;
+    display: flex;
     justify-content: flex-start;
     align-items: center;
     padding-top: 10px;
     padding-bottom: 10px;
 }
+
 .burger-menu {
-    width:20%;
+    width: 20%;
     height: 100vh;
     display: flex;
     flex-wrap: nowrap;
@@ -74,13 +81,15 @@
     z-index: 10;
     position: static;
 }
+
 .logout-icon {
     width: 35px;
     height: 35px;
     margin-right: 5px;
     background-color: transparent;
-    right:10%;
+    right: 10%;
 }
+
 .bm-list ul {
     margin-bottom: 2rem;
     width: 105%;
@@ -88,33 +97,35 @@
     padding-top: 5px;
     padding-bottom: 5px;
 }
+
 .bm-list ul:hover,
 .bm-list ul:active,
 .bm-list ul:focus,
 .logout-button:hover,
 .logout-button:active,
-.logout-button:focus
-{
+.logout-button:focus {
     background: rgba(255, 255, 255, 0.3);
     cursor: pointer;
 }
+
 /* New order styles */
 .new-order-section {
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    /* justify-content: center; */
     align-items: center;
     background-color: transparent;
     height: 100vh;
     width: 30%;
     position: absolute;
     right: 0;
-    border-left: 3px solid #b9b0b0;
+    border-left: 3px solid #b9b0b0; 
     top: 0;
-    bottom:0;
+    bottom: 0;
     margin-top: 4%;
 }
-.order-total{
+
+.order-total {
     font-size: 23px;
     display: flex;
     justify-content: center;
@@ -124,9 +135,12 @@
     width: 70%;
     border-radius: 10px;
     background-color: rgba(255, 255, 255, 0.2);
-
 }
-.place-order{
+.order-total-text {
+    background-color: transparent
+}
+
+.place-order {
     border-radius: 40px;
     font-family: 'Gelasio';
     font-size: 23px;
@@ -137,22 +151,25 @@
     color: black;
 }
 
-.order-product{
+.order-product {
     background-color: #b9b0b0;
     border-radius: 5px;
     padding: 5px;
     font-size: large;
-    width:20vh
+    width: 24vh;
+    padding-left: 5%;
+    border: 2px solid #a5cf61;
 }
 
-.order-item{
+.order-item {
     display: flex;
     flex-direction: row;
-    align-items: center;
     justify-content: center;
     width: max-content;
+    align-items: flex-start;
 }
-.item-price{
+
+.item-price {
     background-color: #b9b0b0;
     border-radius: 5px;
     padding: 5px;
@@ -160,15 +177,43 @@
     font-weight: bolder;
     width: 4vh;
     text-align: center;
+    margin-right: 5%;
+    border: 2px solid #a5cf61;
 }
-.order-items-container{
+
+.order-items-container {
     display: flex;
     flex-direction: column;
     height: 55%;
-    background-color: #fdf2f2;
-    width: 80%;
+    background-color: transparent;
+    width: 85%;
     overflow: scroll;
+    align-items: center;
+    padding-top: 5%;
+    border: 2px solid #b9b0b0;
+    border-radius: 10px;
+    padding-left: 3%;
+    padding-right: 3%;
+    margin-bottom: 3vh;
 }
+
+.place-order[disabled] {
+    background-color: #fdf2f2;
+    opacity: 0.5;
+}
+
+i.bi.bi-trash3.p-2.trash {
+    width: 24px;
+    height: 24px;
+    padding-top: 0%;
+}
+.client-name{
+    width: 21vw;
+    height: 6vh;
+    margin-top: 5vh;
+    margin-bottom: 3vh;
+}
+
 /* Product cards styles */
 /* #product-cards{
     margin-right: 15px;
@@ -180,7 +225,7 @@
     background-color: transparent;
 }
 
-.breakfast-price{
+.breakfast-price {
     color: #FCD53F;
 }
 
@@ -188,62 +233,66 @@
     color: #FF8855;
 }
 
-.breakfast-header{
+.breakfast-header {
     font-weight: bolder;
 }
 
-.lunch-dinner-header{
+.lunch-dinner-header {
     background-color: #FF8855;
     font-weight: bolder;
 }
 
-.lunch-dinner-card{
+.lunch-dinner-card {
     border-color: #FF8855;
 }
-/* .breakfast-card{
-    height: 12rem;
-} */
 
-/* .text-center.row {
-    z-index: 2;
-    display: flex;
-    justify-content: center;
-    text-align: center;
-} */
 #card-row {
     display: flex;
     justify-content: center;
     text-align: center;
     width: 100%;
     overflow-x: scroll;
+<<<<<<< HEAD
     
+=======
+    padding-left: 10%;
+    padding-right: 2%;
+    height: 60vh;
+    /* border-right: 3px solid #b9b0b0;
+    height: 100vh; */
+>>>>>>> 817b51b3a110cbfc1f470eb2711d575b3d76d977
 }
-.card-body{
+
+.card-body {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
 }
-.add-breakfast, .add-lunch-dinner{
-    position:absolute;
+
+.add-breakfast,
+.add-lunch-dinner {
+    position: absolute;
     right: 10%;
     width: 20%;
     border-radius: 10px;
     font-weight: bolder;
 }
-.add-breakfast{
+
+.add-breakfast {
     background-color: #FCD53F;
     border-color: #FCD53F;
     color: black;
 }
-.add-lunch-dinner{
+
+.add-lunch-dinner {
     background-color: #FF8855;
     border-color: #FF8855;
 }
+
 /* Filter buttons */
 .card-container {
-    width:70%;
+    width: 70%;
     padding-top: 8%;
-    /* border-right: 3px solid #b9b0b0; */
 }
 
 #lunch-dinner {
@@ -257,6 +306,7 @@
     font-size: 1.5rem;
     font-weight: 500;
 }
+
 #breakfast {
     border-radius: 5px;
     border: 7px solid rgba(255, 255, 255, 0.50);
@@ -266,31 +316,37 @@
     font-weight: 500;
     padding-left: 1%;
 }
+
 /* Sidebar styles */
-#offcanvasDarkNavbarLabel{
+#offcanvasDarkNavbarLabel {
     font-family: 'Rokkitt';
     font-size: 40px;
     padding-left: 7%;
 }
+
 #bootstrap-navbar {
     border-top: 3px solid #b9b0b0;
     border-bottom: 3px solid #b9b0b0;
 }
-.offcanvas-body{
+
+.offcanvas-body {
     padding-left: 10%;
 }
-#sidebar-logout{
+
+#sidebar-logout {
     background: #FFA210;
-border-radius: 12px;
-font-family: 'Rokkitt';
-font-weight: 500;
-font-size: 24px;
-color: #FFFEFE;
-margin-top: 120%;
+    border-radius: 12px;
+    font-family: 'Rokkitt';
+    font-weight: 500;
+    font-size: 24px;
+    color: #FFFEFE;
+    margin-top: 120%;
 }
-.icons{
+
+.icons {
     display: flex;
     justify-content: space-evenly;
     padding-top: 3%;
 }
+
 /* iPad and iPad mini */
