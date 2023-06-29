@@ -68,11 +68,6 @@ const Sidebar = () => {
             <div className="offcanvas-body">
               <ul className="navbar-nav">
                 <li className="nav-item">
-                  <a className="nav-link active" aria-current="page" href="#">
-                    Home
-                  </a>
-                </li>
-                <li className="nav-item">
                   <a
                     className="nav-link"
                     onClick={handleClick}

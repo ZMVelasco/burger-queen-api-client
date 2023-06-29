@@ -4,6 +4,8 @@ import { useState } from "react";
 
 const NewOrder = ({ selectedProducts, onRemoveProduct }) => {
     const [clientName, setClientName] = useState("");
+    const [clearedProducts, setClearedProducts] = useState(false);
+
 
     const getProductCount = (productId) => {
         const count = selectedProducts.reduce((acc, product) => {
@@ -34,56 +36,62 @@ const NewOrder = ({ selectedProducts, onRemoveProduct }) => {
     const handleCreateOrder = () => {
         const token = localStorage.getItem("token")
         const userId = localStorage.getItem("userId")
-        debugger
+        const dateEntry = new Date().toLocaleString();
         const productQuantities = uniqueSelectedProducts.map((product) => {
             return {
                 quantity: getProductCount(product.id),
                 id: product.id,
                 name: product.name,
-                price: product.price 
+                price: product.price
             };
         });
-        createOrder(token, userId, clientName, productQuantities)
-        .then((response) => console.log("create order", response))
-        .catch((error) => console.log(error))
+        createOrder(token, userId, clientName, productQuantities, dateEntry,)
+            .then((response) => {
+                console.log("Order created", response);
+                setClientName("");
+                setClearedProducts(true);
+                // setTimeout(() => {  // Reset clearedProducts after a delay to allow rendering of new order
+                //     setClearedProducts(false);
+                // }, 500);
+                onClearProducts();
+            })
+            .catch((error) => {
+                console.log(error)
+            });
     }
+
+    const onClearProducts = () => {
+        selectedProducts.splice(0, selectedProducts.length);
+    };
 
     const placeOrderDisabled = selectedProducts.length === 0 || clientName === "";
 
     const orderTotal = getProductTotal();
-    
-    
-    const products = selectedProducts.map((product) => ({
-        id: product.id,
-        name: product.name,
-        price: product.price
-    }));
-
-   
-
-    // console.log(productQuantities)
-    
 
     return (
         <section className="new-order-section">
             <article>
                 <input className="client-name" id="client-name-input" placeholder="  Client's name"
                     style={{ backgroundColor: "white", borderRadius: "10px", padding: "5px", color: "black" }}
-                    onChange={(event) => setClientName(event.target.value)}>
+                    onChange={(event) => setClientName(event.target.value)} value={clientName}>
                 </input>
             </article>
             <div className="order-items-container">
-
-                {uniqueSelectedProducts.map((product) => (
-                    <article className="order-item">
-                        <p className="item-price" style={{ backgroundColor: "#558257" }}>{getProductCount(product.id)} </ p>
-                        <p className="order-product custom-width" key={product.id} style={{ backgroundColor: "#558257" }}> {product.name}</ p>
-                        <i className="bi bi-trash3 p-2 trash" style={{ backgroundColor: "transparent", color: "red", justifyItems: "center" }} onClick={() => handleRemoveProduct(product.id)}></i>
-                    </article>
-                ))}
-            </div>
+    {uniqueSelectedProducts.map((product) => {
+        // if (clearedProducts) {
+        //     return null;
+        // }
+        return (
+            <article className="order-item" key={product.id}>
+                <p className="item-price" style={{ backgroundColor: "#558257" }}>{getProductCount(product.id)} </p>
+                <p className="order-product custom-width" style={{ backgroundColor: "#558257" }}>{product.name}</p>
+                <i className="bi bi-trash3 p-2 trash" style={{ backgroundColor: "transparent", color: "red", justifyItems: "center" }} onClick={() => handleRemoveProduct(product.id)}></i>
+            </article>
+        );
+    })}
+</div>
             <article className="order-total">
-                <p className="order-total-text">Total: $ {orderTotal}</p>
+            <p className="order-total-text">Total: $ {orderTotal}</p>
                 <button className="place-order" type="submit" onClick={handleCreateOrder} disabled={placeOrderDisabled}>Place order</button>
             </article>
         </section>
