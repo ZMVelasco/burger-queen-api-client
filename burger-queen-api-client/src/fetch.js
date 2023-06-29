@@ -12,7 +12,7 @@ export const getProducts = (token) => {
   })
 };
 
-export const createOrder = (token, userId, client, products) => {
+export const createOrder = (token, userId, client, products, dateEntry) => {
   return fetch(`${url}/orders`, {
     method: "POST",
     headers: {
@@ -24,7 +24,7 @@ export const createOrder = (token, userId, client, products) => {
         client,
         products,
         "status": "pending",
-        "dateEntry": "2022-03-05 15:14:10"
+        dateEntry,
       })
   })
 };
