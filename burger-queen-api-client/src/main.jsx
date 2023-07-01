@@ -12,6 +12,7 @@ import NewOrder from "./routes/waiter/neworder.jsx";
 import Sidebar from "./routes/waiter/sidebar.jsx";
 import WaiterTracker from "./routes/waiter/wtracker.jsx";
 import ProductCard from "./routes/waiter/menu.jsx";
+import Chef from "./routes/chef/chef.jsx";
 
 const router = createBrowserRouter([
   {
@@ -41,6 +42,10 @@ const router = createBrowserRouter([
   {
     path: "/createorder",
     element: <ProductCard />,
+  },
+  {
+    path: "/chef",
+    element: <Chef />,
   },
 ]);
 

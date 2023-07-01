@@ -52,6 +52,8 @@ const handleSubmit = (event) => {
       navigate("/admin");
     } else if (data.user.role === "waiter") {
       navigate("/waiter");
+    } else if (data.user.role === "chef") {
+      navigate("/chef");
     }
   })
     .catch((error) => {

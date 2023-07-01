@@ -29,7 +29,15 @@ export const createOrder = (token, userId, client, products, dateEntry) => {
   })
 };
 
-
+export const getOrders = (token) => {
+  return fetch(`${url}/orders`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+  })
+};
 
 
 
