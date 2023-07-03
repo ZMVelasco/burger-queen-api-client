@@ -354,4 +354,9 @@ i.bi.bi-trash3.p-2.trash {
     padding-top: 3%;
 }
 
-/* iPad and iPad mini */
+/* Success modal */
+.success-modal {
+    width: 50%;
+    height: 50%;
+
+}
