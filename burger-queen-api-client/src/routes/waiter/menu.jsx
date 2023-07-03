@@ -44,8 +44,10 @@ const ProductCard = () => {
     };
 
     const handleProductSelection = (product) => {
+        console.log(product);
         setSelectedProducts((prevSelectedProducts) => {
             const updatedSelectedProducts = [...prevSelectedProducts, product];
+            console.log(updatedSelectedProducts);
             return updatedSelectedProducts;
         });
     };

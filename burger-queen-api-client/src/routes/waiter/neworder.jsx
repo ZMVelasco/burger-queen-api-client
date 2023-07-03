@@ -1,12 +1,19 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
-import("../waiter/waiter.css");
+import "../waiter/waiter.css";
 import { createOrder } from "../../fetch";
 import { useState } from "react";
+import Modal from 'react-bootstrap/Modal';
+import Button from 'react-bootstrap/Button';
+
 
 const NewOrder = ({ selectedProducts, onRemoveProduct }) => {
     const [clientName, setClientName] = useState("");
     const [clearedProducts, setClearedProducts] = useState(false);
+    const [show, setShow] = useState(false);
+
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
 
     const getProductCount = (productId) => {
         const count = selectedProducts.reduce((acc, product) => {
@@ -53,7 +60,7 @@ const NewOrder = ({ selectedProducts, onRemoveProduct }) => {
                 setClientName("");
                 setClearedProducts(true);
                 onClearProducts();
-                showModal();
+                handleShow();
             })
             .catch((error) => {
                 console.log(error);
@@ -67,12 +74,6 @@ const NewOrder = ({ selectedProducts, onRemoveProduct }) => {
     const placeOrderDisabled = selectedProducts.length === 0 || clientName === "";
 
     const orderTotal = getProductTotal();
-
-    const showModal = () => {
-        const modal = document.getElementById("exampleModal");
-        const bootstrapModal = new window.bootstrap.Modal(modal);
-        bootstrapModal.show();
-    };
 
     return (
         <section className="new-order-section">
@@ -134,35 +135,17 @@ const NewOrder = ({ selectedProducts, onRemoveProduct }) => {
                 </button>
             </article>
             {/* Modal */}
-            <div
-                className="modal fade"
-                id="exampleModal"
-                tabIndex="-1"
-                aria-labelledby="exampleModalLabel"
-                aria-hidden="true"
-                style={{ width: "40%", height: "35%", display: "flex", justifyContent: "center", alignItems: "center", marginLeft: "30%", marginTop: "15%", backgroundColor: "transparent" }}
-            >
-                <div className="modal-dialog" style={{ display: "flex", justifyContent: "center", alignItems: "center", backgroundColor: "transparent" }}>
-                    <div className="modal-content" style={{ display: "flex", justifyContent: "center", alignItems: "center", backgroundColor: "#121214", border: "3px solid rgba(255, 255, 255, 0.6)" }}>
-                        <div className="modal-header" style={{ backgroundColor: "#121214", border: "0px", paddingBottom:"0px" }}>
-                            <i className="bi bi-check-circle-fill" style={{ color:"#558257", fontSize:"3rem" ,backgroundColor: "#121214", border: "0px" }}></i>
-                        </div>
-                        <div className="modal-body" style={{ backgroundColor: "#121214", border: "0px", paddingBottom: "0px" }}>
-                            <p style={{ backgroundColor: "#121214", border: "0px", fontWeight: "600", fontSize: "1.5rem" }}>Order created</p>
-                        </div>
-                        <div className="modal-footer" style={{ backgroundColor: "#121214", border: "0px" }}>
-                            <button
-                                type="button"
-                                className="btn btn-secondary"
-                                data-bs-dismiss="modal"
-                                style={{ fontSize:"1.3rem", backgroundColor: "rgba(255, 255, 255, 0.5)", border: "0px", fontWeight: "500", padding: "12px 20px", marginTop: "0px" }}
-                            >
-                                Close
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <Modal show={show} onHide={handleClose} backdrop="static">
+        <Modal.Header closeButton>
+          <Modal.Title>Modal heading</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>Order created!</Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            Close
+          </Button>
+        </Modal.Footer>
+      </Modal>
         </section>
     );
 };
