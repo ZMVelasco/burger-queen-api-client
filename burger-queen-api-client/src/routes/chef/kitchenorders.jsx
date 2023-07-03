@@ -2,8 +2,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
 import { getOrders } from "../../fetch";
 import { useEffect, useState } from "react";
-const KitchenOrders = () => {
-    const [kitchenOrders, setKitchenOrders] = useState([]);
+const Orders = (buttonText, onClickBehavior) => {
+    const [orders, setOrders] = useState([]);
     const token = localStorage.getItem("token");
     useEffect(() => {
         if (token) {
@@ -16,7 +16,7 @@ const KitchenOrders = () => {
                     return response.json();
                 })
                 .then((data) => {
-                    setKitchenOrders(data);
+                    setOrders(data);
                 })
                 .catch((error) => {
                     console.error('Error fetching orders:', error);
@@ -24,10 +24,14 @@ const KitchenOrders = () => {
         }
     }, [token]);
 
+    const handleCookedOrder = () => {
+        console.log('Cooked order');
+    }
+
     return (
         <div>
             <h2>Orders</h2>
-            {kitchenOrders.map((order) => (
+            {orders.map((order) => (
                 <div
                     key={order.id}
                     className="card border-dark mb-3"
@@ -50,10 +54,10 @@ const KitchenOrders = () => {
                             <p className="card-text">{product.name}</p>
                         </div>
                     ))}
-                    <button className="btn btn-primary">Done</button>
+                    <button className="btn btn-primary" onClick={handleCookedOrder}>Done</button>
                 </div>
             ))}
         </div>
     );
 }
-export default KitchenOrders
+export default Orders
