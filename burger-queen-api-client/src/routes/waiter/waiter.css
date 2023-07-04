@@ -354,9 +354,11 @@ i.bi.bi-trash3.p-2.trash {
     padding-top: 3%;
 }
 
-/* Success modal */
-.success-modal {
-    width: 50%;
-    height: 50%;
+/* Modal */
+.modal {
+    background-color: rgba(0, 0, 0, 0.5);
+}
 
+.modal-content {
+    margin-top: 17rem;
 }

@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import logoutIcon from "./assets/logout.svg";
 import ProductCard from "./routes/waiter/menu";
-import WaiterTracker from "./routes/waiter/wtracker";
 import KitchenOrders from "./routes/chef/kitchenorders";
 
 const Sidebar = ({
+  role,
   items,
   brandName,
   welcomeMessage,
@@ -103,9 +103,8 @@ const Sidebar = ({
       {componentToRender && componentToRender === "product-card" && (
         <ProductCard />
       )}
-      {componentToRender && componentToRender === "pending-orders" && (
-        <KitchenOrders />
-      )}
+       {componentToRender && componentToRender === "pending-orders" && (
+        role === "chef" ? <KitchenOrders /> : <WaiterTracker />)}
     </>
   );
 };
