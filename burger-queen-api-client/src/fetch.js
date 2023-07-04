@@ -39,6 +39,20 @@ export const getOrders = (token) => {
   })
 };
 
+export const patchOrder = (token, orderId, status) => {
+  return fetch(`${url}/orders/${orderId}`, {
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify({
+        id: orderId,
+        "status": status
+      })
+  })
+};
+
 
 
 

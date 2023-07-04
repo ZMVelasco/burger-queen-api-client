@@ -135,17 +135,17 @@ const NewOrder = ({ selectedProducts, onRemoveProduct }) => {
                 </button>
             </article>
             {/* Modal */}
-            <Modal show={show} onHide={handleClose} backdrop="static">
-        <Modal.Header closeButton>
-          <Modal.Title>Modal heading</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>Order created!</Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Close
-          </Button>
-        </Modal.Footer>
-      </Modal>
+            <Modal show={show} onHide={handleClose} backdropClassName="custom-backdrop">
+                <Modal.Header closeButton>
+                    <Modal.Title>Modal heading</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>Order created!</Modal.Body>
+                <Modal.Footer>
+                    <Button variant="secondary" onClick={handleClose}>
+                        Close
+                    </Button>
+                </Modal.Footer>
+            </Modal>
         </section>
     );
 };
