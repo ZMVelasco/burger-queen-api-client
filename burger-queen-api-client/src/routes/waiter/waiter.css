@@ -5,6 +5,7 @@
     font-family: 'Gelasio';
     color: white;
 }
+
 /* Navbar styles */
 .button-container {
     position: relative;
@@ -359,4 +360,7 @@ i.bi.bi-trash3.p-2.trash {
     width: 50%;
     height: 50%;
 
+}
+.custom-backdrop {
+    opacity: 0.3; /* Adjust the opacity value as needed */
 }

@@ -1,11 +1,28 @@
-import "bootstrap/dist/css/bootstrap.min.css";
-import "bootstrap/dist/js/bootstrap.bundle.min";
-import('../waiter/waiter.css')
+import Orders from "../globalcomponents/orders";
+import { patchOrder } from "../../fetch";
+import { useState } from "react";
+import PropTypes from 'prop-types';
 
 const WaiterTracker = () => {
+    const handleWaiterOrderClick = (orderId) => {
+        console.log('Waiter order clicked');
+        const token = localStorage.getItem("token");
+        patchOrder(token, orderId, { status: "Delivered" })
+        .then((response) => {
+            if (!response.ok) {
+                throw new Error(`Error: ${response.status} ${response.statusText}`);
+            }
+            console.log('Order modified', response);
+            return response.json();
+        })
+        .catch((error) => {
+            console.log(error);
+        });
+    }
     return (
         <>
-            <h1 className="container">Track order</h1>
+        <div>Pending waiter orders</div>
+        <Orders buttonName="Delivered" onClickBehavior={handleWaiterOrderClick} />
         </>
     )
 }

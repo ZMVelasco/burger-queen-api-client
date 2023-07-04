@@ -1,8 +1,6 @@
 GET http://localhost:8080/orders HTTP/1.1
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFuaXRhLmJvcmdAc3lzdGVycy54eXoiLCJpYXQiOjE2ODgzOTIzNTcsImV4cCI6MTY4ODM5NTk1Nywic3ViIjoiMSJ9.eq1DiLauD0qCzIH2bPhqgcWmDaHBAZYQr6HdT61ztfc
-
-# {
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFuaXRhLmJvcmdAc3lzdGVycy54eXoiLCJpYXQiOjE2ODg0ODg2ODUsImV4cCI6MTY4ODQ5MjI4NSwic3ViIjoiMSJ9.4mrXl4b0XQWtDjSg_xAWgsM6kdLoEghWFcV2kvxSsW4
 #     "id":29
 # }
 
