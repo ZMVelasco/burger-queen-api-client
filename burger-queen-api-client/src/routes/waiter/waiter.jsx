@@ -4,6 +4,7 @@ import ProductCard from "./menu.jsx";
 import Sidebar from "../../sidebar-reu.jsx";
 // import WaiterPendinger from "./wPendinger.jsx";
 import KitchenOrders from "../chef/kitchenorders.jsx";
+import WaiterTracker from "./wtracker.jsx";
 
 const Waiter = () => {
   const [showCreateOrder, setShowCreateOrder] = useState(false);
@@ -23,7 +24,7 @@ const Waiter = () => {
     <>
       <Sidebar
         items={[
-          { label: "Product Card", component: "product-card" },
+          { label: "Create order", component: "product-card" },
           { label: "Pending orders", component: "pending-orders" },
         ]}
         brandName="BQ"
@@ -33,7 +34,7 @@ const Waiter = () => {
       />
          <div className="content">
         {showCreateOrder && <ProductCard />}
-        {showPendingOrder && <KitchenOrders />}
+        {showPendingOrder && <WaiterTracker />}
       </div>
     </>
   );
