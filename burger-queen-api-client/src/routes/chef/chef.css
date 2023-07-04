@@ -1,0 +1,23 @@
+.tittle-orders{
+    padding-top: 8%;
+    text-align: center;
+}
+
+#orders {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    width: 80%;
+    padding-top: 4%;
+    margin: 0 auto;
+    text-align: center;
+    justify-content: space-evenly;
+}
+
+.card-body {
+    display: inline;
+}
+
+.card-text {
+    background-color: "#FCD53F", 
+   
+}
