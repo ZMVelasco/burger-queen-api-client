@@ -1,4 +1,4 @@
-.tittle-orders{
+.title-orders{
     padding-top: 8%;
     text-align: center;
 }
@@ -11,12 +11,47 @@
     margin: 0 auto;
     text-align: center;
     justify-content: space-evenly;
+    grid-row-gap: 20px;
+}
+
+.card-header {
+    font-weight: bolder;
+    font-size: 18px
+}
+
+.card-title {
+    background-color: #FCD53F;
+    font-size: 13px;
 }
 
 .card-body {
     display: inline;
 }
 
-.card-text {
-    background-color: "#FCD53F", 
+.quantity {
+    background-color: #FCD53F;
+    color: black;
+    font-weight: bolder;
+    width: 10%
 }
+
+.product-name {
+    background-color: #FCD53F;
+    color: black
+}
+
+.products-cont {
+    max-height: 40px;
+    min-height: 48%;
+    overflow: scroll;
+    background-color: #FCD53F
+}
+
+.card-body {
+    background-color: #FCD53F;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    height: 2px
+}
+
