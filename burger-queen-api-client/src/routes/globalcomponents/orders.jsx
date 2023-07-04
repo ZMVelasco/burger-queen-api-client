@@ -2,6 +2,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
 import { getOrders } from "../../fetch";
 import { useEffect, useState } from "react";
+import "../chef/chef.css"
+
 const Orders = ({ buttonName, onClickBehavior }) => {
     const [orders, setOrders] = useState([]);
     const token = localStorage.getItem("token");
