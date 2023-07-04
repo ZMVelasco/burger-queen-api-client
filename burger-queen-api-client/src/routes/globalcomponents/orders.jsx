@@ -3,6 +3,8 @@ import "bootstrap/dist/js/bootstrap.bundle.min";
 import "../chef/chef.css";
 import { getOrders } from "../../fetch";
 import { useEffect, useState } from "react";
+import "../chef/chef.css"
+
 const Orders = ({ buttonName, onClickBehavior }) => {
     const [orders, setOrders] = useState([]);
     const token = localStorage.getItem("token");
@@ -33,31 +35,29 @@ const Orders = ({ buttonName, onClickBehavior }) => {
                 <div
                     key={order.id}
                     className="card border-dark mb-3"
-                    style={{ maxWidth: "18rem", 
+                    style={{width: "15rem", 
                             minBlockSize: "19rem", 
                             marginRight: "2px", 
                             backgroundColor: "#FCD53F", 
                             borderRadius: "10px",
-                            height: "60%" }}
+                            padding: "4px",
+                            boxShadow: "0 0 0 4px #FF8855"
+                             }}
                 >
-                    <div className="card-header" style={{ fontWeight: "bolder", fontSize:"18px" }} >Client: {order.client}</div>
-                    <p className="card-title" style={{ backgroundColor: "#FCD53F", fontSize:"13px" }}>
-                                {order.dateEntry}
-                            </p>
-                    <article className="products-cont" style={{ height: "40%", overflow: "scroll", backgroundColor: "#FCD53F" }} >
-                    {order.products.map((product) => (
+                    <div className="card-header" >Client: {order.client}</div>
+                    <p className="card-title"> {order.dateEntry} </p>
+                    <article className="products-cont" > {order.products.map((product) => (
                         <div
                             key={product.id}
                             className="card-body"
-                            style={{ backgroundColor: "#FCD53F", display: "flex", flexDirection: "row" }}
                         >
-                            <p className="card-text" style={{ backgroundColor: "#FCD53F", color: "black", fontWeight: "bolder", width:"10%" }}>{product.quantity}</p>
-                            <p className="card-text" style={{ backgroundColor: "#FCD53F", color: "black" }}>{product.name}</p>
+                            <p className="quantity" >{product.quantity}</p>
+                            <p className="product-name"  >{product.name}</p>
                         </div>
                     ))}
                     </article>
                     <button className="btn btn-primary" 
-                    style={{ }} 
+                    style={{ marginTop: "15rem", marginLeft: "40px", width: "10rem", position: "absolute", borderColor: "#FF8855", backgroundColor: "#FF8855", color: "black", fontWeight: "bolder" }} 
                     onClick={() => onClickBehavior(order.id)}>{buttonName}</button>
                 </div>
             ))}

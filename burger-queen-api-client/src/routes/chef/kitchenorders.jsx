@@ -22,7 +22,6 @@ const KitchenOrders = () => {
     return (
         <>
         <Orders buttonName="Ready to serve" onClickBehavior={handleKitchenOrderClick} />
-        <div>Pending chef orders</div>
         </>
     )
 }
