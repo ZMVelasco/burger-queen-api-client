@@ -44,14 +44,14 @@ const Orders = ({ buttonName, onClickBehavior }) => {
                     <p className="card-title" style={{ backgroundColor: "#FCD53F", fontSize:"13px" }}>
                                 {order.dateEntry}
                             </p>
-                    <article className="products-cont" style={{ height: "40%", overflow: "scroll", backgroundColor: "#FCD53F" }} >
+                    <article className="products-cont" style={{ maxHeight: "40px", overflow: "scroll", backgroundColor: "#FCD53F" }} >
                     {order.products.map((product) => (
                         <div
                             key={product.id}
                             className="card-body"
-                            style={{ backgroundColor: "#FCD53F", display: "flex", flexDirection: "row" }}
+                            style={{ backgroundColor: "#FCD53F", display: "flex", flexDirection: "row"}}
                         >
-                            <p className="card-text" style={{ backgroundColor: "#FCD53F", color: "black", fontWeight: "bolder", width:"10%" }}>{product.quantity}</p>
+                            <p className="card-text" style={{ backgroundColor: "#FCD53F", color: "black", fontWeight: "bolder", width:"10%"}}>{product.quantity}</p>
                             <p className="card-text" style={{ backgroundColor: "#FCD53F", color: "black" }}>{product.name}</p>
                         </div>
                     ))}
