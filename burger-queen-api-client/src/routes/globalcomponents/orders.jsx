@@ -1,5 +1,6 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
+import "../chef/chef.css";
 import { getOrders } from "../../fetch";
 import { useEffect, useState } from "react";
 const Orders = ({ buttonName, onClickBehavior }) => {
@@ -25,35 +26,43 @@ const Orders = ({ buttonName, onClickBehavior }) => {
     }, [token]);
 
     return (
-        <div>
-            <h2>Orders</h2>
+        <> 
+        <h2 className="title-orders">Orders</h2>
+        <section id="orders">
             {orders.map((order) => (
                 <div
                     key={order.id}
                     className="card border-dark mb-3"
-                    style={{ maxWidth: "18rem" }}
+                    style={{ maxWidth: "18rem", 
+                            minBlockSize: "19rem", 
+                            marginRight: "2px", 
+                            backgroundColor: "#FCD53F", 
+                            borderRadius: "10px",
+                            height: "60%" }}
                 >
-                    <div className="card-header">Client: {order.client}</div>
-                    <p className="card-title" style={{ color: "white" }}>
+                    <div className="card-header" style={{ fontWeight: "bolder", fontSize:"18px" }} >Client: {order.client}</div>
+                    <p className="card-title" style={{ backgroundColor: "#FCD53F", fontSize:"13px" }}>
                                 {order.dateEntry}
                             </p>
+                    <article className="products-cont" style={{ height: "40%", overflow: "scroll", backgroundColor: "#FCD53F" }} >
                     {order.products.map((product) => (
                         <div
                             key={product.id}
                             className="card-body"
-                            style={{ color: "white", background: "blue" }}
+                            style={{ backgroundColor: "#FCD53F", display: "flex", flexDirection: "row" }}
                         >
-                            <h5 className="card-title" style={{ color: "white" }}>
-                                {order.title}
-                            </h5>
-                            <p className="card-text">{product.quantity}</p>
-                            <p className="card-text">{product.name}</p>
+                            <p className="card-text" style={{ backgroundColor: "#FCD53F", color: "black", fontWeight: "bolder", width:"10%" }}>{product.quantity}</p>
+                            <p className="card-text" style={{ backgroundColor: "#FCD53F", color: "black" }}>{product.name}</p>
                         </div>
                     ))}
-                    <button className="btn btn-primary" onClick={() => onClickBehavior(order.id)}>{buttonName}</button>
+                    </article>
+                    <button className="btn btn-primary" 
+                    style={{ }} 
+                    onClick={() => onClickBehavior(order.id)}>{buttonName}</button>
                 </div>
             ))}
-        </div>
+            </section>
+        </> 
     );
 }
 export default Orders
