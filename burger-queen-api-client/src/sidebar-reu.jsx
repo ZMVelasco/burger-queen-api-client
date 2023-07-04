@@ -72,6 +72,7 @@ const Sidebar = ({
                         } else if (item.component === "past-orders") {
                           onPastOrderClick();
                         }
+                        toggleOffcanvas();
                       }}
                       data-component={item.component}
                     >

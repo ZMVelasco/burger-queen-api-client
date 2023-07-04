@@ -10,7 +10,7 @@ import Waiter from "./routes/waiter/waiter.jsx";
 import Admin from "./routes/admin/admin.jsx";
 import NewOrder from "./routes/waiter/neworder.jsx";
 import Sidebar from "./sidebar-reu.jsx";
-// import WaiterTracker from "./routes/waiter/wtracker.jsx";
+import WaiterTracker from "./routes/waiter/wtracker.jsx";
 import ProductCard from "./routes/waiter/menu.jsx";
 import Chef from "./routes/chef/chef.jsx";
 import KitchenOrders from "./routes/chef/kitchenorders.jsx";
@@ -47,6 +47,10 @@ const router = createBrowserRouter([
   {
     path: "/chef",
     element: <Chef />,
+  },
+  {
+    path: "/waitertracker",
+    element: <WaiterTracker />,
   },
 ]);
 
