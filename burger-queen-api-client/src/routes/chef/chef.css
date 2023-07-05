@@ -19,13 +19,9 @@
     font-size: 18px
 }
 
-.card-title {
+#card-title-chef {
     background-color: #FCD53F;
     font-size: 13px;
-}
-
-.card-body {
-    display: inline;
 }
 
 .quantity {
@@ -47,7 +43,7 @@
     background-color: #FCD53F
 }
 
-.card-body {
+#card-chef {
     background-color: #FCD53F;
     display: flex;
     flex-direction: row;

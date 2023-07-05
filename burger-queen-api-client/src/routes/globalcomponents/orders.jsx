@@ -45,9 +45,10 @@ const Orders = ({ buttonName, onClickBehavior }) => {
                              }}
                 >
                     <div className="card-header" >Client: {order.client}</div>
-                    <p className="card-title"> {order.dateEntry} </p>
+                    <p id= "card-title-chef"className="card-title"> {order.dateEntry} </p>
                     <article className="products-cont" > {order.products.map((product) => (
                         <div
+                            id="card-chef"
                             key={product.id}
                             className="card-body"
                         >
