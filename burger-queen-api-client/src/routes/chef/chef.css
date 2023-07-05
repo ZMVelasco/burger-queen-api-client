@@ -14,28 +14,24 @@
     grid-row-gap: 20px;
 }
 
-.card-header {
+#card-header-chef {
     font-weight: bolder;
     font-size: 18px
 }
 
-.card-title {
+#card-title-chef {
     background-color: #FCD53F;
     font-size: 13px;
 }
 
-.card-body {
-    display: inline;
-}
-
-.quantity {
+#quantity-chef {
     background-color: #FCD53F;
     color: black;
     font-weight: bolder;
     width: 10%
 }
 
-.product-name {
+#product-name-chef{
     background-color: #FCD53F;
     color: black
 }
@@ -47,7 +43,7 @@
     background-color: #FCD53F
 }
 
-.card-body {
+#card-body-chef{
     background-color: #FCD53F;
     display: flex;
     flex-direction: row;

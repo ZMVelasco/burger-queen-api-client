@@ -1,8 +1,11 @@
 GET http://localhost:8080/orders HTTP/1.1
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFuaXRhLmJvcmdAc3lzdGVycy54eXoiLCJpYXQiOjE2ODg0ODg2ODUsImV4cCI6MTY4ODQ5MjI4NSwic3ViIjoiMSJ9.4mrXl4b0XQWtDjSg_xAWgsM6kdLoEghWFcV2kvxSsW4
-#     "id":29
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFuaXRhLmJvcmdAc3lzdGVycy54eXoiLCJpYXQiOjE2ODg1NjM4NTEsImV4cCI6MTY4ODU2NzQ1MSwic3ViIjoiMSJ9.I1EWC6HD2u05vnG5jEPDpndTvlvcNFFVeL-vKLi9eDM
+
+# {
+# "id":"46"
 # }
+
 
 # {
 #     "email": "chef1@mail.com",

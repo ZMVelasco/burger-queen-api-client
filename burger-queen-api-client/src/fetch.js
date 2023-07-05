@@ -48,7 +48,7 @@ export const patchOrder = (token, orderId, status) => {
     },
     body: JSON.stringify({
         id: orderId,
-        "status": status
+        status: status.status,
       })
   })
 };
