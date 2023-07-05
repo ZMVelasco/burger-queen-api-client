@@ -22,7 +22,7 @@ const WaiterTracker = () => {
     return (
         <>
         <div>Pending waiter orders</div>
-        <Orders buttonName="Delivered" onClickBehavior={handleWaiterOrderClick} />
+        <Orders buttonName="Delivered" onClickBehavior={handleWaiterOrderClick} statusFilter="ready to serve" showButton={true} />
         </>
     )
 }
