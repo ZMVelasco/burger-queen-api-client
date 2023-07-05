@@ -7,6 +7,7 @@ import "../chef/chef.css"
 
 const Orders = ({ buttonName, onClickBehavior, statusFilter, showButton }) => {
     const [orders, setOrders] = useState([]);
+    
     const token = localStorage.getItem("token");
     useEffect(() => {
         if (token) {
@@ -49,6 +50,9 @@ const Orders = ({ buttonName, onClickBehavior, statusFilter, showButton }) => {
                         <div className="card-header" id="card-header-chef">Client: {order.client}</div>
                         <p className="card-title" id="card-title-chef"> {order.dateEntry} </p>
                         <p className="card-title" id="card-title-chef"> Status: {order.status} </p>
+                        {/* <div className="cronometer" id="cronometer-chef">
+                            <p>Pending for: {new Date().getTime() - new Date(order.dateEntry).getTime()} ms</p>
+                        </div> */}
                         <article className="products-cont" > {order.products.map((product) => (
                             <div
                                 key={product.id}
