@@ -135,16 +135,18 @@ const NewOrder = ({ selectedProducts, onRemoveProduct }) => {
                 </button>
             </article>
             {/* Modal */}
-            <Modal className="modal" show={show} onHide={handleClose} backdrop="static">
-        <Modal.Header closeButton>
-          <Modal.Title>Order created!</Modal.Title>
-        </Modal.Header>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Close
-          </Button>
-        </Modal.Footer>
-      </Modal>
+            <Modal className="modal" show={show} onHide={handleClose}>
+                <Modal.Header closeButton style={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", borderTop: "3px solid #558257", borderLeft: "3px solid #558257", borderRight: "3px solid #558257", borderBottom:"0px", paddingBottom:"0px"}}>
+                    <Modal.Title style={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center"}}>
+                    <i class="bi bi-check-circle-fill" style={{ color: "#558257", fontSize: "2.5rem"}}></i>
+                    Order created!</Modal.Title>
+                </Modal.Header>
+                <Modal.Footer style={{backgroundColor: "black", borderBottom: "3px solid #558257", borderLeft: "3px solid #558257", borderRight: "3px solid #558257", borderTop:"0px"}}>
+                    <Button variant="secondary" onClick={handleClose} style={{fontSize:"20px", width:"20%", fontWeight: "500", backgroundColor:"#558257", marginTop:"0px", marginRight:"10%"}}>
+                        Close
+                    </Button>
+                </Modal.Footer>
+            </Modal>
         </section>
     );
 };

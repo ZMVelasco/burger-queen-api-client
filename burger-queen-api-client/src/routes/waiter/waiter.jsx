@@ -32,7 +32,7 @@ const Waiter = () => {
         onCreateOrderClick={handleCreateOrderClick}
         onPendingOrderClick={handlePendingOrderClick}
       />
-         <div className="content">
+        <div className="content">
         {showCreateOrder && <ProductCard />}
         {showPendingOrder && <WaiterTracker />}
       </div>
