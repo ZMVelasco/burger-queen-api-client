@@ -7,7 +7,7 @@ const PastOrders = () => {
     return (
         <>
             <h1 className="container">Past orders</h1>
-            <Orders buttonName="Ready to serve" statusFilter="ready to serve" showButton={false} />
+            <Orders buttonName="Ready to serve" statusFilter={["ready to serve", "Delivered"]} showButton={false} />
         </>
     )
 }

@@ -20,15 +20,30 @@ const Orders = ({ buttonName, onClickBehavior, statusFilter, showButton }) => {
                     return response.json();
                 })
                 .then((data) => {
-                    const filteredOrders = data.filter((order) => order.status === statusFilter);
+                    const filteredOrders = data.filter((order) => {
+                      return statusFilter.includes(order.status);
+                    });
                     setOrders(filteredOrders);
-                })
+                  })
                 .catch((error) => {
                     console.error('Error fetching orders:', error);
                 });
         }
     }, [token, statusFilter]);
 
+    const calculateDuration = (entryDate, modificationDate) => {
+        // Parse the date strings in the format "M/D/YYYY, h:mm:ss A"
+        const entryTime = new Date(entryDate).getTime();
+        const modificationTime = new Date(modificationDate).getTime();
+        const duration = modificationTime - entryTime;
+      
+        // Convert duration from milliseconds to hours, minutes, and seconds
+        const hours = Math.floor(duration / (1000 * 60 * 60));
+        const minutes = Math.floor((duration % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((duration % (1000 * 60)) / 1000);
+      
+        return `${hours}h ${minutes}m ${seconds}s`;
+      };
     return (
         <>
             <h2 className="title-orders">Orders</h2>
@@ -50,9 +65,7 @@ const Orders = ({ buttonName, onClickBehavior, statusFilter, showButton }) => {
                         <div className="card-header" id="card-header-chef">Client: {order.client}</div>
                         <p className="card-title" id="card-title-chef"> {order.dateEntry} </p>
                         <p className="card-title" id="card-title-chef"> Status: {order.status} </p>
-                        {/* <div className="cronometer" id="cronometer-chef">
-                            <p>Pending for: {new Date().getTime() - new Date(order.dateEntry).getTime()} ms</p>
-                        </div> */}
+                        <p id="card-title-chef"> Duration: {calculateDuration(order.dateEntry, order.modificationDate)} </p>
                         <article className="products-cont" > {order.products.map((product) => (
                             <div
                                 key={product.id}
