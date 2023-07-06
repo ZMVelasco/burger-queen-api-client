@@ -5,7 +5,7 @@ import { getOrders } from "../../fetch";
 import { useEffect, useState } from "react";
 import "../chef/chef.css"
 
-const Orders = ({ buttonName, onClickBehavior, statusFilter, showButton }) => {
+const Orders = ({ buttonName, onClickBehavior, statusFilter, showButton, showDuration }) => {
     const [orders, setOrders] = useState([]);
     
     const token = localStorage.getItem("token");
@@ -65,7 +65,8 @@ const Orders = ({ buttonName, onClickBehavior, statusFilter, showButton }) => {
                         <div className="card-header" id="card-header-chef">Client: {order.client}</div>
                         <p className="card-title" id="card-title-chef"> {order.dateEntry} </p>
                         <p className="card-title" id="card-title-chef"> Status: {order.status} </p>
-                        <p id="card-title-chef"> Duration: {calculateDuration(order.dateEntry, order.modificationDate)} </p>
+                        {showDuration && (
+                        <p id="card-title-chef"> Duration: {calculateDuration(order.dateEntry, order.modificationDate)} </p>)}
                         <article className="products-cont" > {order.products.map((product) => (
                             <div
                                 key={product.id}
