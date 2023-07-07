@@ -14,6 +14,9 @@ import WaiterTracker from "./routes/waiter/wtracker.jsx";
 import ProductCard from "./routes/waiter/menu.jsx";
 import Chef from "./routes/chef/chef.jsx";
 import KitchenOrders from "./routes/chef/kitchenorders.jsx";
+import Employees from "./routes/admin/employees.jsx";
+import Products from "./routes/admin/products.jsx";
+import AdminTable from "./routes/globalcomponents/admintable.jsx";
 
 const router = createBrowserRouter([
   {
@@ -51,6 +54,18 @@ const router = createBrowserRouter([
   {
     path: "/waitertracker",
     element: <WaiterTracker />,
+  },
+  {
+    path: "/employees",
+    element: <Employees />,
+  },
+  {
+    path: "/products",
+    element: <Products />,
+  },
+  {
+    path: "/table",
+    element: <AdminTable/>,
   },
 ]);
 
