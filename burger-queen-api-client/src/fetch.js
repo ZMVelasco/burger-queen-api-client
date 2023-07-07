@@ -63,6 +63,16 @@ export const patchOrder = (token, orderId, status, modificationDate, deliveredDa
   });
 };
 
+export const adminFetch = (token, endpoint) => {
+  const endpointString = endpoint.toString();
+  return fetch(`${url}${endpointString}`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+  });
+};
 
 
 
