@@ -2,7 +2,7 @@ import { adminFetch } from "../../fetch";
 import { useEffect, useState } from "react";
 import Table from 'react-bootstrap/Table';
 
-const AdminTable = ({ endpoint, data, firstProperty, secondProperty, thirdProperty }) => {
+const AdminTable = ({ endpoint, data, firstProperty, secondProperty, thirdProperty, showThirdProperty }) => {
     const token = localStorage.getItem("token");
     const [tableData, setTableData] = useState([]);
 
@@ -29,11 +29,11 @@ const AdminTable = ({ endpoint, data, firstProperty, secondProperty, thirdProper
             <Table striped bordered hover variant="dark">
                 <thead>
                     <tr>
-                        <th>#</th>
+                        <th>ID</th>
                         <th>Name</th>
                         <th>{firstProperty}</th>
                         <th>{secondProperty}</th>
-                        <th>{thirdProperty}</th>
+                        {showThirdProperty && (<th>{thirdProperty}</th>)}
                     </tr>
                 </thead>
                 <tbody>
@@ -43,7 +43,7 @@ const AdminTable = ({ endpoint, data, firstProperty, secondProperty, thirdProper
                             <td>{item.name}</td>
                             <td>{item[firstProperty]}</td>
                             <td>{item[secondProperty]}</td>
-                            <td>{item[thirdProperty]}</td>
+                            {showThirdProperty && (<td>{item[thirdProperty] === undefined ? "" : "******"}</td>)}
                         </tr>
                     ))}
                 </tbody>

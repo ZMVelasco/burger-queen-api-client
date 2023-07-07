@@ -3,7 +3,7 @@ const Employees = () => {
     return (
         <div>
         <h1>Employees</h1>
-        <AdminTable endpoint="/users" firstProperty="role" secondProperty="email" thirdProperty="password"/>
+        <AdminTable endpoint="/users" firstProperty="role" secondProperty="email" thirdProperty="password"  showThirdProperty={true}/>
         </div>
     );
 }
