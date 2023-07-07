@@ -22,7 +22,7 @@ const KitchenOrders = () => {
     }
     return (
         <>
-            <Orders buttonName="Ready to serve" onClickBehavior={handleKitchenOrderClick} statusFilter="pending" showButton={true} />
+            <Orders buttonName="Ready to serve" onClickBehavior={handleKitchenOrderClick} statusFilter="pending" showButton={true} showDuration={false}/>
         </>
     )
 }

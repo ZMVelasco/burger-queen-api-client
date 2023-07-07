@@ -23,7 +23,7 @@ const WaiterTracker = () => {
     return (
         <>
             <div>Pending waiter orders</div>
-            <Orders buttonName="Delivered" onClickBehavior={handleWaiterOrderClick} statusFilter="ready to serve" showButton={true} />
+            <Orders buttonName="Delivered" onClickBehavior={handleWaiterOrderClick} statusFilter="ready to serve" showButton={true}  showDuration={false} backgroundColour= "#FCD53F"/>
         </>
     )
 }

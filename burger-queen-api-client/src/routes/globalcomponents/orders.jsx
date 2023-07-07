@@ -5,12 +5,14 @@ import { getOrders } from "../../fetch";
 import { useEffect, useState } from "react";
 import "../chef/chef.css"
 
-const Orders = ({ buttonName, onClickBehavior, statusFilter, showButton }) => {
+const Orders = ({ buttonName, onClickBehavior, statusFilter, showButton, showDuration, backgroundColour }) => {
     const [orders, setOrders] = useState([]);
-    
+
     const token = localStorage.getItem("token");
+    let intervalId;
+
     useEffect(() => {
-        if (token) {
+        intervalId = setInterval(() => {
             getOrders(token)
                 .then((response) => {
                     if (!response.ok) {
@@ -21,29 +23,33 @@ const Orders = ({ buttonName, onClickBehavior, statusFilter, showButton }) => {
                 })
                 .then((data) => {
                     const filteredOrders = data.filter((order) => {
-                      return statusFilter.includes(order.status);
+                        return statusFilter.includes(order.status);
                     });
                     setOrders(filteredOrders);
-                  })
+                })
                 .catch((error) => {
                     console.error('Error fetching orders:', error);
                 });
-        }
-    }, [token, statusFilter]);
+        }, 5000);
+
+        return () => {
+            clearInterval(intervalId);
+        };
+    }, [statusFilter]);
 
     const calculateDuration = (entryDate, modificationDate) => {
         // Parse the date strings in the format "M/D/YYYY, h:mm:ss A"
         const entryTime = new Date(entryDate).getTime();
         const modificationTime = new Date(modificationDate).getTime();
         const duration = modificationTime - entryTime;
-      
+
         // Convert duration from milliseconds to hours, minutes, and seconds
         const hours = Math.floor(duration / (1000 * 60 * 60));
         const minutes = Math.floor((duration % (1000 * 60 * 60)) / (1000 * 60));
         const seconds = Math.floor((duration % (1000 * 60)) / 1000);
-      
+
         return `${hours}h ${minutes}m ${seconds}s`;
-      };
+    };
     return (
         <>
             <h2 className="title-orders">Orders</h2>
@@ -56,7 +62,7 @@ const Orders = ({ buttonName, onClickBehavior, statusFilter, showButton }) => {
                             width: "15rem",
                             minBlockSize: "19rem",
                             marginRight: "2px",
-                            backgroundColor: "#FCD53F",
+                            backgroundColor: backgroundColour,
                             borderRadius: "10px",
                             padding: "4px",
                             boxShadow: "0 0 0 4px #FF8855"
@@ -65,7 +71,8 @@ const Orders = ({ buttonName, onClickBehavior, statusFilter, showButton }) => {
                         <div className="card-header" id="card-header-chef">Client: {order.client}</div>
                         <p className="card-title" id="card-title-chef"> {order.dateEntry} </p>
                         <p className="card-title" id="card-title-chef"> Status: {order.status} </p>
-                        <p id="card-title-chef"> Duration: {calculateDuration(order.dateEntry, order.modificationDate)} </p>
+                        {showDuration && (
+                            <p id="card-title-chef"> Duration: {calculateDuration(order.dateEntry, order.modificationDate)} </p>)}
                         <article className="products-cont" > {order.products.map((product) => (
                             <div
                                 key={product.id}
