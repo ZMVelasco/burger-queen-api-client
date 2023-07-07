@@ -1,6 +1,7 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom/client";
 import 'bootstrap/dist/css/bootstrap.css';
+import { CssBaseline } from "@mui/material";
 import {
   createBrowserRouter,
   RouterProvider,
@@ -17,6 +18,7 @@ import KitchenOrders from "./routes/chef/kitchenorders.jsx";
 import Employees from "./routes/admin/employees.jsx";
 import Products from "./routes/admin/products.jsx";
 import AdminTable from "./routes/globalcomponents/admintable.jsx";
+
 
 const router = createBrowserRouter([
   {
@@ -71,6 +73,7 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
+      <CssBaseline/>
     <RouterProvider router={router} />
   </React.StrictMode>
 );

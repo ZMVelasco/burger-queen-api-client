@@ -1,61 +1,22 @@
 import ('../admin/admin.css')
-import Spinner from 'react-bootstrap/Spinner';
+import * as React from 'react';
+import Button from '@mui/material/Button';
+import DeleteIcon from '@mui/icons-material/Delete';
+import SendIcon from '@mui/icons-material/Send';
+import Stack from '@mui/material/Stack';
 
 export default 
 function Admin() {
   return (
     <>
-      <nav className="navbar navbar-inverse navbar-static-top">
-        <div className="container">
-          <div className="navbar-header">
-            <a className="navbar-brand" href="/">
-              <img
-                src="../src/assets/hamburger.svg"
-                alt="Burger Queen Logo"
-                className="bq-logo"
-              />
-            </a>
-          </div>
-          <ul className="nav navbar-nav">
-            <li>
-              <a href="/create-order">Create Order</a>
-            </li>
-            <li>
-              <a href="/track-orders">Track Orders</a>
-            </li>
-          </ul>
-        </div>
-      </nav>
-      <div id="sidebar">
-        <h1>React Router Admin</h1>
-        <div>
-          <form id="search-form" role="search">
-            <input
-              id="q"
-              aria-label="Search contacts"
-              placeholder="Search"
-              type="search"
-              name="q"
-            />
-            <div id="search-spinner" aria-hidden hidden={true} />
-            <div className="sr-only" aria-live="polite"></div>
-          </form>
-          <form method="post">
-            <button type="submit">New</button>
-          </form>
-        </div>
-        <nav className="secondary">
-          {/* Add secondary navigation content here */}
-        </nav>
-      </div>
-      <button type="button" className="btn btn-info">Info</button>
-      <div id="detail"></div>
-      <div className="spinner-border text-info" role="status">
-  <span className="visually-hidden">Loading...</span>
-</div>
-<Spinner animation="border" role="status">
-      <span className="visually-hidden">Loading...</span>
-    </Spinner>
+        <Stack direction="row" spacing={2}>
+      <Button variant="outlined" startIcon={<DeleteIcon />}>
+        Delete
+      </Button>
+      <Button variant="contained" endIcon={<SendIcon />}>
+        Send
+      </Button>
+    </Stack>
     </>
   );
 }
