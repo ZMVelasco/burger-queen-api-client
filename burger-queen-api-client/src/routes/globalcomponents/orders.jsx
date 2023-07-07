@@ -5,7 +5,7 @@ import { getOrders } from "../../fetch";
 import { useEffect, useState } from "react";
 import "../chef/chef.css"
 
-const Orders = ({ buttonName, onClickBehavior, statusFilter, showButton, showDuration }) => {
+const Orders = ({ buttonName, onClickBehavior, statusFilter, showButton, showDuration, backgroundColour }) => {
     const [orders, setOrders] = useState([]);
     
     const token = localStorage.getItem("token");
@@ -56,7 +56,7 @@ const Orders = ({ buttonName, onClickBehavior, statusFilter, showButton, showDur
                             width: "15rem",
                             minBlockSize: "19rem",
                             marginRight: "2px",
-                            backgroundColor: "#FCD53F",
+                            backgroundColor: backgroundColour,
                             borderRadius: "10px",
                             padding: "4px",
                             boxShadow: "0 0 0 4px #FF8855"
