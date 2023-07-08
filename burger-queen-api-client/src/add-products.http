@@ -1,6 +1,6 @@
-GET http://localhost:8080/products HTTP/1.1
+GET http://localhost:8080/orders HTTP/1.1
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFuaXRhLmJvcmdAc3lzdGVycy54eXoiLCJpYXQiOjE2ODg3NDM1NzgsImV4cCI6MTY4ODc0NzE3OCwic3ViIjoiMSJ9.Sg7SXf8dPQifpwQrCTzM-zW40G6UBgKB3SHia2WwdfM
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1hcmlhbmFAbWFpbC5jb20iLCJpYXQiOjE2ODg3NjI2OTksImV4cCI6MTY4ODc2NjI5OSwic3ViIjoiOCJ9.8vIGOqiC420Wb8D7VCVRWMMHSc0xQ1jjNasswImQEO4
 
 # {
 # "id":"6"
@@ -23,5 +23,3 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFuaXRhL
 #     "price": 500,
 #     "type": "Lunch & dinner"
 # }
-users id, nombre, rol, email, password
-products id, nombre, precio, tipo
