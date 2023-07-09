@@ -28,8 +28,8 @@ const Sidebar = ({
 
   return (
     <>
-      <nav className="navbar navbar-dark bg-dark fixed-top">
-        <div className="container-fluid">
+      <nav className="navbar navbar-dark bg-dark fixed-top" style={{backgroundColor: "#212529"}}>
+        <div className="container-fluid" >
           <button
             className="navbar-toggler"
             type="button"
@@ -45,9 +45,10 @@ const Sidebar = ({
             tabIndex="-1"
             id="offcanvasDarkNavbar"
             aria-labelledby="offcanvasDarkNavbarLabel"
+            style={{backgroundColor: "#212529"}}
           >
-            <div className="offcanvas-header">
-              <h5 className="offcanvas-title" id="offcanvasDarkNavbarLabel">
+            <div className="offcanvas-header" style={{backgroundColor: "#212529"}}>
+              <h5 className="offcanvas-title" id="offcanvasDarkNavbarLabel" style={{backgroundColor: "#212529"}}>
                 {brandName}
               </h5>
               <button
@@ -58,10 +59,10 @@ const Sidebar = ({
                 onClick={toggleOffcanvas}
               ></button>
             </div>
-            <div className="offcanvas-body">
-              <ul className="navbar-nav">
+            <div className="offcanvas-body" style={{backgroundColor: "#212529"}}>
+              <ul className="navbar-nav" >
                 {items.map((item, index) => (
-                  <li className="nav-item" key={index}>
+                  <li className="nav-item" key={index} style={{backgroundColor: "#212529"}}> 
                     <a
                       className="nav-link"
                       onClick={() => {
@@ -80,7 +81,7 @@ const Sidebar = ({
                     </a>
                   </li>
                 ))}
-                <li className="nav-item">
+                <li className="nav-item" style={{backgroundColor: "#212529"}}>
                   <button
                     className="btn btn-success"
                     type="button"
@@ -104,7 +105,7 @@ const Sidebar = ({
       {componentToRender && componentToRender === "product-card" && (
         <ProductCard />
       )}
-       {componentToRender && componentToRender === "pending-orders" && (
+      {componentToRender && componentToRender === "pending-orders" && (
         role === "chef" ? <KitchenOrders /> : <WaiterTracker />)}
     </>
   );

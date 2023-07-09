@@ -1,6 +1,8 @@
 import { adminFetch } from "../../fetch";
 import { useEffect, useState } from "react";
 import Table from 'react-bootstrap/Table';
+// import('../admin/admin.css');
+import '../admin/admin-table.module.css';
 
 const AdminTable = ({ endpoint, data, firstProperty, secondProperty, thirdProperty, showThirdProperty }) => {
     const token = localStorage.getItem("token");
