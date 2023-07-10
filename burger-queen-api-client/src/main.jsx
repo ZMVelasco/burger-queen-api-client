@@ -17,6 +17,7 @@ import KitchenOrders from "./routes/chef/kitchenorders.jsx";
 import Employees from "./routes/admin/employees.jsx";
 import Products from "./routes/admin/products.jsx";
 import AdminTable from "./routes/globalcomponents/admintable.jsx";
+import GlobalModal from "./routes/globalcomponents/Modal.jsx";
 
 
 const router = createBrowserRouter([
@@ -67,6 +68,10 @@ const router = createBrowserRouter([
   {
     path: "/table",
     element: <AdminTable/>,
+  },
+  {
+    path: "/modal",
+    element: <GlobalModal/>,
   },
 ]);
 
