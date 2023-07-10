@@ -10,17 +10,25 @@ const GlobalModal = () => {
     const handleShow = () => setShow(true);
 
     return (
-        <>
+        <section>
             <Button variant="primary" onClick={handleShow}>
                 Launch demo modal
             </Button>
 
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
-                    <Modal.Title>Modal heading</Modal.Title>
+                    <Modal.Title>Edit item</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                     <Form>
+                        <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                            <Form.Label>Name</Form.Label>
+                            <Form.Control
+                                type="text"
+                                placeholder="Name"
+                                autoFocus
+                        />
+                        </Form.Group>
                         <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
                             <Form.Label>Email address</Form.Label>
                             <Form.Control
@@ -47,7 +55,7 @@ const GlobalModal = () => {
                     </Button>
                 </Modal.Footer>
             </Modal>
-        </>
+        </section>
     );
 }
 

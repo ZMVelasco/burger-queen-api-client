@@ -1,6 +1,6 @@
 import { adminFetch } from "../../fetch";
 import { useEffect, useState } from "react";
-import { Table, Button } from 'react-bootstrap';
+import { Table, Button, Modal, Form } from 'react-bootstrap';
 import('../admin/admin.css');
 // import ReactDOM from "react-dom";
 import GlobalModal from "./Modal";
@@ -10,6 +10,9 @@ const AdminTable = ({ endpoint, data, firstProperty, secondProperty, thirdProper
     const [tableData, setTableData] = useState([]);
     const [isEditing, setIsEditing] = useState(null);
     const [show, setShow] = useState(false);
+
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
 
     useEffect(() => {
         adminFetch(token, endpoint)
@@ -35,7 +38,7 @@ const AdminTable = ({ endpoint, data, firstProperty, secondProperty, thirdProper
         setTableData(updatedData);
         console.log(itemId);
         setIsEditing(itemId); 
-        setShow(true);
+        handleShow();
     };
 
 
@@ -74,7 +77,55 @@ const AdminTable = ({ endpoint, data, firstProperty, secondProperty, thirdProper
                     ))}
                 </tbody>
             </Table>
-            {show && <GlobalModal />}
+            <section>
+            <Modal show={show} onHide={handleClose}>
+                <Modal.Header closeButton>
+                    <Modal.Title>Edit item</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    <Form>
+                        <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                            <Form.Label>Name</Form.Label>
+                            <Form.Control
+                                type="text"
+                                placeholder="Name"
+                                autoFocus
+                        />
+                        </Form.Group>
+                        <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                            <Form.Label>{firstProperty}</Form.Label>
+                            <Form.Control
+                                type="email"
+                                placeholder="name@example.com"
+                                autoFocus
+                            />
+                        </Form.Group>
+                        <Form.Group
+                            className="mb-3"
+                            controlId="exampleForm.ControlTextarea1"
+                        >
+                            <Form.Label>{secondProperty}</Form.Label>
+                            <Form.Control as="textarea" rows={1} />
+                        </Form.Group>
+                        <Form.Group
+                            className="mb-3"
+                            controlId="exampleForm.ControlTextarea1"
+                        >
+                            <Form.Label>{thirdProperty}</Form.Label>
+                            <Form.Control as="textarea" rows={1} />
+                        </Form.Group>
+                    </Form>
+                </Modal.Body>
+                <Modal.Footer>
+                    <Button variant="secondary" onClick={handleClose}>
+                        Close
+                    </Button>
+                    <Button variant="primary" onClick={handleClose}>
+                        Save Changes
+                    </Button>
+                </Modal.Footer>
+            </Modal>
+        </section>
         </div>
     );
 };
