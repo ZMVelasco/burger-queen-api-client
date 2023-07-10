@@ -74,5 +74,33 @@ export const adminFetch = (token, endpoint) => {
   });
 };
 
+export const deleteProducts = (token, productId) => {
+  const body = {
+    id: productId,
+  };
+  return fetch(`${url}/products/${productId}`, {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify(body),
+  })
+};
+
+export const deleteEmployees = (token, employeeId) => {
+  const body = {
+    id: employeeId,
+  };
+  return fetch(`${url}/users/${employeeId}`, {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify(body),
+  })
+};
+
 
 
