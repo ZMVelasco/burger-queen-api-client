@@ -1,7 +1,6 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom/client";
 import 'bootstrap/dist/css/bootstrap.css';
-import { CssBaseline } from "@mui/material";
 import {
   createBrowserRouter,
   RouterProvider,
@@ -73,7 +72,6 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <CssBaseline/>
     <RouterProvider router={router} />
   </React.StrictMode>
 );
