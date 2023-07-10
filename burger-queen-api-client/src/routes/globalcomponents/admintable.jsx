@@ -8,8 +8,18 @@ import GlobalModal from "./Modal";
 const AdminTable = ({ endpoint, data, firstProperty, secondProperty, thirdProperty, showThirdProperty, handleDelete }) => {
     const token = localStorage.getItem("token");
     const [tableData, setTableData] = useState([]);
+   
+    // TODO: borrar estado si ya no hace falta
     const [isEditing, setIsEditing] = useState(null);
+
     const [show, setShow] = useState(false);
+    const [editingItem, setEditingItem] = useState({
+        "email": "",
+        "password": "",
+        "name": "",
+        "role": "",
+        "id": ""
+      });
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
@@ -31,15 +41,19 @@ const AdminTable = ({ endpoint, data, firstProperty, secondProperty, thirdProper
             });
     }, [token, endpoint, data]);
 
-    const handleEditClick = (itemId) => {
-        const updatedData = tableData.map((item) =>
-            item.id === itemId ? { ...item, isEditing: true } : item
-        );
-        setTableData(updatedData);
-        console.log(itemId);
-        setIsEditing(itemId); 
+    const handleEditClick = (item) => {
+        setIsEditing(item.id); 
+        setEditingItem(item)
         handleShow();
     };
+
+    const handleFieldChange = (e) => {
+        const fieldName = e.target.name;
+        const fieldValue = e.target.value;
+        setEditingItem((prevState) => {
+            return {...prevState, [fieldName]: fieldValue}
+        })
+    }
 
 
     return (
@@ -66,7 +80,7 @@ const AdminTable = ({ endpoint, data, firstProperty, secondProperty, thirdProper
                             {showThirdProperty && (<td>{item[thirdProperty] === undefined ? "" : "******"}</td>)}
                             <td>
                                 <Button variant="warning"
-                                    onClick={() => handleEditClick(item.id)}>
+                                    onClick={() => handleEditClick(item)}>
                                     <i className="bi bi-pencil-square"></i>
                                     EDIT</Button>{' '}
                                 <Button variant="warning"
@@ -87,17 +101,23 @@ const AdminTable = ({ endpoint, data, firstProperty, secondProperty, thirdProper
                         <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
                             <Form.Label>Name</Form.Label>
                             <Form.Control
+                                name="name"
                                 type="text"
                                 placeholder="Name"
                                 autoFocus
+                                value={editingItem.name}
+                                onChange={handleFieldChange}
                         />
                         </Form.Group>
                         <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
                             <Form.Label>{firstProperty}</Form.Label>
                             <Form.Control
+                                 name="email"
                                 type="email"
                                 placeholder="name@example.com"
                                 autoFocus
+                                value={editingItem.email}
+                                onChange={handleFieldChange}
                             />
                         </Form.Group>
                         <Form.Group
