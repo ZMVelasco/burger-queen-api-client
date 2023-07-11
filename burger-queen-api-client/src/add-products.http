@@ -1,6 +1,6 @@
-GET http://localhost:8080/users HTTP/1.1
+GET http://localhost:8080/products HTTP/1.1
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1hcmlhbmFAbWFpbC5jb20iLCJpYXQiOjE2ODkxMDAwMzksImV4cCI6MTY4OTEwMzYzOSwic3ViIjoiOCJ9.8TLC2E-Dz8Wk0OWStW8djIdb8OEtwB0KQqVqHBQwUcs
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1hcmlhbmFAbWFpbC5jb20iLCJpYXQiOjE2ODkwOTc3ODQsImV4cCI6MTY4OTEwMTM4NCwic3ViIjoiOCJ9.7wy757uyPIIEKqXzsyqCVO8RPADe-EmAKolVNgCke3E
 
 # {
 #     "name": "Prueba 7",

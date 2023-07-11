@@ -13,7 +13,6 @@ const AdminTable = ({
     dataList,
 }) => {
     const token = localStorage.getItem("token");
-    const [tableData, setTableData] = useState([]);
 
     // TODO: borrar estado si ya no hace falta
     const [isEditing, setIsEditing] = useState(null);
@@ -65,22 +64,6 @@ const AdminTable = ({
         }
     };
 
-    useEffect(() => {
-        adminFetch(token, endpoint)
-            .then((response) => {
-                if (!response.ok) {
-                    throw new Error(`Error: ${response.status} ${response.statusText}`);
-                }
-                console.log("response", response);
-                return response.json();
-            })
-            .then((data) => {
-                setTableData(data);
-            })
-            .catch((error) => {
-                console.error("Error fetching orders:", error);
-            });
-    }, [token, endpoint, data]);
 
     const handleEditClick = (item) => {
         setIsEditing(item.id);
@@ -110,7 +93,7 @@ const AdminTable = ({
                     </tr>
                 </thead>
                 <tbody>
-                    {tableData.map((item, index) => (
+                    {dataList.map((item, index) => (
                         <tr key={item.id}>
                             <td>{index + 1}</td>
                             <td>{item.name}</td>
