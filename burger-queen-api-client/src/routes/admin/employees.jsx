@@ -1,15 +1,16 @@
-import { deleteEmployees, editEmployees } from "../../fetch";
+import { useEffect, useState } from "react";
+import { deleteEmployees, editEmployees, adminFetch } from "../../fetch";
 import AdminTable from "../globalcomponents/admintable";
 import AdditionModal from "../globalcomponents/AdditionModal";
 const Employees = () => {
 
+    const token = localStorage.getItem("token");
     const [tableData, setTableData] = useState([]);
 
     const handleEmployeesEdit = (id) => {
         console.log("Edit employee", id);
     }
     const handleEmployeesDelete = (itemId) => {
-        const token = localStorage.getItem("token");
         deleteEmployees(token, itemId)
             .then((response) => {
                 if (!response.ok) {
@@ -30,6 +31,7 @@ const Employees = () => {
                     throw new Error(`Error: ${response.status} ${response.statusText}`);
                 }
                 console.log("Employee modified", response);
+                refreshEmployeesEdit()
                 return response.json();
             })
             .catch((error) => {
@@ -38,7 +40,7 @@ const Employees = () => {
     }
 
     const refreshEmployeesEdit = () => {
-        adminFetch(token, endpoint)
+        adminFetch(token, "/users")
             .then((response) => {
                 if (!response.ok) {
                     throw new Error(`Error: ${response.status} ${response.statusText}`);
@@ -54,6 +56,9 @@ const Employees = () => {
             });
     }
 
+    useEffect(() => {
+        refreshEmployeesEdit()
+    }, []);
     return (
         <div>
             <h1>Employees</h1>

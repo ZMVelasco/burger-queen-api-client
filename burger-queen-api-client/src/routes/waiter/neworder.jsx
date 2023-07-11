@@ -37,7 +37,8 @@ const NewOrder = ({ selectedProducts, onRemoveProduct }) => {
 
     const getProductTotal = () => {
         const productTotal = selectedProducts.reduce((acc, product) => {
-            return acc + product.price;
+            const price = typeof product.price === 'string' ? Number(product.price) : product.price;
+            return acc + price;
         }, 0);
         return productTotal;
     };
