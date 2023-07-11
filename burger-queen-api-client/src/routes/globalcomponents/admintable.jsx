@@ -2,24 +2,32 @@ import { adminFetch } from "../../fetch";
 import { useEffect, useState } from "react";
 import { Table, Button, Modal, Form } from 'react-bootstrap';
 import('../admin/admin.css');
-// import ReactDOM from "react-dom";
-import GlobalModal from "./Modal";
 
-const AdminTable = ({ endpoint, data, firstProperty, secondProperty, thirdProperty, showThirdProperty, handleDelete }) => {
+const AdminTable = ({ endpoint, data, firstProperty, secondProperty, handleDelete }) => {
     const token = localStorage.getItem("token");
     const [tableData, setTableData] = useState([]);
-   
+
     // TODO: borrar estado si ya no hace falta
     const [isEditing, setIsEditing] = useState(null);
 
     const [show, setShow] = useState(false);
-    const [editingItem, setEditingItem] = useState({
-        "email": "",
-        "password": "",
-        "name": "",
-        "role": "",
-        "id": ""
-      });
+    const [editingItem, setEditingItem] = useState(() => {
+        if (endpoint === "products") {
+            return {
+                id: "",
+                name: "",
+                type: "",
+                price: "",
+            };
+        } else {
+            return {
+                id: "",
+                name: "",
+                role: "",
+                email: "",
+            };
+        }
+    });
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
@@ -42,7 +50,7 @@ const AdminTable = ({ endpoint, data, firstProperty, secondProperty, thirdProper
     }, [token, endpoint, data]);
 
     const handleEditClick = (item) => {
-        setIsEditing(item.id); 
+        setIsEditing(item.id);
         setEditingItem(item)
         handleShow();
     };
@@ -51,7 +59,7 @@ const AdminTable = ({ endpoint, data, firstProperty, secondProperty, thirdProper
         const fieldName = e.target.name;
         const fieldValue = e.target.value;
         setEditingItem((prevState) => {
-            return {...prevState, [fieldName]: fieldValue}
+            return { ...prevState, [fieldName]: fieldValue }
         })
     }
 
@@ -66,7 +74,6 @@ const AdminTable = ({ endpoint, data, firstProperty, secondProperty, thirdProper
                         <th>Name</th>
                         <th>{firstProperty}</th>
                         <th>{secondProperty}</th>
-                        {showThirdProperty && (<th>{thirdProperty}</th>)}
                         <th>Actions</th>
                     </tr>
                 </thead>
@@ -77,7 +84,6 @@ const AdminTable = ({ endpoint, data, firstProperty, secondProperty, thirdProper
                             <td>{item.name}</td>
                             <td>{item[firstProperty]}</td>
                             <td>{item[secondProperty]}</td>
-                            {showThirdProperty && (<td>{item[thirdProperty] === undefined ? "" : "******"}</td>)}
                             <td>
                                 <Button variant="warning"
                                     onClick={() => handleEditClick(item)}>
@@ -92,60 +98,57 @@ const AdminTable = ({ endpoint, data, firstProperty, secondProperty, thirdProper
                 </tbody>
             </Table>
             <section>
-            <Modal show={show} onHide={handleClose}>
-                <Modal.Header closeButton>
-                    <Modal.Title>Edit item</Modal.Title>
-                </Modal.Header>
-                <Modal.Body>
-                    <Form>
-                        <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                            <Form.Label>Name</Form.Label>
-                            <Form.Control
-                                name="name"
-                                type="text"
-                                placeholder="Name"
-                                autoFocus
-                                value={editingItem.name}
-                                onChange={handleFieldChange}
-                        />
-                        </Form.Group>
-                        <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                            <Form.Label>{firstProperty}</Form.Label>
-                            <Form.Control
-                                 name="email"
-                                type="email"
-                                placeholder="name@example.com"
-                                autoFocus
-                                value={editingItem.email}
-                                onChange={handleFieldChange}
-                            />
-                        </Form.Group>
-                        <Form.Group
-                            className="mb-3"
-                            controlId="exampleForm.ControlTextarea1"
-                        >
-                            <Form.Label>{secondProperty}</Form.Label>
-                            <Form.Control as="textarea" rows={1} />
-                        </Form.Group>
-                        <Form.Group
-                            className="mb-3"
-                            controlId="exampleForm.ControlTextarea1"
-                        >
-                            <Form.Label>{thirdProperty}</Form.Label>
-                            <Form.Control as="textarea" rows={1} />
-                        </Form.Group>
-                    </Form>
-                </Modal.Body>
-                <Modal.Footer>
-                    <Button variant="secondary" onClick={handleClose}>
-                        Close
-                    </Button>
-                    <Button variant="primary" onClick={handleClose}>
-                        Save Changes
-                    </Button>
-                </Modal.Footer>
-            </Modal>
-        </section>
+                <Modal show={show} onHide={handleClose}>
+                    <Modal.Header closeButton>
+                        <Modal.Title>Edit item</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>
+                        <Form>
+                            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                                <Form.Label>Name</Form.Label>
+                                <Form.Control
+                                    name="name"
+                                    type="text"
+                                    placeholder="Name"
+                                    autoFocus
+                                    value={editingItem.name}
+                                    onChange={handleFieldChange}
+                                />
+                            </Form.Group>
+                            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                                <Form.Label>{firstProperty}</Form.Label>
+                                <Form.Control
+                                    name="email"
+                                    type="email"
+                                    placeholder="name@example.com"
+                                    autoFocus
+                                    value={editingItem.email}
+                                    onChange={handleFieldChange}
+                                />
+                            </Form.Group>
+                            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                                <Form.Label>{secondProperty}</Form.Label>
+                                <Form.Control
+                                    name="email"
+                                    type="email"
+                                    placeholder="name@example.com"
+                                    autoFocus
+                                    value={editingItem.email}
+                                    onChange={handleFieldChange}
+                                />
+                            </Form.Group>
+                        </Form>
+                    </Modal.Body>
+                    <Modal.Footer>
+                        <Button variant="secondary" onClick={handleClose}>
+                            Close
+                        </Button>
+                        <Button variant="primary" onClick={handleClose}>
+                            Save Changes
+                        </Button>
+                    </Modal.Footer>
+                </Modal>
+            </section>
         </div>
     );
 };

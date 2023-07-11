@@ -24,7 +24,7 @@ const Employees = () => {
     return (
         <div>
         <h1>Employees</h1>
-        <AdminTable endpoint="/users" firstProperty="role" secondProperty="email" thirdProperty="password"  showThirdProperty={true} handleEdit={handleEmployeesEdit} handleDelete={handleEmployeesDelete}/>
+        <AdminTable endpoint="/users" firstProperty="role" secondProperty="email" handleEdit={handleEmployeesEdit} handleDelete={handleEmployeesDelete}/>
         </div>
     );
 }
