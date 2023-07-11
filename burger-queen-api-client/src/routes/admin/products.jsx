@@ -1,5 +1,7 @@
 import { deleteProducts } from "../../fetch";
 import AdminTable from "../globalcomponents/admintable";
+import AdditionModal from "../globalcomponents/AdditionModal";
+
 const Products = () => {
 
     const handleProductsEdit = (id) => {
@@ -24,6 +26,7 @@ const Products = () => {
     return (
         <div>
         <h1>Products</h1>
+        <AdditionModal endpoint="/products" endpointName="Products"/>
         <AdminTable endpoint="/products" firstProperty="price" secondProperty="type" handleEdit={handleProductsEdit} handleDelete={handleProductsDelete}/>
         </div>
     );
