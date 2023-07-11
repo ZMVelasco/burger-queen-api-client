@@ -1,4 +1,4 @@
-import { adminFetch } from "../../fetch";
+import { adminFetch, editEmployees, editProducts } from "../../fetch";
 import { useEffect, useState } from "react";
 import { Table, Button, Modal, Form } from "react-bootstrap";
 import("../admin/admin.css");
@@ -37,6 +37,41 @@ const AdminTable = ({
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+  const handleSave = () => {
+    const token = localStorage.getItem("token");
+    const id = editingItem.id;
+    const name = editingItem.name;
+    const role = editingItem.role;
+    const email = editingItem.email;
+    const price = editingItem.price;
+    const type = editingItem.type;
+
+    if (endpoint === "/users") {
+      editEmployees(token, id, name, role, email)
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error(`Error: ${response.status} ${response.statusText}`);
+          }
+          console.log("Employee modified", response);
+          return response.json();
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    } else {
+      editProducts(token, id, name, price, type)
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error(`Error: ${response.status} ${response.statusText}`);
+          }
+          console.log("product modified", response);
+          return response.json();
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
+  };
 
   useEffect(() => {
     adminFetch(token, endpoint)
@@ -191,7 +226,7 @@ const AdminTable = ({
             <Button variant="secondary" onClick={handleClose}>
               Close
             </Button>
-            <Button variant="primary" onClick={handleClose}>
+            <Button variant="primary" onClick={handleSave}>
               Save Changes
             </Button>
           </Modal.Footer>
