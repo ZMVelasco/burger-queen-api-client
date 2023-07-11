@@ -1,6 +1,6 @@
-POST http://localhost:8080/users HTTP/1.1
+GET http://localhost:8080/users HTTP/1.1
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1hcmlhbmFAbWFpbC5jb20iLCJpYXQiOjE2ODkwMDE3NTgsImV4cCI6MTY4OTAwNTM1OCwic3ViIjoiOCJ9.gpVogmmOrjvlGxftjiOuuyRJHb0iJ08nWbZxewGeGrE
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1hcmlhbmFAbWFpbC5jb20iLCJpYXQiOjE2ODkwOTc3ODQsImV4cCI6MTY4OTEwMTM4NCwic3ViIjoiOCJ9.7wy757uyPIIEKqXzsyqCVO8RPADe-EmAKolVNgCke3E
 
 # {
 #     "name": "Prueba 7",
@@ -12,12 +12,12 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1hcmlhb
 # "id":"6"
 # }
 
-{
-    "name": "Pruebacinco",
-    "email": "waiter7@mail.com",
-    "password": "123456",
-    "role": "waiter"
-}
+# {
+#     "name": "Pruebacinco",
+#     "email": "waiter7@mail.com",
+#     "password": "123456",
+#     "role": "waiter"
+# }
 
 
 

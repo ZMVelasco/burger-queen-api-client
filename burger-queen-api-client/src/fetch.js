@@ -103,4 +103,39 @@ export const deleteEmployees = (token, employeeId) => {
 };
 
 
+export const editEmployees = (token, employeeId, name, role, email) => {
+  const body = {
+    id: employeeId,
+    name,
+    role,
+    email
+  };
+  return fetch(`${url}/users/${employeeId}`, {
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify(body),
+  });
+}
+
+export const editProducts = (token, productId, name, price, type) => {
+  const body = {
+    id: productId,
+    name,
+    price,
+    type
+  };
+  return fetch(`${url}/products/${productId}`, {
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify(body),
+  });
+}
+
+
 
