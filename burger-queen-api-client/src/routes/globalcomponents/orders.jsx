@@ -5,7 +5,7 @@ import { getOrders } from "../../fetch";
 import { useEffect, useState } from "react";
 import "../chef/chef.css"
 
-const Orders = ({ buttonName, onClickBehavior, statusFilter, showButton, showDuration, backgroundColour }) => {
+const Orders = ({ buttonName, onClickBehavior, statusFilter, showButton, showDuration, backgroundColour, borderColor }) => {
     const [orders, setOrders] = useState([]);
 
     const token = localStorage.getItem("token");
@@ -64,20 +64,21 @@ const Orders = ({ buttonName, onClickBehavior, statusFilter, showButton, showDur
                             marginRight: "2px",
                             backgroundColor: backgroundColour,
                             borderRadius: "10px",
-                            padding: "4px",
-                            boxShadow: "0 0 0 4px #FF8855"
+                            padding: "4px" ,
+                            boxShadow: `0 0 0 4px ${borderColor}`
                         }}
                     >
                         <div className="card-header" id="card-header-chef">Client: {order.client}</div>
-                        <p className="card-title" id="card-title-chef"> {order.dateEntry} </p>
-                        <p className="card-title" id="card-title-chef"> Status: {order.status} </p>
+                        <p className="card-title"  style={{ backgroundColor: backgroundColour, fontSize: "14px"  }} id="card-title-chef"> {order.dateEntry} </p>
+                        <p className="card-title" style={{ backgroundColor: backgroundColour, fontSize: "14px"  }} id="card-title-chef"> Status: {order.status} </p>
                         {showDuration && (
-                            <p id="card-title-chef"> Duration: {calculateDuration(order.dateEntry, order.modificationDate)} </p>)}
-                        <article className="products-cont" > {order.products.map((product) => (
+                            <p id="card-title-chef" style={{ backgroundColor: backgroundColour, color: "black" }}> Duration: {calculateDuration(order.dateEntry, order.modificationDate)} </p>)}
+                        <article className="products-cont" style={{ backgroundColor: backgroundColour }}> {order.products.map((product) => (
                             <div
                                 key={product.id}
                                 className="card-body"
                                 id="card-body-chef"
+                                style={{ backgroundColor: backgroundColour }}
                             >
                                 <p className="quantity" id="quantity-chef">{product.quantity}</p>
                                 <p className="product-name" id="product-name-chef"  >{product.name}</p>
