@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { deleteEmployees, editEmployees, adminFetch } from "../../fetch";
+import { deleteEmployees, editEmployees, adminFetch, createEmployee } from "../../fetch";
 import AdminTable from "../globalcomponents/admintable";
 import AdditionModal from "../globalcomponents/AdditionModal";
 
@@ -8,9 +8,47 @@ const Employees = () => {
     const token = localStorage.getItem("token");
     const [tableData, setTableData] = useState([]);
 
-    const [employeeData, setEmployeeData] = useState([]);
-
     const employeeTotal = tableData.length;
+
+    const [formValues, setFormValues] = useState({
+        name: '',
+        role: '',
+        email: '',
+        password: '',
+    });
+
+    const handleInputChangeEmployees = (event, name) => {
+        const { value } = event.target;
+        setFormValues((prevValues) => ({
+            ...prevValues,
+            [name]: value,
+        }));
+        console.log(formValues);
+    };
+
+    const addEmployee = () => {
+        const { name, role, email, password } = formValues;
+        createEmployee(token, name, role, email, password)
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error(`Error: ${response.status} ${response.statusText}`);
+                }
+                console.log("Employee created", response);
+                refreshEmployeesEdit()
+                return response.json();
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+    }
+
+
+
+    const handleEmployeeSubmit = (event) => {
+        event.preventDefault();
+        // You can access the form values in the formValues object.
+        console.log(formValues);
+    };
 
     const handleEmployeesEdit = (id) => {
         console.log("Edit employee", id);
@@ -75,8 +113,8 @@ const Employees = () => {
     return (
         <div>
             <h1>Employees</h1>
-            <AdditionModal endpoint="/users" endpointName="Employees" itemTotal={employeeTotal} inputFields={employeeFields} />
-            <AdminTable endpoint="/users" firstProperty="role" secondProperty="email" handleEdit={handleEmployeesEdit} handleDelete={handleEmployeesDelete} saveCallback={requestEditEmployees} dataList={tableData}  />
+            <AdditionModal endpoint="/users" endpointName="Employees" itemTotal={employeeTotal} inputFields={employeeFields} handleInputChange={handleInputChangeEmployees} handleSubmit={handleEmployeeSubmit} handleCreate={addEmployee} />
+            <AdminTable endpoint="/users" firstProperty="role" secondProperty="email" handleEdit={handleEmployeesEdit} handleDelete={handleEmployeesDelete} saveCallback={requestEditEmployees} dataList={tableData} />
         </div>
     );
 };
