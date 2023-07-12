@@ -23,7 +23,7 @@ const Employees = () => {
             ...prevValues,
             [name]: value,
         }));
-        console.log(formValues);
+        console.log([name]);
     };
 
     const addEmployee = () => {
