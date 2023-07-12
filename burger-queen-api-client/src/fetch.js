@@ -137,5 +137,33 @@ export const editProducts = (token, productId, name, price, type) => {
   });
 }
 
+export const createEmployee = (token, name, role, email, password) => {
+  return fetch(`${url}/users`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify({
+        name,
+        role,
+        email,
+        password
+      })
+  })
+};
 
-
+export const createProduct = (token, name, type, price) => {
+  return fetch(`${url}/products`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify({
+        name,
+        type,
+        price
+      })
+  })
+};
