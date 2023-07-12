@@ -20,17 +20,16 @@ const Products = () => {
             ...prevValues,
             [name]: value,
         }));
-        console.log(formValues);
     };
 
     const addProduct = () => {
         const { name, type, price } = formValues;
-        createProduct(token, name, type, price )
+        createProduct(token, name, type, price)
             .then((response) => {
                 if (!response.ok) {
                     throw new Error(`Error: ${response.status} ${response.statusText}`);
                 }
-                console.log("Employee created", response);
+                console.log("Product created", response);
                 refreshProductsEdit()
                 return response.json();
             })
@@ -46,9 +45,9 @@ const Products = () => {
     };
 
     const productFields = [
-        { id: 'name', label: 'Name', type: 'text', placeholder: 'Strawberry smoothie', autoFocus: true },
-        { id: 'type', label: 'Type', type: 'text', placeholder: 'Breakfast', autoFocus: false },
-        { id: 'price', label: 'Price', type: 'number', placeholder: '500', autoFocus: false },
+        { name: 'name', label: 'Name', type: 'text', placeholder: 'Strawberry smoothie', autoFocus: true },
+        { name: 'type', label: 'Type', type: 'text', placeholder: 'Breakfast', autoFocus: false },
+        { name: 'price', label: 'Price', type: 'number', placeholder: '500', autoFocus: false },
     ];
 
     const handleProductsEdit = (id) => {
