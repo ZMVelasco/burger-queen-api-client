@@ -26,26 +26,20 @@ const AdditionModal = ({ endpoint, endpointName, itemTotal, inputFields }) => {
     }, [token, endpoint]);
 
     return (
-        <>
-            <div>AdditionModal</div>
-            <Card style={{ width: '18rem' }}>
+        <section className='addition-modal' style={{ display: "flex", alignItems: "center", justifyContent:"center", marginBottom:"5%" }}>
+            <Card style={{ width: '12rem', height:"8rem" }}>
                 <Card.Body>
-                    <Card.Title>Total {endpointName}</Card.Title>
-                    <Card.Text>
+                    <Card.Title style={{color: "white", fontWeight:"600"}}>Total {endpointName}</Card.Title>
+                    <Card.Text >
                         {itemTotal} {endpointName}
                     </Card.Text>
                 </Card.Body>
             </Card>
-            <Card style={{ width: '18rem' }}>
+            <Card style={{ width: '12rem', height:"8rem", marginLeft: "4%"}}>
                 <Card.Body>
-                    <Card.Title>Add {endpointName}</Card.Title>
-                    <Card.Subtitle className="mb-2 text-muted">Card Subtitle</Card.Subtitle>
-                    <Card.Text>
-                        Some quick example text to build on the card title and make up the
-                        bulk of the card's content.
-                    </Card.Text>
-                    <Button variant="primary" onClick={handleShow}>
-                        <i className="bi bi-plus-square-fill"></i>
+                    <Card.Title style={{color: "white", fontWeight:"600"}}>Add {endpointName}</Card.Title>
+                    <Button variant="primary" onClick={handleShow} style={{backgroundColor:"#00A86B", border: "1px solid #00A86B", width: "40%", marginLeft: "60%"}}>
+                        <i className="bi bi-plus-square-fill" style={{backgroundColor:"transparent", fontSize:"1.5rem"}}></i>
                     </Button>
                 </Card.Body>
             </Card>
@@ -76,7 +70,7 @@ const AdditionModal = ({ endpoint, endpointName, itemTotal, inputFields }) => {
                     </Button>
                 </Modal.Footer>
             </Modal>
-        </>
+        </section>
     );
 }
 

@@ -68,8 +68,7 @@ const AdminTable = ({
     };
 
     return (
-        <div>
-            <h1>AdminTable</h1>
+        <div style={{display:"flex", justifyContent:"center", alignItems:"center"}}>
             <Table striped bordered hover variant="dark" style={{ width: "80%" }}>
                 <thead>
                     <tr>
@@ -89,11 +88,11 @@ const AdminTable = ({
                             <td>{item[secondProperty]}</td>
                             <td>
                                 <Button variant="warning" onClick={() => handleEditClick(item)}>
-                                    <i className="bi bi-pencil-square"></i>
+                                    <i className="bi bi-pencil-square" style={{backgroundColor: "#FFC107", color:"black", marginRight:"1%"}}></i>
                                     EDIT
                                 </Button>{" "}
                                 <Button variant="warning" onClick={() => handleDelete(item.id)}>
-                                    <i className="bi bi-trash3-fill"></i>DELETE
+                                    <i className="bi bi-trash3-fill" style={{backgroundColor: "#FFC107", color:"black", marginRight:"1%"}}></i>DELETE
                                 </Button>{" "}
                             </td>
                         </tr>

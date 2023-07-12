@@ -8,6 +8,8 @@ const Employees = () => {
     const token = localStorage.getItem("token");
     const [tableData, setTableData] = useState([]);
 
+    const [employeeData, setEmployeeData] = useState([]);
+
     const employeeTotal = tableData.length;
 
     const handleEmployeesEdit = (id) => {
@@ -74,8 +76,8 @@ const Employees = () => {
         <div>
             <h1>Employees</h1>
             <AdditionModal endpoint="/users" endpointName="Employees" itemTotal={employeeTotal} inputFields={employeeFields} />
-            <AdminTable endpoint="/users" firstProperty="role" secondProperty="email" handleEdit={handleEmployeesEdit} handleDelete={handleEmployeesDelete} saveCallback={requestEditEmployees} dataList={tableData} />
+            <AdminTable endpoint="/users" firstProperty="role" secondProperty="email" handleEdit={handleEmployeesEdit} handleDelete={handleEmployeesDelete} saveCallback={requestEditEmployees} dataList={tableData}  />
         </div>
     );
-}
+};
 export default Employees;
