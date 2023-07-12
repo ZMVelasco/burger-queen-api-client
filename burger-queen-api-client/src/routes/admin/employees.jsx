@@ -2,21 +2,31 @@ import { useEffect, useState } from "react";
 import { deleteEmployees, editEmployees, adminFetch } from "../../fetch";
 import AdminTable from "../globalcomponents/admintable";
 import AdditionModal from "../globalcomponents/AdditionModal";
+
 const Employees = () => {
 
     const token = localStorage.getItem("token");
     const [tableData, setTableData] = useState([]);
 
+    const employeeTotal = tableData.length;
+
     const handleEmployeesEdit = (id) => {
         console.log("Edit employee", id);
     }
+
+    const employeeFields = [
+        { name: 'name', label: 'Name', type: 'text', placeholder: 'Jane Doe', autoFocus: true },
+        { name: 'role', label: 'Role', type: 'text', placeholder: 'waiter', autoFocus: false },
+        { name: 'email', label: 'Email', type: 'email', placeholder: 'janedoe@mail.com', autoFocus: false },
+        { name: 'password', label: 'Password', type: 'password', placeholder: 'opensesame123', autoFocus: false },
+    ];
+
     const handleEmployeesDelete = (itemId) => {
         deleteEmployees(token, itemId)
             .then((response) => {
                 if (!response.ok) {
                     throw new Error(`Error: ${response.status} ${response.statusText}`);
                 }
-                console.log('el id es', itemId);
                 console.log('Employee delete', response);
                 return response.json();
             })
@@ -50,6 +60,7 @@ const Employees = () => {
             })
             .then((data) => {
                 setTableData(data);
+                console.log(employeeTotal);
             })
             .catch((error) => {
                 console.error("Error fetching orders:", error);
@@ -57,12 +68,12 @@ const Employees = () => {
     }
 
     useEffect(() => {
-        refreshEmployeesEdit()
+        refreshEmployeesEdit();
     }, []);
     return (
         <div>
             <h1>Employees</h1>
-            <AdditionModal endpoint="/users" endpointName="Employees" />
+            <AdditionModal endpoint="/users" endpointName="Employees" itemTotal={employeeTotal} inputFields={employeeFields} />
             <AdminTable endpoint="/users" firstProperty="role" secondProperty="email" handleEdit={handleEmployeesEdit} handleDelete={handleEmployeesDelete} saveCallback={requestEditEmployees} dataList={tableData} />
         </div>
     );
