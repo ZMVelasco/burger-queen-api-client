@@ -3,7 +3,7 @@ import { Card, Button, Modal, Form } from 'react-bootstrap'
 import { useEffect, useState } from 'react';
 import { adminFetch } from '../../fetch';
 
-const AdditionModal = ({ endpoint, endpointName, itemTotal, inputFields }) => {
+const AdditionModal = ({ endpoint, endpointName, itemTotal, inputFields, handleInputChange, handleSubmit, handleCreate }) => {
     const [show, setShow] = useState(false);
     const token = localStorage.getItem("token");
     const handleClose = () => setShow(false);
@@ -48,7 +48,7 @@ const AdditionModal = ({ endpoint, endpointName, itemTotal, inputFields }) => {
                     <Modal.Title>{`Add new ${endpointName}`}</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <Form>
+                    <Form onSubmit={handleSubmit}>
                         {inputFields.map((field) => (
                             <Form.Group className="mb-3" controlId={field.id} key={field.id}>
                                 <Form.Label>{field.label}</Form.Label>
@@ -56,6 +56,7 @@ const AdditionModal = ({ endpoint, endpointName, itemTotal, inputFields }) => {
                                     type={field.type}
                                     placeholder={field.placeholder}
                                     autoFocus={field.autoFocus}
+                                    onChange={(event) => handleInputChange(event, field.name)}
                                 />
                             </Form.Group>
                         ))}
@@ -65,7 +66,7 @@ const AdditionModal = ({ endpoint, endpointName, itemTotal, inputFields }) => {
                     <Button variant="secondary" onClick={handleClose}>
                         Close
                     </Button>
-                    <Button variant="primary" onClick={handleClose}>
+                    <Button variant="primary" onClick={handleCreate}>
                         Save Changes
                     </Button>
                 </Modal.Footer>

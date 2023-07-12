@@ -46,6 +46,7 @@ const handleSubmit = (event) => {
   .then((data) => {
     localStorage.setItem("token", data.accessToken)
     localStorage.setItem("userId", data.user.id)
+    localStorage.setItem("name", data.user.name)
     const userId = data.user.id;
     console.log(userId)
     if (data.user.role === "admin") {

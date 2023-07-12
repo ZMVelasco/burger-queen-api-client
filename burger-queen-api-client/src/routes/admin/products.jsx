@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { deleteProducts, editProducts, adminFetch } from "../../fetch";
+import { deleteProducts, editProducts, adminFetch, createProduct } from "../../fetch";
 import AdminTable from "../globalcomponents/admintable";
 import AdditionModal from "../globalcomponents/AdditionModal";
 
@@ -8,6 +8,42 @@ const Products = () => {
     const token = localStorage.getItem("token");
     const [tableData, setTableData] = useState([]);
     const productsTotal = tableData.length;
+    const [formValues, setFormValues] = useState({
+        name: '',
+        type: '',
+        price: '',
+    });
+
+    const handleInputChangeProducts = (event, name) => {
+        const { value } = event.target;
+        setFormValues((prevValues) => ({
+            ...prevValues,
+            [name]: value,
+        }));
+        console.log(formValues);
+    };
+
+    const addProduct = () => {
+        const { name, type, price } = formValues;
+        createProduct(token, name, type, price )
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error(`Error: ${response.status} ${response.statusText}`);
+                }
+                console.log("Employee created", response);
+                refreshProductsEdit()
+                return response.json();
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+    }
+
+    const handleProductSubmit = (event) => {
+        event.preventDefault();
+        // You can access the form values in the formValues object.
+        console.log(formValues);
+    };
 
     const productFields = [
         { id: 'name', label: 'Name', type: 'text', placeholder: 'Strawberry smoothie', autoFocus: true },
@@ -74,7 +110,7 @@ const Products = () => {
     return (
         <div>
             <h1>Products</h1>
-            <AdditionModal endpoint="/products" endpointName="Products" itemTotal={productsTotal} inputFields={productFields} />
+            <AdditionModal endpoint="/products" endpointName="Products" itemTotal={productsTotal} inputFields={productFields} handleInputChange={handleInputChangeProducts} handleSubmit={handleProductSubmit} handleCreate={addProduct}/>
             <AdminTable endpoint="/products" firstProperty="price" secondProperty="type" handleEdit={handleProductsEdit} handleDelete={handleProductsDelete} saveCallback={requestEditProducts} dataList={tableData} />
         </div>
     );

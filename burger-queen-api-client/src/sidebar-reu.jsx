@@ -8,15 +8,17 @@ const Sidebar = ({
   role,
   items,
   brandName,
-  welcomeMessage,
   onCreateOrderClick,
   onPendingOrderClick,
-  onPastOrderClick
+  onPastOrderClick,
+  onEmployeesClick,
+  onProductsClick,
 }) => {
   const [isOpen, setIsOpen] = useState(true);
   const [componentToRender, setComponentToRender] = useState(null);
 
   const navigate = useNavigate();
+  const userName = localStorage.getItem("name");
 
   const toggleOffcanvas = () => {
     setIsOpen(!isOpen);
@@ -72,6 +74,10 @@ const Sidebar = ({
                           onPendingOrderClick();
                         } else if (item.component === "past-orders") {
                           onPastOrderClick();
+                        } else if (item.component === "employees") {
+                          onEmployeesClick();
+                        } else if (item.component === "products") {
+                          onProductsClick();
                         }
                         toggleOffcanvas();
                       }}
@@ -99,7 +105,7 @@ const Sidebar = ({
               </ul>
             </div>
           </div>
-          <h5 className="navbar-brand">{welcomeMessage}</h5>
+          <h5 className="navbar-brand">{`Welcome ${userName}`}</h5>
         </div>
       </nav>
       {componentToRender && componentToRender === "product-card" && (
