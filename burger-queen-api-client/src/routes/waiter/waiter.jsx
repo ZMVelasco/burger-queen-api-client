@@ -28,7 +28,6 @@ const Waiter = () => {
           { label: "Pending orders", component: "pending-orders" },
         ]}
         brandName="BQ"
-        welcomeMessage="Welcome, Waiter!"
         onCreateOrderClick={handleCreateOrderClick}
         onPendingOrderClick={handlePendingOrderClick}
       />

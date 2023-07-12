@@ -27,7 +27,6 @@ const Chef = () => {
             { label: "Past orders", component: "past-orders" },
           ]}
         brandName="BQ"
-        welcomeMessage="Welcome Chef!"
         onPendingOrderClick={handlePendingOrderClick}
         onPastOrderClick={handlePastOrderClick}
       />
