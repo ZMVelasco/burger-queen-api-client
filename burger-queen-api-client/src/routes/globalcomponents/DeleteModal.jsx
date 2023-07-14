@@ -1,30 +1,35 @@
-import React from 'react'
-import { useState } from 'react';
-import Button from 'react-bootstrap/Button';
-import Modal from 'react-bootstrap/Modal';
+import React from "react";
+import { useState } from "react";
+import Button from "react-bootstrap/Button";
+import Modal from "react-bootstrap/Modal";
 
-const DeleteModal = ({showDeleteModal, setShowDeleteModal}) => {
-    // const [showDeleteModal, setShowDeleteModal] = useState(false);
+const DeleteModal = ({ showDeleteModal, setShowDeleteModal, handleDelete }) => {
+  // const [showDeleteModal, setShowDeleteModal] = useState(false);
 
-  
-    return (
-      <>
-        <Modal show={showDeleteModal} onHide={() => setShowDeleteModal(false)}>
-          <Modal.Header closeButton>
-            <Modal.Title>Modal heading</Modal.Title>
-          </Modal.Header>
-          <Modal.Body>Woohoo, you are reading this text in a modal!</Modal.Body>
-          <Modal.Footer>
-            <Button variant="secondary" onClick={() => setShowDeleteModal(false)}>
-              Close
-            </Button>
-            <Button variant="primary" onClick={() => setShowDeleteModal(false)}>
-              Save Changes
-            </Button>
-          </Modal.Footer>
-        </Modal>
-      </>
-    );
-}
+  return (
+    <>
+      <Modal show={showDeleteModal} onHide={() => setShowDeleteModal(false)}>
+        <Modal.Header closeButton>
+          <Modal.Title>Modal heading</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>Woohoo, you are reading this text in a modal!</Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={() => setShowDeleteModal(false)}>
+            Close
+          </Button>
+          <Button
+            variant="primary"
+            onClick={() => {
+              setShowDeleteModal(false);
+              handleDelete(item.id);
+            }}
+          >
+            Save Changes
+          </Button>
+        </Modal.Footer>
+      </Modal>
+    </>
+  );
+};
 
-export default DeleteModal
+export default DeleteModal;

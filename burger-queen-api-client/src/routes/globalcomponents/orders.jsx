@@ -22,7 +22,7 @@ const Orders = ({ orders, buttonName, onClickBehavior, showButton, showDuration,
     return (
         <>
             <h2 className="title-orders">Orders</h2>
-            <section id="orders">
+            <section id="orders" style={{ height:"78vh", width:"100%", overflow:"scroll"}}>
                 {orders.map((order) => (
                     <div
                         key={order.id}
