@@ -1,7 +1,6 @@
 import Orders from "../globalcomponents/orders";
 import { patchOrder, getOrders } from "../../fetch";
 import { useState, useEffect } from "react";
-import PropTypes from 'prop-types';
 
 const KitchenOrders = () => {
     const token = localStorage.getItem("token");

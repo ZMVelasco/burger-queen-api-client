@@ -6,19 +6,6 @@ import { useEffect, useState } from "react";
 import "../chef/chef.css"
 
 const Orders = ({ orders, buttonName, onClickBehavior, showButton, showDuration, backgroundColour, borderColor }) => {
-    
-    // const token = localStorage.getItem("token");
-    // let intervalId;
-
-    // useEffect(() => {
-    //     intervalId = setInterval(() => {
-            
-    //     }, 5000);
-
-    //     return () => {
-    //         clearInterval(intervalId);
-    //     };
-    // }, [statusFilter]);
 
     const calculateDuration = (entryDate, modificationDate) => {
         // Parse the date strings in the format "M/D/YYYY, h:mm:ss A"
