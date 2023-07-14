@@ -8,16 +8,8 @@ import {
 import Login from "./routes/login/login.jsx";
 import Waiter from "./routes/waiter/waiter.jsx";
 import Admin from "./routes/admin/admin.jsx";
-import NewOrder from "./routes/waiter/neworder.jsx";
-import Sidebar from "./sidebar-reu.jsx";
-import WaiterTracker from "./routes/waiter/wtracker.jsx";
-import ProductCard from "./routes/waiter/menu.jsx";
 import Chef from "./routes/chef/chef.jsx";
-import KitchenOrders from "./routes/chef/kitchenorders.jsx";
-import Employees from "./routes/admin/employees.jsx";
-import Products from "./routes/admin/products.jsx";
-import AdminTable from "./routes/globalcomponents/admintable.jsx";
-import AdditionModal from "./routes/globalcomponents/AdditionModal.jsx";
+
 
 
 const router = createBrowserRouter([
@@ -34,44 +26,8 @@ const router = createBrowserRouter([
     element: <Admin />,
   },
   {
-    path: "/order",
-    element: <NewOrder />,
-  },
-  {
-    path: "/sidebar",
-    element: <Sidebar />,
-  },
-  {
-    path: "/Korder",
-    element: <KitchenOrders />,
-  },
-  {
-    path: "/createorder",
-    element: <ProductCard />,
-  },
-  {
     path: "/chef",
     element: <Chef />,
-  },
-  {
-    path: "/waitertracker",
-    element: <WaiterTracker />,
-  },
-  {
-    path: "/employees",
-    element: <Employees />,
-  },
-  {
-    path: "/products",
-    element: <Products />,
-  },
-  {
-    path: "/table",
-    element: <AdminTable/>,
-  },
-  {
-    path: "/modal",
-    element: <AdditionModal/>,
   },
 ]);
 

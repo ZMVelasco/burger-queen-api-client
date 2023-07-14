@@ -46,7 +46,6 @@ const Employees = () => {
 
     const handleEmployeeSubmit = (event) => {
         event.preventDefault();
-        // You can access the form values in the formValues object.
         console.log(formValues);
     };
 
