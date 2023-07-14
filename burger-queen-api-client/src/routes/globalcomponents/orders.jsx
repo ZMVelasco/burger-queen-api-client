@@ -5,37 +5,20 @@ import { getOrders } from "../../fetch";
 import { useEffect, useState } from "react";
 import "../chef/chef.css"
 
-const Orders = ({ buttonName, onClickBehavior, statusFilter, showButton, showDuration, backgroundColour, borderColor }) => {
-    const [orders, setOrders] = useState([]);
+const Orders = ({ orders, buttonName, onClickBehavior, showButton, showDuration, backgroundColour, borderColor }) => {
+    
+    // const token = localStorage.getItem("token");
+    // let intervalId;
 
-    const token = localStorage.getItem("token");
-    let intervalId;
+    // useEffect(() => {
+    //     intervalId = setInterval(() => {
+            
+    //     }, 5000);
 
-    useEffect(() => {
-        intervalId = setInterval(() => {
-            getOrders(token)
-                .then((response) => {
-                    if (!response.ok) {
-                        throw new Error(`Error: ${response.status} ${response.statusText}`);
-                    }
-                    console.log('response', response);
-                    return response.json();
-                })
-                .then((data) => {
-                    const filteredOrders = data.filter((order) => {
-                        return statusFilter.includes(order.status);
-                    });
-                    setOrders(filteredOrders);
-                })
-                .catch((error) => {
-                    console.error('Error fetching orders:', error);
-                });
-        }, 5000);
-
-        return () => {
-            clearInterval(intervalId);
-        };
-    }, [statusFilter]);
+    //     return () => {
+    //         clearInterval(intervalId);
+    //     };
+    // }, [statusFilter]);
 
     const calculateDuration = (entryDate, modificationDate) => {
         // Parse the date strings in the format "M/D/YYYY, h:mm:ss A"
