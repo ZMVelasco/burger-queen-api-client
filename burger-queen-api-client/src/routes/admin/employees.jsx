@@ -67,6 +67,7 @@ const Employees = () => {
                     throw new Error(`Error: ${response.status} ${response.statusText}`);
                 }
                 console.log('Employee delete', response);
+                refreshEmployeesEdit()
                 return response.json();
             })
             .catch((error) => {

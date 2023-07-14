@@ -63,6 +63,7 @@ const Products = () => {
                 }
                 console.log('el id es', itemId);
                 console.log('Order delete', response);
+                refreshProductsEdit()
                 return response.json();
             })
             .catch((error) => {
