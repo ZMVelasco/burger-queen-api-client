@@ -76,10 +76,10 @@ const AdminTable = ({
                 <thead >
                     <tr style={{ fontSize:"20px"}}>
                         <th>ID</th>
-                        <th>Name</th>
+                        <th >Name</th>
                         <th>{firstProperty}</th>
                         <th>{secondProperty}</th>
-                        <th style={{paddingLeft: "13%"}}>Actions</th>
+                        <th style={{paddingLeft: "13%", width: "35%"}}>Actions</th>
                     </tr>
                 </thead>
                 <tbody>

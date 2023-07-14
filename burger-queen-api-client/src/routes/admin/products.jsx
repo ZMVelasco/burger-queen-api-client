@@ -108,7 +108,6 @@ const Products = () => {
 
     return (
         <div>
-            <h1>Products</h1>
             <AdditionModal endpoint="/products" endpointName="Products" itemTotal={productsTotal} inputFields={productFields} handleInputChange={handleInputChangeProducts} handleSubmit={handleProductSubmit} handleCreate={addProduct}/>
             <AdminTable endpoint="/products" firstProperty="price" secondProperty="type" handleEdit={handleProductsEdit} handleDelete={handleProductsDelete} saveCallback={requestEditProducts} dataList={tableData} />
         </div>
