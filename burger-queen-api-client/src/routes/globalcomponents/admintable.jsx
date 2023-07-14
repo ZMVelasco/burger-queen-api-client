@@ -17,6 +17,7 @@ const AdminTable = ({
     // TODO: borrar estado si ya no hace falta
     const [isEditing, setIsEditing] = useState(null);
     const [showDeleteModal, setShowDeleteModal] = useState(false);
+    const [itemToDelete, setItemToDelete] = useState({});
 
     const [show, setShow] = useState(false);
     const [editingItem, setEditingItem] = useState(() => {
@@ -70,37 +71,40 @@ const AdminTable = ({
     };
 
     return (
-        <div style={{display:"flex", justifyContent:"center", alignItems:"center"}}>
-            <Table striped bordered hover variant="dark" style={{ width: "80%" }}>
-                <thead>
-                    <tr>
+        < div style={{display:"flex", justifyContent:"center", alignItems:"center" }}>
+        <section style={{display:"flex", justifyContent:"center", height:"60vh", width:"100%", overflow:"scroll"}}>
+            <Table striped bordered hover variant="dark" style={{ width: "80%"}}>
+                <thead >
+                    <tr style={{ fontSize:"20px"}}>
                         <th>ID</th>
-                        <th>Name</th>
+                        <th >Name</th>
                         <th>{firstProperty}</th>
                         <th>{secondProperty}</th>
-                        <th>Actions</th>
+                        <th style={{paddingLeft: "13%", width: "35%"}}>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
                     {dataList.map((item, index) => (
-                        <tr key={item.id}>
+                        <tr style={{ fontSize:"18px"}} key={item.id}>
                             <td>{index + 1}</td>
                             <td>{item.name}</td>
                             <td>{item[firstProperty]}</td>
                             <td>{item[secondProperty]}</td>
                             <td>
-                                <Button variant="warning" onClick={() => handleEditClick(item)}>
-                                    <i className="bi bi-pencil-square" style={{backgroundColor: "#FFC107", color:"black", marginRight:"1%"}}></i>
+                                <Button style={{ width: "33%", marginLeft: "16%" }}variant="warning" onClick={() => handleEditClick(item)}>
+                                    <i className="bi bi-pencil-square" style={{backgroundColor: "#FFC107", color:"black", marginRight:"6%"}}></i>
                                     EDIT
                                 </Button>{" "}
-                                <Button variant="warning" onClick={() => setShowDeleteModal(true)}>
-                                    <i className="bi bi-trash3-fill" style={{backgroundColor: "#FFC107", color:"black", marginRight:"1%"}}></i>DELETE
+                                <Button style={{backgroundColor: "#eb4d4b", borderColor: "#eb4d4b", color:"white", width: "33%"}}variant="warning" onClick={() => {setShowDeleteModal(true) 
+                                setItemToDelete(item)}}>
+                                    <i className="bi bi-trash3-fill" style={{backgroundColor: "#eb4d4b", color:"white", marginRight:"6%"}}></i>DELETE
                                 </Button>{" "}
                             </td>
                         </tr>
                     ))}
                 </tbody>
             </Table>
+            </section>
             <section>
                 <Modal show={show} onHide={handleClose}>
                     <Modal.Header closeButton>
@@ -196,7 +200,7 @@ const AdminTable = ({
                     </Modal.Footer>
                 </Modal>
             </section>
-            <DeleteModal showDeleteModal={showDeleteModal} setShowDeleteModal={setShowDeleteModal}></DeleteModal>
+            <DeleteModal showDeleteModal={showDeleteModal} setShowDeleteModal={setShowDeleteModal} handleDelete={handleDelete} item={itemToDelete}></DeleteModal>
         </div>
     );
 };

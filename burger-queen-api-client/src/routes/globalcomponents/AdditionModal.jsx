@@ -26,18 +26,18 @@ const AdditionModal = ({ endpoint, endpointName, itemTotal, inputFields, handleI
     }, [token, endpoint]);
 
     return (
-        <section className='addition-modal' style={{ display: "flex", alignItems: "center", justifyContent:"center", marginBottom:"5%" }}>
+        <section className='addition-modal' style={{ display: "flex", alignItems: "center", justifyContent:"center", marginTop:"5%", marginBottom:"5%" }}>
             <Card style={{ width: '12rem', height:"8rem" }}>
-                <Card.Body>
-                    <Card.Title style={{color: "white", fontWeight:"600"}}>Total {endpointName}</Card.Title>
-                    <Card.Text >
+                <Card.Body style={{backgroundColor:"#4b4b4b"}}>
+                    <Card.Title style={{color: "white", fontWeight:"600", backgroundColor:"#4b4b4b"}}>Total {endpointName}</Card.Title>
+                    <Card.Text style={{backgroundColor:"#4b4b4b"}}>
                         {itemTotal} {endpointName}
                     </Card.Text>
                 </Card.Body>
             </Card>
             <Card style={{ width: '12rem', height:"8rem", marginLeft: "4%"}}>
-                <Card.Body>
-                    <Card.Title style={{color: "white", fontWeight:"600"}}>Add {endpointName}</Card.Title>
+                <Card.Body style={{backgroundColor:"#4b4b4b"}}>
+                    <Card.Title style={{color: "white", fontWeight:"600", backgroundColor:"#4b4b4b"}}>Add {endpointName}</Card.Title>
                     <Button variant="primary" onClick={handleShow} style={{backgroundColor:"#00A86B", border: "1px solid #00A86B", width: "40%", marginLeft: "60%"}}>
                         <i className="bi bi-plus-square-fill" style={{backgroundColor:"transparent", fontSize:"1.5rem"}}></i>
                     </Button>
@@ -66,7 +66,8 @@ const AdditionModal = ({ endpoint, endpointName, itemTotal, inputFields, handleI
                     <Button variant="secondary" onClick={handleClose}>
                         Close
                     </Button>
-                    <Button variant="primary" onClick={handleCreate}>
+                    <Button variant="primary" onClick={ () => {handleCreate()
+                    handleClose()}}>
                         Save Changes
                     </Button>
                 </Modal.Footer>

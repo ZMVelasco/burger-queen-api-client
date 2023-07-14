@@ -110,7 +110,6 @@ const Employees = () => {
     }, []);
     return (
         <div>
-            <h1>Employees</h1>
             <AdditionModal endpoint="/users" endpointName="Employees" itemTotal={employeeTotal} inputFields={employeeFields} handleInputChange={handleInputChangeEmployees} handleSubmit={handleEmployeeSubmit} handleCreate={addEmployee} />
             <AdminTable endpoint="/users" firstProperty="role" secondProperty="email" handleEdit={handleEmployeesEdit} handleDelete={handleEmployeesDelete} saveCallback={requestEditEmployees} dataList={tableData} />
         </div>
