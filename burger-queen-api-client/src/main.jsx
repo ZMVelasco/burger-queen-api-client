@@ -9,6 +9,7 @@ import Login from "./routes/login/login.jsx";
 import Waiter from "./routes/waiter/waiter.jsx";
 import Admin from "./routes/admin/admin.jsx";
 import Chef from "./routes/chef/chef.jsx";
+import DeleteModal from "./routes/globalcomponents/DeleteModal.jsx";
 
 
 
@@ -28,6 +29,10 @@ const router = createBrowserRouter([
   {
     path: "/chef",
     element: <Chef />,
+  },
+  {
+    path: "/delete",
+    element: <DeleteModal />,
   },
 ]);
 
