@@ -8,12 +8,11 @@ import "../chef/chef.css"
 const Orders = ({ orders, buttonName, onClickBehavior, showButton, showDuration, backgroundColour, borderColor }) => {
 
     const calculateDuration = (entryDate, modificationDate) => {
-        // Parse the date strings in the format "M/D/YYYY, h:mm:ss A"
+ 
         const entryTime = new Date(entryDate).getTime();
         const modificationTime = new Date(modificationDate).getTime();
         const duration = modificationTime - entryTime;
 
-        // Convert duration from milliseconds to hours, minutes, and seconds
         const hours = Math.floor(duration / (1000 * 60 * 60));
         const minutes = Math.floor((duration % (1000 * 60 * 60)) / (1000 * 60));
         const seconds = Math.floor((duration % (1000 * 60)) / 1000);

@@ -1,10 +1,11 @@
 import { useState } from "react";
 import { Table, Button, Modal, Form } from "react-bootstrap";
+import DeleteModal from "./DeleteModal";
 import("../admin/admin.css");
+
 
 const AdminTable = ({
     endpoint,
-    data,
     firstProperty,
     secondProperty,
     handleDelete,
@@ -15,6 +16,7 @@ const AdminTable = ({
 
     // TODO: borrar estado si ya no hace falta
     const [isEditing, setIsEditing] = useState(null);
+    const [showDeleteModal, setShowDeleteModal] = useState(false);
 
     const [show, setShow] = useState(false);
     const [editingItem, setEditingItem] = useState(() => {
@@ -91,7 +93,7 @@ const AdminTable = ({
                                     <i className="bi bi-pencil-square" style={{backgroundColor: "#FFC107", color:"black", marginRight:"1%"}}></i>
                                     EDIT
                                 </Button>{" "}
-                                <Button variant="warning" onClick={() => handleDelete(item.id)}>
+                                <Button variant="warning" onClick={() => setShowDeleteModal(true)}>
                                     <i className="bi bi-trash3-fill" style={{backgroundColor: "#FFC107", color:"black", marginRight:"1%"}}></i>DELETE
                                 </Button>{" "}
                             </td>
@@ -194,6 +196,7 @@ const AdminTable = ({
                     </Modal.Footer>
                 </Modal>
             </section>
+            <DeleteModal showDeleteModal={showDeleteModal} setShowDeleteModal={setShowDeleteModal}></DeleteModal>
         </div>
     );
 };

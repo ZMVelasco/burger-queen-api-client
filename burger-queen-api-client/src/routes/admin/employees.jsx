@@ -99,7 +99,6 @@ const Employees = () => {
             })
             .then((data) => {
                 setTableData(data);
-                console.log(employeeTotal);
             })
             .catch((error) => {
                 console.error("Error fetching orders:", error);
