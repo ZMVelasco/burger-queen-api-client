@@ -66,7 +66,8 @@ const AdditionModal = ({ endpoint, endpointName, itemTotal, inputFields, handleI
                     <Button variant="secondary" onClick={handleClose}>
                         Close
                     </Button>
-                    <Button variant="primary" onClick={handleCreate}>
+                    <Button variant="primary" onClick={ () => {handleCreate()
+                    handleClose()}}>
                         Save Changes
                     </Button>
                 </Modal.Footer>
