@@ -11,6 +11,8 @@ const AdminTable = ({
     handleDelete,
     saveCallback,
     dataList,
+    showEditModal,
+    setShowEditModal
 }) => {
     const token = localStorage.getItem("token");
 
@@ -18,8 +20,6 @@ const AdminTable = ({
     const [isEditing, setIsEditing] = useState(null);
     const [showDeleteModal, setShowDeleteModal] = useState(false);
     const [itemToDelete, setItemToDelete] = useState({});
-
-    const [show, setShow] = useState(false);
     const [editingItem, setEditingItem] = useState(() => {
         if (endpoint === "/products") {
             return {
@@ -38,8 +38,6 @@ const AdminTable = ({
         }
     });
 
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
     const handleSave = () => {
         const token = localStorage.getItem("token");
         const id = editingItem.id;
@@ -59,7 +57,7 @@ const AdminTable = ({
     const handleEditClick = (item) => {
         setIsEditing(item.id);
         setEditingItem(item);
-        handleShow();
+        setShowEditModal(true)
     };
 
     const handleFieldChange = (e) => {
@@ -106,7 +104,7 @@ const AdminTable = ({
             </Table>
             </section>
             <section>
-                <Modal show={show} onHide={handleClose}>
+                <Modal show={showEditModal} onHide={()=>setShowEditModal(false)}>
                     <Modal.Header closeButton>
                         <Modal.Title>Edit item</Modal.Title>
                     </Modal.Header>
@@ -191,7 +189,7 @@ const AdminTable = ({
                         </Form>
                     </Modal.Body>
                     <Modal.Footer>
-                        <Button variant="secondary" onClick={handleClose}>
+                        <Button variant="secondary" onClick={()=>setShowEditModal(false)}>
                             Close
                         </Button>
                         <Button variant="primary" onClick={handleSave}>

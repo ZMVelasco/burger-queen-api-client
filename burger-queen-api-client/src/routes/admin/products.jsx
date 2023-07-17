@@ -7,6 +7,7 @@ const Products = () => {
 
     const token = localStorage.getItem("token");
     const [tableData, setTableData] = useState([]);
+    const [showEditModal, setShowEditModal] = useState(false);
     const productsTotal = tableData.length;
     const [formValues, setFormValues] = useState({
         name: '',
@@ -79,6 +80,7 @@ const Products = () => {
                 }
                 console.log("Product modified", response);
                 refreshProductsEdit()
+                setShowEditModal(false)
                 return response.json();
             })
             .catch((error) => {
@@ -110,7 +112,8 @@ const Products = () => {
     return (
         <div>
             <AdditionModal endpoint="/products" endpointName="Products" itemTotal={productsTotal} inputFields={productFields} handleInputChange={handleInputChangeProducts} handleSubmit={handleProductSubmit} handleCreate={addProduct}/>
-            <AdminTable endpoint="/products" firstProperty="price" secondProperty="type" handleEdit={handleProductsEdit} handleDelete={handleProductsDelete} saveCallback={requestEditProducts} dataList={tableData} />
+            <AdminTable endpoint="/products" firstProperty="price" secondProperty="type" handleEdit={handleProductsEdit} handleDelete={handleProductsDelete} saveCallback={requestEditProducts} dataList={tableData} showEditModal={showEditModal}
+                setShowEditModal={setShowEditModal} />
         </div>
     );
 }
