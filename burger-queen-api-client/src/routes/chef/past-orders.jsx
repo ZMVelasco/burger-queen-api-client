@@ -36,7 +36,7 @@ const PastOrders = () => {
     return (
         <>
             <h1 className="container">Past orders</h1>
-            <Orders orders={filteredOrders} buttonName="Ready to serve" statusFilter={["ready to serve", "Delivered"]} showButton={false} showDuration={true} backgroundColour= "#78e08f" borderColor="#006266"/>
+            <Orders orders={filteredOrders} buttonName="Ready to serve" statusFilter={["ready to serve", "Delivered"]} showButton={false} showDuration={true} backgroundColour= "#78e08f" borderColor="#006266" tableHeight="80%"/>
         </>
     )
 }

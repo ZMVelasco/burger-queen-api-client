@@ -5,7 +5,7 @@ import { getOrders } from "../../fetch";
 import { useEffect, useState } from "react";
 import "../chef/chef.css"
 
-const Orders = ({ orders, buttonName, onClickBehavior, showButton, showDuration, backgroundColour, borderColor }) => {
+const Orders = ({ orders, buttonName, onClickBehavior, showButton, showDuration, backgroundColour, borderColor, tableHeight }) => {
 
     const calculateDuration = (entryDate, modificationDate) => {
 
@@ -37,8 +37,10 @@ const Orders = ({ orders, buttonName, onClickBehavior, showButton, showDuration,
                             boxShadow: `0 0 0 4px ${borderColor}`,
                             height: "40%"
                         }}
-                    >    <div className="card-header" id="card-header-chef">Client: {order.client}</div>
-                        <Table striped bordered hover size="sm" style={{ backgroundColor: backgroundColour }}>
+                    >    
+                    <div className="card-header" id="card-header-chef">Client: {order.client}</div>
+                    <div className="orders-table-container" style={{height:tableHeight, overflowY:"scroll", border:"0px", backgroundColor: backgroundColour}}>
+                        <Table striped bordered hover size="sm" style={{ backgroundColor: backgroundColour, margin: "0"}}>
                             <thead>
                                 <tr>
                                     <th style={{ backgroundColor: backgroundColour, fontWeight:"normal" }} colSpan={2}>Created: {order.dateEntry}</th>
@@ -63,6 +65,7 @@ const Orders = ({ orders, buttonName, onClickBehavior, showButton, showDuration,
                                 ))}
                             </tbody>
                         </Table>
+                        </div>
                         {showButton && (
                             <button
                                 className="btn btn-primary"
