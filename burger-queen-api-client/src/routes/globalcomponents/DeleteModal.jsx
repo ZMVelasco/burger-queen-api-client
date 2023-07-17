@@ -10,11 +10,11 @@ const DeleteModal = ({ showDeleteModal, setShowDeleteModal, handleDelete, item }
     <>
       <Modal show={showDeleteModal} onHide={() => setShowDeleteModal(false)}>
         <Modal.Header closeButton>
-          <Modal.Title style={{backgroundColor:"none"}}>
-          <i className="bi bi-exclamation-circle" style={{color:"#ff4d4d", marginLeft:"21vh", fontSize:"40px"}}></i>
+          <Modal.Title style={{backgroundColor:"none", display:"flex", flexDirection:"column", justifyContent: "center", alignItems:"center"}}>
+          <i className="bi bi-exclamation-circle" style={{color:"#ff4d4d", fontSize:"40px"}}></i>
+          <h4 style={{color:"white", textAlign:"center"}}>Are you sure you want to delete this item?</h4>
           </Modal.Title>
         </Modal.Header>
-        <Modal.Body style={{textAlign:"center", fontSize:"20px"}}>are you sure you want to delete this item?</Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={() => setShowDeleteModal(false)}>
             Close

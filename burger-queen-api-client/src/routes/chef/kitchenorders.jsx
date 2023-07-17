@@ -50,7 +50,7 @@ const KitchenOrders = () => {
     }
     return (
         <>
-            <Orders orders={filteredOrders} buttonName="Ready to serve" onClickBehavior={handleKitchenOrderClick} showButton={true} showDuration={false} backgroundColour="#FCD53F" borderColor="#FF8855" />
+            <Orders orders={filteredOrders} buttonName="Ready to serve" onClickBehavior={handleKitchenOrderClick} showButton={true} showDuration={false} backgroundColour="#FCD53F" borderColor="#FF8855" tableHeight="63%" />
         </>
     )
 }

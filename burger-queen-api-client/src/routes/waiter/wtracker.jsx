@@ -50,7 +50,7 @@ const WaiterTracker = () => {
     return (
         <>
             <div>Pending waiter orders</div>
-            <Orders orders={filteredOrders} buttonName="Delivered" onClickBehavior={handleWaiterOrderClick} statusFilter="ready to serve" showButton={true}  showDuration={false} backgroundColour= "#FCD53F" borderColor="#FF8855"/>
+            <Orders orders={filteredOrders} buttonName="Delivered" onClickBehavior={handleWaiterOrderClick} statusFilter="ready to serve" showButton={true}  showDuration={false} backgroundColour= "#FCD53F" borderColor="#FF8855" tableHeight="63%"/>
         </>
     )
 }
