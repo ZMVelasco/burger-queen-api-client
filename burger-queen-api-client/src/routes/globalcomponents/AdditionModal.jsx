@@ -63,10 +63,10 @@ const AdditionModal = ({ endpoint, endpointName, itemTotal, inputFields, handleI
                     </Form>
                 </Modal.Body>
                 <Modal.Footer>
-                    <Button variant="secondary" onClick={handleClose}>
+                    <Button style={{width:"30%", fontWeight:"bold"}}variant="secondary" onClick={handleClose}>
                         Close
                     </Button>
-                    <Button variant="primary" onClick={ () => {handleCreate()
+                    <Button style= {{backgroundColor:"#00A86B", borderColor:"#00A86B", width:"30%", fontWeight:"bold"}} variant="primary" onClick={ () => {handleCreate()
                     handleClose()}}>
                         Save Changes
                     </Button>
