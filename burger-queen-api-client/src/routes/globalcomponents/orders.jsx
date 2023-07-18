@@ -69,15 +69,16 @@ const Orders = ({ orders, buttonName, onClickBehavior, showButton, showDuration,
                         {showButton && (
                             <button
                                 className="btn btn-primary"
+                                id="button-status"
                                 style={{
                                     marginTop: "15rem",
                                     marginLeft: "40px",
                                     width: "10rem",
                                     position: "absolute",
-                                    borderColor: "#FF8855",
                                     backgroundColor: "#FF8855",
                                     color: "black",
-                                    fontWeight: "bolder"
+                                    fontWeight: "bolder",
+                                    border: "2px solid #ffeaa7",
                                 }}
                                 onClick={() => onClickBehavior(order.id)}
                             >
