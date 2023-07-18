@@ -1,6 +1,6 @@
 import React from 'react'
 
-const ProtectedRoutes = ({ userInfo }) => {
+const ProtectedRoutes = ({ token }) => {
     return (
         <div>ProtectedRoutes</div>
     )

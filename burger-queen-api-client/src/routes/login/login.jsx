@@ -1,5 +1,5 @@
 import ('../login/login.css')
-import { useState, useContext } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom"
 import { API_HOST } from "../../settings";
 import burgerQueen from "../../assets/bqlogo.png";
@@ -12,8 +12,6 @@ const [loginInfo, setLoginInfo] = useState({
   email: "",
   password: ""
 })
-
-const [userInfo, setUserInfo] = useState({});
 
 const [errorMessage, setErrorMessage] = useState("");
 
@@ -48,13 +46,8 @@ const handleSubmit = (event) => {
   .then((data) => {
     localStorage.setItem("token", data.accessToken)
     localStorage.setItem("userId", data.user.id)
+    localStorage.setItem("role", data.user.role)
     localStorage.setItem("name", data.user.name)
-    const userInfo = {
-      name: data.user.name,
-      role: data.user.role,
-    };
-    setUserInfo(userInfo);
-    console.log(userInfo)
     if (data.user.role === "admin") {
       navigate("/admin");
     } else if (data.user.role === "waiter") {
