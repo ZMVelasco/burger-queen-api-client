@@ -105,7 +105,7 @@ const Sidebar = ({
               </ul>
             </div>
           </div>
-          <h5 className="navbar-brand">{`Welcome ${userName}`}</h5>
+          <h5 className="navbar-brand" style={{paddingTop:"1%"}}>{`Welcome ${userName}`}</h5>
         </div>
       </nav>
       {componentToRender && componentToRender === "product-card" && (
