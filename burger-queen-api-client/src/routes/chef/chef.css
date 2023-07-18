@@ -41,4 +41,15 @@
     justify-content: start;
     height: 2px
 }
+#button-status{
+        transition: all 450ms ease-in-out;
+    } 
+      .btn:hover {
+        background: rgb(255, 136, 85);
+        box-shadow: inset 0px 1px 0px 0px rgba(255, 255, 255, 0.4),
+        inset 0px -4px 0px 0px rgba(0, 0, 0, 0.2),
+        0px 0px 0px 4px rgba(255, 255, 255, 0.2),
+        0px 0px 180px 0px #f65b34;
+        transform: translateY(-2px);
+      }
 
