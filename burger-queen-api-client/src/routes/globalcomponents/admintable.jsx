@@ -70,7 +70,7 @@ const AdminTable = ({
 
     return (
         < div style={{display:"flex", justifyContent:"center", alignItems:"center" }}>
-        <section style={{display:"flex", justifyContent:"center", height:"60vh", width:"100%", overflow:"scroll"}}>
+        <section style={{display:"flex", justifyContent:"center", maxHeight:"60vh", width:"100%", overflow:"scroll"}}>
             <Table striped bordered hover variant="dark" style={{ width: "80%"}}>
                 <thead >
                     <tr style={{ fontSize:"20px"}}>
