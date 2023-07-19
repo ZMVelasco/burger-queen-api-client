@@ -42,6 +42,8 @@ a la cocina para que se preparen ordenada y eficientemente.
 
 ![burger-queen](https://user-images.githubusercontent.com/110297/42118136-996b4a52-7bc6-11e8-8a03-ada078754715.jpg)
 
+![Error handling demo gif](https://res.cloudinary.com/dslzbcaxd/image/upload/v1689787812/GIF_Recording_2023-07-18_at_19.09.59_yjlnsx.gif)
+
 Este proyecto tiene dos áreas: interfaz (cliente) y API (servidor). Nuestra
 clienta nos ha solicitado desarrollar la interfaz que se integre con una API.
 
