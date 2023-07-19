@@ -65,3 +65,20 @@
     position: absolute;
     bottom:23%;
 }
+.log-in-btn:hover {
+    background: #FFA210;
+    box-shadow: inset 0px 1px 0px 0px rgba(255, 112, 112, 0.4),
+        inset 0px -4px 0px 0px rgba(0, 0, 0, 0.2),
+        0px 0px 0px 4px rgba(255, 255, 255, 0.2),
+        0px 0px 180px 0px #ffcc00;
+    transform: translateY(-2px);
+}
+
+#sidebar-logout:hover{
+    background: #FFA210;
+    box-shadow: inset 0px 1px 0px 0px rgba(255, 112, 112, 0.4),
+        inset 0px -4px 0px 0px rgba(0, 0, 0, 0.2),
+        0px 0px 0px 4px rgba(255, 255, 255, 0.2),
+        0px 0px 30px 0px #FFA210;
+    transform: translateY(-2px);
+}

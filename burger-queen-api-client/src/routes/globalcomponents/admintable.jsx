@@ -89,11 +89,11 @@ const AdminTable = ({
                             <td>{item[firstProperty]}</td>
                             <td>{item[secondProperty]}</td>
                             <td>
-                                <Button style={{ width: "33%", marginLeft: "16%" }}variant="warning" onClick={() => handleEditClick(item)}>
+                                <Button style={{ width: "33%", marginLeft: "16%" }}variant="warning" onClick={() => handleEditClick(item)} id="edit-admin-table">
                                     <i className="bi bi-pencil-square" style={{backgroundColor: "#FFC107", color:"black", marginRight:"6%"}}></i>
                                     EDIT
                                 </Button>{" "}
-                                <Button style={{backgroundColor: "#eb4d4b", borderColor: "#eb4d4b", color:"white", width: "33%"}}variant="warning" onClick={() => {setShowDeleteModal(true) 
+                                <Button id="delete-admin-table" style={{backgroundColor: "#eb4d4b", borderColor: "#eb4d4b", color:"white", width: "40%"}}variant="warning" onClick={() => {setShowDeleteModal(true) 
                                 setItemToDelete(item)}}>
                                     <i className="bi bi-trash3-fill" style={{backgroundColor: "#eb4d4b", color:"white", marginRight:"6%"}}></i>DELETE
                                 </Button>{" "}
