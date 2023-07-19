@@ -93,7 +93,7 @@ const AdminTable = ({
                                     <i className="bi bi-pencil-square" style={{backgroundColor: "#FFC107", color:"black", marginRight:"6%"}}></i>
                                     EDIT
                                 </Button>{" "}
-                                <Button style={{backgroundColor: "#eb4d4b", borderColor: "#eb4d4b", color:"white", width: "33%"}}variant="warning" onClick={() => {setShowDeleteModal(true) 
+                                <Button style={{backgroundColor: "#eb4d4b", borderColor: "#eb4d4b", color:"white", width: "40%"}}variant="warning" onClick={() => {setShowDeleteModal(true) 
                                 setItemToDelete(item)}}>
                                     <i className="bi bi-trash3-fill" style={{backgroundColor: "#eb4d4b", color:"white", marginRight:"6%"}}></i>DELETE
                                 </Button>{" "}

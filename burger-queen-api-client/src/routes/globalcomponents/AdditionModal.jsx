@@ -2,6 +2,8 @@ import React from 'react'
 import { Card, Button, Modal, Form } from 'react-bootstrap'
 import { useEffect, useState } from 'react';
 import { adminFetch } from '../../fetch';
+import "../admin/admin.css";
+
 
 const AdditionModal = ({ endpoint, endpointName, itemTotal, inputFields, handleInputChange, handleSubmit, handleCreate }) => {
     const [show, setShow] = useState(false);
@@ -43,7 +45,7 @@ const AdditionModal = ({ endpoint, endpointName, itemTotal, inputFields, handleI
                     </Button>
                 </Card.Body>
             </Card>
-            <Modal show={show} onHide={handleClose}>
+            <Modal show={show} onHide={handleClose} id="addition-modal">
                 <Modal.Header closeButton>
                     <Modal.Title>{`Add new ${endpointName}`}</Modal.Title>
                 </Modal.Header>
