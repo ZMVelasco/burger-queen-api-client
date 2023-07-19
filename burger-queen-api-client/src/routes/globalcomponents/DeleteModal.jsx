@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
+import("../admin/admin.css");
 
 const DeleteModal = ({ showDeleteModal, setShowDeleteModal, handleDelete, item }) => {
   // const [showDeleteModal, setShowDeleteModal] = useState(false);
@@ -22,6 +23,7 @@ const DeleteModal = ({ showDeleteModal, setShowDeleteModal, handleDelete, item }
           <Button
             variant="primary"
             style={{backgroundColor:"#ff4d4d", borderColor:"#ff4d4d"}}
+            id="confirm-delete-button"
             onClick={() => {
               setShowDeleteModal(false);
               handleDelete(item.id);

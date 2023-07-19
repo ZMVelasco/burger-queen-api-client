@@ -2,7 +2,7 @@ import React from 'react'
 import { Card, Button, Modal, Form } from 'react-bootstrap'
 import { useEffect, useState } from 'react';
 import { adminFetch } from '../../fetch';
-import "../admin/admin.css";
+import("../admin/admin.css");
 
 
 const AdditionModal = ({ endpoint, endpointName, itemTotal, inputFields, handleInputChange, handleSubmit, handleCreate }) => {
@@ -40,7 +40,7 @@ const AdditionModal = ({ endpoint, endpointName, itemTotal, inputFields, handleI
             <Card style={{ width: '12rem', height:"8rem", marginLeft: "4%"}}>
                 <Card.Body style={{backgroundColor:"#4b4b4b"}}>
                     <Card.Title style={{color: "white", fontWeight:"600", backgroundColor:"#4b4b4b"}}>Add {endpointName}</Card.Title>
-                    <Button variant="primary" onClick={handleShow} style={{backgroundColor:"#00A86B", border: "1px solid #00A86B", width: "40%", marginLeft: "60%"}}>
+                    <Button id="add-item-button" variant="primary" onClick={handleShow} style={{backgroundColor:"#00A86B", border: "1px solid #00A86B", width: "40%", marginLeft: "60%"}}>
                         <i className="bi bi-plus-square-fill" style={{backgroundColor:"transparent", fontSize:"1.5rem"}}></i>
                     </Button>
                 </Card.Body>
@@ -68,7 +68,7 @@ const AdditionModal = ({ endpoint, endpointName, itemTotal, inputFields, handleI
                     <Button style={{width:"30%", fontWeight:"bold"}}variant="secondary" onClick={handleClose}>
                         Close
                     </Button>
-                    <Button style= {{backgroundColor:"#00A86B", borderColor:"#00A86B", width:"30%", fontWeight:"bold"}} variant="primary" onClick={ () => {handleCreate()
+                    <Button id="save-addition-button" style= {{backgroundColor:"#00A86B", borderColor:"#00A86B", width:"30%", fontWeight:"bold"}} variant="primary" onClick={ () => {handleCreate()
                     handleClose()}}>
                         Save Changes
                     </Button>

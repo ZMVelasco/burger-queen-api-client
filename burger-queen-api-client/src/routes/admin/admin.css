@@ -1,3 +1,28 @@
 #addition-modal{
     margin-top: -10rem;
 }
+#add-item-button:hover, #save-addition-button:hover {
+    background: rgb(0, 168, 107);
+    box-shadow: inset 0px 1px 0px 0px rgba(255, 112, 112, 0.4),
+        inset 0px -4px 0px 0px rgba(0, 0, 0, 0.2),
+        0px 0px 0px 4px rgba(255, 255, 255, 0.2),
+        0px 0px 20px 0px rgb(0, 168, 107);
+    transform: translateY(-2px);
+}
+#edit-admin-table:hover{
+    background: rgb(255, 193, 7);
+    box-shadow: inset 0px 1px 0px 0px rgba(255, 112, 112, 0.4),
+        inset 0px -4px 0px 0px rgba(0, 0, 0, 0.2),
+        0px 0px 0px 4px rgba(255, 255, 255, 0.2),
+        0px 0px 10px 0px rgb(255, 193, 7);
+    transform: translateY(-2px);
+}
+
+#delete-admin-table:hover, #confirm-delete-button:hover{
+    background: #eb4d4b;
+    box-shadow: inset 0px 1px 0px 0px rgba(239, 50, 50, 0.4),
+        inset 0px -4px 0px 0px rgba(0, 0, 0, 0.2),
+        0px 0px 0px 4px rgba(255, 255, 255, 0.2),
+        0px 0px 10px 0px #eb4d4b;
+    transform: translateY(-2px);
+}
