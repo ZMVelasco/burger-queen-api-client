@@ -1,468 +1,78 @@
-# Burger Queen (API Client)
+# Burger Queen 🍔🍟🥤
 
 ## Índice
 
-* [1. Preámbulo](#1-preámbulo)
-* [2. Resumen del proyecto](#2-resumen-del-proyecto)
-* [3. Objetivos de aprendizaje](#3-objetivos-de-aprendizaje)
-* [4. Consideraciones](#4-consideraciones)
+* [1. About Burger Queen](#1-about-the-project)
+* [2. Login](#2-login-🔐)
+* [3. Waiter](#3-waiter-🍽)
+* [4. Chef](#4-chef-👩🏻‍🍳🧑🏽‍🍳)
 * [5. Criterios de aceptación del proyecto](#5-criterios-de-aceptación-del-proyecto)
 * [6. Despliegue](#6-despliegue)
 * [7. Pistas / tips](#7-pistas--tips)
 
 ***
 
-## 1. Preámbulo
-
-[React](https://es.react.dev/) y [Angular](https://angular.io/)
-son algunos de los _frameworks_ y _librerías_ de JavaScript más utilizados por
-lxs desarrolladorxs alrededor del mundo, y hay una razón para eso.
-En el contexto del navegador, [_mantener la interfaz sincronizada con el estado
-es difícil_](https://medium.com/dailyjs/the-deepest-reason-why-modern-javascript-frameworks-exist-933b86ebc445).
-Al elegir un _framework_ o _librería_ para nuestra interfaz, nos apoyamos en una
-serie de convenciones e implementaciones _probadas_ y _documentadas_ para
-resolver un problema común a toda interfaz web. Esto nos permite concentrarnos
-mejor (dedicar más tiempo) en las características _específicas_ de
-nuestra aplicación.
-
-Cuando elegimos una de estas tecnologías no solo importamos un pedacito de
-código para reusarlo (lo cuál es un gran valor per se), si no que adoptamos una
-**arquitectura**, una serie de **principios de diseño**, un **paradigma**, unas
-**abstracciones**, un **vocabulario**, una **comunidad**, etc.
-
-Como desarrolladora Front-end, estos kits de desarrollo pueden resultarte
-de gran ayuda para implementar rápidamente características de los proyectos en
-los que trabajes.
-
-## 2. Resumen del proyecto
-
-Un pequeño restaurante de hamburguesas, que está creciendo, necesita un
-sistema a través del cual puedan tomar pedidos usando una _tablet_, y enviarlos
-a la cocina para que se preparen ordenada y eficientemente.
-
-![burger-queen](https://user-images.githubusercontent.com/110297/42118136-996b4a52-7bc6-11e8-8a03-ada078754715.jpg)
-
-![Error handling demo gif](https://res.cloudinary.com/dslzbcaxd/image/upload/v1689787812/GIF_Recording_2023-07-18_at_19.09.59_yjlnsx.gif)
-
-Este proyecto tiene dos áreas: interfaz (cliente) y API (servidor). Nuestra
-clienta nos ha solicitado desarrollar la interfaz que se integre con una API.
-
-Esta vez tenemos un proyecto 100% por encargo. Si bien siempre puedes (y debes)
-hacer sugerencias de mejoras y/o cambios, muchas veces trabajarás en proyectos
-en los que primero hay que asegurarse de cumplir con lo requerido.
-
-Esta es la información que tenemos de la clienta:
-
-> Somos **Burguer Queen**, una cadena de comida 24hrs.
->
-> Nuestra propuesta de servicio 24hrs ha tenido muy buena acogida y, para
-> seguir creciendo, necesitamos un sistema que nos ayude a tomar los pedidos de
-> nuestrxs clientxs.
->
-> Tenemos 2 menús: uno muy sencillo para el desayuno:
->
-> | Ítem                      |Precio $|
-> |---------------------------|------|
-> | Café americano            |    5 |
-> | Café con leche            |    7 |
-> | Sandwich de jamón y queso |   10 |
-> | Jugo de frutas natural    |    7 |
->
-> Y otro menú para el resto del día:
->
-> | Ítem                      |Precio|
-> |---------------------------|------|
-> |**Hamburguesas**           |   **$**   |
-> |Hamburguesa simple         |    10|
-> |Hamburguesa doble          |    15|
-> |**Acompañamientos**        |   **$**   |
-> |Papas fritas               |     5|
-> |Aros de cebolla            |     5|
-> |**Para tomar**             |   **$**   |
-> |Agua 500ml                 |     5|
-> |Agua 750ml                 |     7|
-> |Bebida/gaseosa 500ml       |     7|
-> |Bebida/gaseosa 750ml       |     10|
->
-> Nuestrxs clientxs son bastante indecisos, por lo que es muy común que cambien
-> el pedido varias veces antes de finalizarlo.
+## 1. About the project
+Burger Queen is a management system for a restaurant, it is web native but per the client request it was carefully designed to be used on **tablet**. 
 
-La interfaz debe mostrar los dos menús (desayuno y resto del día), cada uno
-con todos sus _productos_. La usuaria debe poder ir eligiendo qué _productos_
-agregar y la interfaz debe ir mostrando el _resumen del pedido_ con el
-costo total.
+This project was developed based on the menu information and by the client's needs, the menu is very simple and it's divided in two sections, one for breakfast and another for the rest of the day. 
 
-![out](https://user-images.githubusercontent.com/110297/45984241-b8b51c00-c025-11e8-8fa4-a390016bee9d.gif)
+The interface is integrated with the API provided by the restaurant, allowing the frontend development team to work with endpoints such as products, users and orders. In the next sections you will find a deeper explanation on how its different components work.
 
-Además la clienta nos ha dado un [link a la documentación](https://app.swaggerhub.com/apis-docs/ssinuco/BurgerQueenAPI/2.0.0)
-que especifica el comportamiento esperado de la API HTTP que deberás consumir.
-Ahí puedes encontrar todos los detalles de los _endpoints_, como por ejemplo
-qué parámetros esperan, qué deben responder, etc.
 
-El objetivo principal de es aprender a construir una _interfaz web_ usando
-el _framework_ elegido (React o Angular). Todos estos frameworks de
-Front-end tratan de solucionar el mismo problema: **cómo mantener la interfaz
-y el estado sincronizados**. Así que esta experiencia espera familiarizarte con
-el concepto de _estado de pantalla_, y como cada cambio sobre el estado se va
-a ir reflejando en la interfaz (por ejemplo, cada vez que agregamos un _producto_
-a un _pedido_, la interfaz debe actualizar la lista del pedido y el total).
+## 2. Login 🔐
 
-## 3. Objetivos de aprendizaje
+The login screen will have two fields, email and password, in order to have your own user, please reach out to the restaurant management and they will gladly provide unique credentials for you. If the credentials are not valid, an error message will appear, feel free to change them and try again. 
 
-Reflexiona y luego marca los objetivos que has llegado a entender y aplicar en tu proyecto. Piensa en eso al decidir tu estrategia de trabajo.
+![Error handling demo gif](https://res.cloudinary.com/dslzbcaxd/image/upload/v1689788260/GIF_Recording_2023-07-18_at_19.08.12_ubkd2b.gif)
 
-### HTML
+![Successful login demo gif](https://res.cloudinary.com/dslzbcaxd/image/upload/v1689787812/GIF_Recording_2023-07-18_at_19.09.59_yjlnsx.gif) 
 
-- [ ] **Uso de HTML semántico**
+Above you will find a demo of the login screen, but in case you're curious like us, we will provide a **sample mail** and **password** for all the sections, **except** for the administrator screen.
 
-  <details><summary>Links</summary><p>
+#### Credentials to test this screen
 
-  * [HTML semántico](https://curriculum.laboratoria.la/es/topics/html/02-html5/02-semantic-html)
-  * [Semantics - MDN Web Docs Glossary](https://developer.mozilla.org/en-US/docs/Glossary/Semantics#Semantics_in_HTML)
-</p></details>
+📩: sample@mail.com
 
-### CSS
+🔑: 123456
 
-- [ ] **Uso de selectores de CSS**
 
-  <details><summary>Links</summary><p>
+## 3. Waiter 🍽
 
-  * [Intro a CSS](https://curriculum.laboratoria.la/es/topics/css/01-css/01-intro-css)
-  * [CSS Selectors - MDN](https://developer.mozilla.org/es/docs/Web/CSS/CSS_Selectors)
-</p></details>
+In this screen the waiter will find a sidebar, in which two items will appear, the first one is _Create order_, in which they will have access to both menus, depending on what they need and the time of the day, they can add an unlimited of products to the order, and the place order button will be enabled only if there's items in the new order **and** if the client name is typed in the corresponding input field. Once the order is successfully created, a confirmation modal will show, it has a closing button or clicking outside it will suffice to close it. 
 
-- [ ] **Modelo de caja (box model): borde, margen, padding**
+![Order creation demo gif](https://res.cloudinary.com/dslzbcaxd/image/upload/v1689788280/GIF_Recording_2023-07-18_at_19.13.06_1_qfchfb.gif) 
 
-  <details><summary>Links</summary><p>
+#### Pending order
 
-  * [Box Model & Display](https://curriculum.laboratoria.la/es/topics/css/01-css/02-boxmodel-and-display)
-  * [The box model - MDN](https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/The_box_model)
-  * [Introduction to the CSS box model - MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Box_Model/Introduction_to_the_CSS_box_model)
-  * [CSS display - MDN](https://developer.mozilla.org/pt-BR/docs/Web/CSS/display)
-  * [display - CSS Tricks](https://css-tricks.com/almanac/properties/d/display/)
-</p></details>
+On this section of the screen the waiter will be able to visualize the orders that are ready to be delivered, once the waiter delivers the order he or she should click the deleted button so that the system can have the data related to the total time an order takes from the moment of its creation to is delivery. 
 
-- [ ] **Uso de flexbox en CSS**
+![Pending waiter orders demo gif](https://res.cloudinary.com/dslzbcaxd/image/upload/v1689790990/Pending_waiter_sd7xv8.gif) 
 
-  <details><summary>Links</summary><p>
+#### Credentials to test this screen
 
-  * [A Complete Guide to Flexbox - CSS Tricks](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
-  * [Flexbox Froggy](https://flexboxfroggy.com/#es)
-  * [Flexbox - MDN](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Flexbox)
-</p></details>
+📩: waiter@mail.com
 
-- [ ] **Uso de CSS Grid Layout**
+🔑: 123456
 
-  <details><summary>Links</summary><p>
+## 4. Chef 👩🏻‍🍳🧑🏽‍🍳
 
-  * [A Complete Guide to Grid - CSS Tricks](https://css-tricks.com/snippets/css/complete-guide-grid/)
-  * [Grids - MDN](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Grids)
-</p></details>
+Just like the screen for waiters, Chef will have a sidebar that has two items in it, the first one is called _pending orders_, in which the chef will be able to see the order summary in cards, each card has has a Ready to serve button which they will click to let the waiter know that the order is fully done and then he can deliver it to the customer. 
 
-- [ ] **Uso de media queries**
+![Order creation demo gif](https://res.cloudinary.com/dslzbcaxd/image/upload/v1689788280/GIF_Recording_2023-07-18_at_19.13.06_1_qfchfb.gif) 
 
-  <details><summary>Links</summary><p>
+#### Past orders
 
-  * [CSS media queries - MDN](https://developer.mozilla.org/es/docs/CSS/Media_queries)
-</p></details>
+Here the chef will be able to see all the orders that the kitchen team marked as ready to serve and the ones that have already been delivered by the waiter, the client specifically asked to be able to see how long it took to cook an order, and since this section is read only, these cards have no buttons.
 
-### JavaScript
+![Pending waiter orders demo gif](https://res.cloudinary.com/dslzbcaxd/image/upload/v1689790990/Pending_waiter_sd7xv8.gif) 
 
-- [ ] **Pruebas unitarias (unit tests)**
+#### Credentials to test this screen
 
-  <details><summary>Links</summary><p>
+📩: chef@mail.com
 
-  * [Empezando con Jest - Documentación oficial](https://jestjs.io/docs/es-ES/getting-started)
-</p></details>
+🔑: 123456
 
-- [ ] **Pruebas asíncronas**
-
-  <details><summary>Links</summary><p>
-
-  * [Tests de código asincrónico con Jest - Documentación oficial](https://jestjs.io/docs/es-ES/asynchronous)
-</p></details>
-
-- [ ] **Uso de mocks y espías**
-
-  <details><summary>Links</summary><p>
-
-  * [Manual Mocks con Jest - Documentación oficial](https://jestjs.io/docs/es-ES/manual-mocks)
-</p></details>
-
-- [ ] **Módulos de ECMAScript (ES Modules)**
-
-  <details><summary>Links</summary><p>
-
-  * [import - MDN](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Statements/import)
-  * [export - MDN](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Statements/export)
-</p></details>
-
-- [ ] **Uso de linter (ESLINT)**
-
-- [ ] **Uso de identificadores descriptivos (Nomenclatura y Semántica)**
-
-### Control de Versiones (Git y GitHub)
-
-- [ ] **Git: Instalación y configuración**
-
-- [ ] **Git: Control de versiones con git (init, clone, add, commit, status, push, pull, remote)**
-
-- [ ] **Git: Integración de cambios entre ramas (branch, checkout, fetch, merge, reset, rebase, tag)**
-
-- [ ] **GitHub: Creación de cuenta y repos, configuración de llaves SSH**
-
-- [ ] **GitHub: Despliegue con GitHub Pages**
-
-  <details><summary>Links</summary><p>
-
-  * [Sitio oficial de GitHub Pages](https://pages.github.com/)
-</p></details>
-
-- [ ] **GitHub: Colaboración en Github (branches | forks | pull requests | code review | tags)**
-
-- [ ] **GitHub: Organización en Github (projects | issues | labels | milestones | releases)**
-
-### HTTP
-
-- [ ] **Consulta o petición (request) y respuesta (response).**
-
-  <details><summary>Links</summary><p>
-
-  * [Generalidades del protocolo HTTP - MDN](https://developer.mozilla.org/es/docs/Web/HTTP/Overview)
-  * [Mensajes HTTP - MDN](https://developer.mozilla.org/es/docs/Web/HTTP/Messages)
-</p></details>
-
-- [ ] **Cabeceras (headers)**
-
-  <details><summary>Links</summary><p>
-
-  * [HTTP headers - MDN](https://developer.mozilla.org/es/docs/Web/HTTP/Headers)
-</p></details>
-
-- [ ] **Cuerpo (body)**
-
-  <details><summary>Links</summary><p>
-
-  * [Cuerpo de Mensajes HTTP - MDN](https://developer.mozilla.org/es/docs/Web/HTTP/Messages#cuerpo)
-</p></details>
-
-- [ ] **Verbos HTTP**
-
-  <details><summary>Links</summary><p>
-
-  * [Métodos de petición HTTP - MDN](https://developer.mozilla.org/es/docs/Web/HTTP/Methods)
-</p></details>
-
-- [ ] **Códigos de status de HTTP**
-
-  <details><summary>Links</summary><p>
-
-  * [Códigos de estado de respuesta HTTP - MDN](https://developer.mozilla.org/es/docs/Web/HTTP/Status)
-  * [The Complete Guide to Status Codes for Meaningful ReST APIs - dev.to](https://dev.to/khaosdoctor/the-complete-guide-to-status-codes-for-meaningful-rest-apis-1-5c5)
-</p></details>
-
-- [ ] **Encodings y JSON**
-
-  <details><summary>Links</summary><p>
-
-  * [Introducción a JSON - Documentación oficial](https://www.json.org/json-es.html)
-</p></details>
-
-- [ ] **CORS (Cross-Origin Resource Sharing)**
-
-  <details><summary>Links</summary><p>
-
-  * [Control de acceso HTTP (CORS) - MDN](https://developer.mozilla.org/es/docs/Web/HTTP/CORS)
-</p></details>
-
-### Angular
-
-- [ ] **Components & templates**
-
-  <details><summary>Links</summary><p>
-
-  * [Angular Components Overview - Documentación oficial (en inglés)](https://angular.io/guide/component-overview)
-  * [Introduction to components and templates - Documentación oficial (en inglés)](https://angular.io/guide/architecture-components#introduction-to-components)
-</p></details>
-
-- [ ] **Directivas estructurales (ngIf / ngFor)**
-
-  <details><summary>Links</summary><p>
-
-  * [Writing structural directives - Documentación oficial (en inglés)](https://angular.io/guide/structural-directives)
-</p></details>
-
-- [ ] **@Input | @Output**
-
-  <details><summary>Links</summary><p>
-
-  * [Component interaction - Documentación oficial (en inglés)](https://angular.io/guide/component-interaction#component-interaction)
-</p></details>
-
-- [ ] **Creación y uso de servicios**
-
-  <details><summary>Links</summary><p>
-
-  * [Providing services - Documentación oficial (en inglés)](https://angular.io/guide/architecture-services#providing-services)
-</p></details>
-
-- [ ] **Manejo de rutas**
-
-  <details><summary>Links</summary><p>
-
-  * [In-app navigation: routing to views - Documentación oficial (en inglés)](https://angular.io/guide/router)
-</p></details>
-
-- [ ] **Creación y uso de Observables.**
-
-  <details><summary>Links</summary><p>
-
-  * [Observables in Angular - Documentación oficial (en inglés)](https://angular.io/guide/observables-in-angular)
-</p></details>
-
-- [ ] **Uso de HttpClient**
-
-  <details><summary>Links</summary><p>
-
-  * [Communicating with backend services using HTTP - Documentación oficial (en inglés)](https://angular.io/guide/http)
-</p></details>
-
-- [ ] **Estilos de componentes (ngStyle / ngClass)**
-
-  <details><summary>Links</summary><p>
-
-  * [Template syntax - Documentación oficial (en inglés)](https://angular.io/guide/template-syntax#built-in-directives)
-</p></details>
-
-### React
-
-- [ ] **JSX**
-
-  <details><summary>Links</summary><p>
-
-  * [Presentando JSX - Documentación oficial](https://es.react.dev/learn/writing-markup-with-jsx)
-</p></details>
-
-- [ ] **Componentes y propiedades (props)**
-
-  <details><summary>Links</summary><p>
-
-  * [Componentes y propiedades - Documentación oficial](https://es.react.dev/learn/passing-props-to-a-component)
-</p></details>
-
-- [ ] **Manejo de eventos**
-
-  <details><summary>Links</summary><p>
-
-  * [Manejando eventos - Documentación oficial](https://es.react.dev/learn/responding-to-events)
-</p></details>
-
-- [ ] **Listas y keys**
-
-  <details><summary>Links</summary><p>
-
-  * [Listas y keys - Documentación oficial](https://es.react.dev/learn/rendering-lists)
-</p></details>
-
-- [ ] **Renderizado condicional**
-
-  <details><summary>Links</summary><p>
-
-  * [Renderizado condicional - Documentación oficial](https://es.react.dev/learn/conditional-rendering)
-</p></details>
-
-- [ ] **Elevación de estado**
-
-  <details><summary>Links</summary><p>
-
-  * [Levantando el estado - Documentación oficial](https://es.react.dev/learn/sharing-state-between-components)
-</p></details>
-
-- [ ] **Hooks**
-
-  <details><summary>Links</summary><p>
-
-  * [Presentando Hooks - Documentación oficial](https://es.react.dev/reference/react)
-</p></details>
-
-- [ ] **CSS modules**
-
-  <details><summary>Links</summary><p>
-
-  * [Adding a CSS Modules Stylesheet - Documentación de Create React App (en inglés)](https://vitejs.dev/guide/features.html#css-modules)
-</p></details>
-
-- [ ] **React Router**
-
-  <details><summary>Links</summary><p>
-
-  * [Quick Start - Documentación oficial (en inglés)](https://reactrouter.com/en/main/start/tutorial)
-</p></details>
-
-### Bases de datos
-
-- [ ] **Modelado de datos**
-
-### Centrado en el usuario
-
-- [ ] **Diseñar y desarrollar un producto o servicio poniendo a las usuarias en el centro**
-
-### Diseño de producto
-
-- [ ] **Crear prototipos de alta fidelidad que incluyan interacciones**
-
-- [ ] **Seguir los principios básicos de diseño visual**
-
-### Investigación
-
-- [ ] **Planear y ejecutar testeos de usabilidad de prototipos en distintos niveles de fidelidad**
-
-  <details><summary>Links</summary><p>
-
-  * [Intro a testeos usabilidad](https://coda.io/@bootcamp-laboratoria/contenido-ux/test-de-usabilidad-15)
-  * [Pruebas con Usuarios 1 — ¿Qué, cuándo y para qué testeamos?](https://eugeniacasabona.medium.com/pruebas-con-usuarios-1-qu%C3%A9-cu%C3%A1ndo-y-para-qu%C3%A9-testeamos-7c3a89b4b5e7)
-</p></details>
-
-## 4. Consideraciones
-
-Este proyecto se debe "resolver" en duplas y esta es una propuesta para que trabajes
-con el backend consumiendo esta
-[API](https://github.com/Laboratoria/burger-queen-api-mock)
-que desarrollamos para ti.
-
-El rango de tiempo estimado para completar el proyecto es de 3 a 5 Sprints.
-
-Trabaja en una historia hasta terminarla antes de pasar a la siguiente. Trabaja
-hasta la historia que puedas en el tiempo especificado.
-
-La lógica del proyecto debe estar implementada completamente en JavaScript
-(ES6+), HTML y CSS y empaquetada de manera automatizada.
-
-En este proyecto Sí está permitido usar librerías o frameworks
-(debes elegir entre [React](https://es.react.dev/) o
-[Angular](https://angular.io/)).
-
-La aplicación debe ser un _Single Page App_. Los pedidos los tomaremos desde una
-_tablet_, pero **no queremos una app nativa**, sino una web app que sea
-**mobile-first**.
-
-Necesitamos pensar bien en el aspecto UX de de quienes van a tomar los pedidos,
- el tamaño y aspecto de los botones, la visibilidad del estado actual del
- pedido, etc.
-
-La aplicación desplegada debe tener 80% o más el las puntuaciones de
-Performance, Progressive Web App, Accessibility y Best Practices de Lighthouse.
-
-La aplicación debe hacer uso de `npm-scripts` y contar con scripts `start`,
-`test`, `build` y `deploy`, que se encarguen de arrancar, correr las pruebas,
-empaquetar y desplegar la aplicación respectivamente.
-
-Los tests unitarios deben cubrir un mínimo del 90% de _statements_, _functions_,
-_lines_ y _branches_.
-
-Por otro lado, deberás definir la estructura de carpetas y archivos que consideres
-necesaria. Puedes guiarte de las convenciones del _framework_ elegido. Por ende,
-los _tests_ y el _setup_ necesario para ejecutarlos, serán hechos por ti.
 
 ## 5. Criterios de aceptación del proyecto
 
