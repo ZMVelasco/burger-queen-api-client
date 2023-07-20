@@ -1,6 +1,6 @@
 # Burger Queen 🍔🍟🥤
 
-## Índice
+## Index
 
 * [1. About Burger Queen](#1-about-the-project)
 * [2. Login](#2-login-🔐)
@@ -46,7 +46,7 @@ In this screen the waiter will find a sidebar, in which two items will appear, t
 
 #### Pending order
 
-On this section of the screen the waiter will be able to visualize the orders that are ready to be delivered, once the waiter delivers the order he or she should click the deleted button so that the system can have the data related to the total time an order takes from the moment of its creation to is delivery. 
+On this section of the screen the waiter will be able to visualize the orders that are ready to be delivered, once the waiter delivers the order he or she should click the delivered button so that the system can have the data related to the total time an order takes from the moment of its creation to is delivery. 
 
 ![Pending waiter orders demo gif](https://res.cloudinary.com/dslzbcaxd/image/upload/v1689790990/Pending_waiter_sd7xv8.gif) 
 
